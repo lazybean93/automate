@@ -37,6 +37,6 @@ prospektLidl
 prospektRewe
 task-spooler_1.0-1_amd64.deb
 tspBackup
-websiteChanged
 
 *.tar.gz
+/dailyscripts.sh
