@@ -40,4 +40,5 @@ tspBackup
 
 *.tar.gz
 /dailyscripts.sh
+
 /websiteChanged/websites.txt
