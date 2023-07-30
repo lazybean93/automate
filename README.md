@@ -11,6 +11,10 @@ wget http://snapshot.debian.org/archive/debian/20161207T212358Z/pool/main/t/task
 
 dpkg -i task-spooler_1.0-1_amd64.deb
 
+### prospektKaufland
+You need to put there a website according to your store:
+
+echo "https://filiale.kaufland.de/service/filiale/berlin-mitte-8920.html" >> prospektKaufland/website.txt
 ### prospektLidl
 You need to put there a website according to your store:
 
