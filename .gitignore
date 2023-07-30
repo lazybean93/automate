@@ -32,7 +32,6 @@ payback
 prospektAldi
 prospektEdeka
 prospektHolAb
-prospektKaufland
 prospektRewe
 task-spooler_1.0-1_amd64.deb
 tspBackup
@@ -40,5 +39,6 @@ tspBackup
 *.tar.gz
 /dailyscripts.sh
 
+/prospektKaufland/website.txt
 /prospektLidl/website.txt
 /websiteChanged/websites.txt
