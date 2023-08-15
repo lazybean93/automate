@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f
+
+spawn su
+expect Password
+send "matadora\r"
+expect "@Automation"
+send "systemctl reboot\r"
+sleep 5
+expect "@Automation"

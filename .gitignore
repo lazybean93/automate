@@ -20,7 +20,6 @@ Screenshots_20230303
 absturz
 timeout
 backup
-bplaced
 couponsBurgerKing
 couponsMcDonalds
 flatastic
@@ -31,7 +30,6 @@ pancake
 payback
 prospektAldi
 prospektEdeka
-prospektHolAb
 prospektRewe
 task-spooler_1.0-1_amd64.deb
 tspBackup
@@ -42,3 +40,6 @@ tspBackup
 /prospektKaufland/website.txt
 /prospektLidl/website.txt
 /websiteChanged/websites.txt
+
+/bplaced
+/prospektHolAb
