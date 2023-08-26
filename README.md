@@ -11,6 +11,12 @@ wget http://snapshot.debian.org/archive/debian/20161207T212358Z/pool/main/t/task
 
 dpkg -i task-spooler_1.0-1_amd64.deb
 
+### bplaced
+You need to put there credentials according to your account:
+
+echo "john@doe.com" > bplaced/credentials.txt
+
+echo "pass" >> bplaced/credentials.txt
 ### prospektKaufland
 You need to put there a website according to your store:
 
