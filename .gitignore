@@ -9,6 +9,7 @@
 .cache
 .local
 .profile
+.python_history
 .selected_editor
 .ssh
 .wget-hsts
@@ -40,3 +41,8 @@ tspBackup
 /websiteChanged/websites.txt
 
 /bplaced/credentials.txt
+
+.~lock.*
+*.csv
+*.html
+geckodriver.log
