@@ -5,28 +5,34 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 . "$HOME""/automation/env.sh"
 
+DATE="$SCRIPTPATH""/""$(sh "$HOME""/automation/utils_getDate_ymd_hms.sh")"
+mkdir "$DATE"
 
+SUFFIX=".htmlstonks"
 PAGEPART="https://wertpapiere.ing.de/Investieren/Suche/Aktien?v=Ergebnisse&s="
 
 for j in {A..Z}; do
-	FILENAME="$SCRIPTPATH""/""$j"
-	FILE="$FILENAME"".html"
+	FILENAME="$DATE""/""$j"
+	FILE="$FILENAME""$SUFFIX"
 	PAGE="$PAGEPART""$j"
 
 	echo "$PAGE"
 	tsp python3 "$SCRIPTPATH""/""loader.py" "$PAGE" "$FILE"
+	tsp -w
 done
 
-tsp -w
-
 for j in {A..Z}; do
-	FILENAME="$SCRIPTPATH""/""$j"
-	FILE="$FILENAME"".html"
+	FILENAME="$DATE""/""$j"
+	FILE="$FILENAME""$SUFFIX"
 	MAX="$(cat $FILE | grep paging-nav-element | sed 's/paging-nav-element\"> /\r\n/g' | tail -n1 | sed 's/ /\n/g' | head -n1 | sed 's/\.//g'; rm $FILE)"
 
 	PAGE="$PAGEPART""$j"
 	for i in $(seq 1 $MAX); do
 		echo "$PAGE""&p=""$i"
-		tsp python3 "$SCRIPTPATH""/""loader.py" "$PAGE""&p=""$i" "$FILENAME""-""$i"".html"
+		FILENAME_LOCAL="$FILENAME""-""$i""$SUFFIX"
+		tsp python3 "$SCRIPTPATH""/""loader.py" "$PAGE""&p=""$i" "$FILENAME_LOCAL"
+		tsp -w
+		tsp sh -c "cat "$FILENAME_LOCAL" | grep 'CAD\|EUR\|USD' > tmp; mv tmp "$FILENAME_LOCAL""
+		tsp -w
 	done
 done

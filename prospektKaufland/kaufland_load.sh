@@ -5,7 +5,7 @@ sh "$HOME""/automation/utils_startpage.sh" "$(cat "$HOME""/prospektKaufland/webs
 sh "$HOME""/automation/firefox_private.sh" "https://filiale.kaufland.de/prospekte.html"
 sleep 5
 WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
-LINKS=$(cat "$WEBPAGE" | sed 's/"/\n/g' | grep leaflets)
+LINKS=$(cat "$WEBPAGE" | sed 's/"/\n/g' | grep leaflets | grep -v imgproxy)
 rm "$WEBPAGE"
 sh -c "$LOG \"echo \$LINKS | sed 's/ /\n/g'\""
 LOGVAR="$(echo ""; echo "$LINKS" | sed 's/ /"\n"/g')"; sh -c "$LOG \"$LOGVAR\""
