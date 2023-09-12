@@ -13,7 +13,7 @@ PAGEPART="https://wertpapiere.ing.de/Investieren/Suche/Aktien?v=Ergebnisse&s="
 
 PAGETITLE="Aktien-Suche"
 
-for j in {Z..Z}; do
+for j in {A..Z}; do
 	FILENAME="$DATE""/""$j"
 	FILE="$FILENAME""$SUFFIX"
 	PAGE="$PAGEPART""$j"
@@ -23,7 +23,7 @@ for j in {Z..Z}; do
 	tsp -w
 done
 
-for j in {Z..Z}; do
+for j in {A..Z}; do
 	FILENAME="$DATE""/""$j"
 	FILE="$FILENAME""$SUFFIX"
 	MAX="$(cat $FILE | grep paging-nav-element | sed 's/paging-nav-element\"> /\r\n/g' | tail -n1 | sed 's/ /\n/g' | head -n1 | sed 's/\.//g'; rm $FILE)"
