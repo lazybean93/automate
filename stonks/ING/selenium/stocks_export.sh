@@ -1,4 +1,4 @@
-for i in $(ls | grep html); do
+for i in $(ls | grep 'htmlstonks$'); do
 	cat "$i" | sed 's/>/\r\n/g' | grep 'a href' | grep Investieren | grep '/Aktie/' | sed 's/ie\//\r\n/g' | grep -v href | sed 's/"//g'
 done > stocks.txt
 

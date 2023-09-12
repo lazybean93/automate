@@ -11,17 +11,19 @@ mkdir "$DATE"
 SUFFIX=".htmlstonks"
 PAGEPART="https://wertpapiere.ing.de/Investieren/Suche/Aktien?v=Ergebnisse&s="
 
-for j in {A..Z}; do
+PAGETITLE="Aktien-Suche"
+
+for j in {Z..Z}; do
 	FILENAME="$DATE""/""$j"
 	FILE="$FILENAME""$SUFFIX"
 	PAGE="$PAGEPART""$j"
 
 	echo "$PAGE"
-	tsp python3 "$SCRIPTPATH""/""loader.py" "$PAGE" "$FILE"
+	tsp python3 "$SCRIPTPATH""/""selenium_loader.py" "$PAGE" "$FILE" "$PAGETITLE"
 	tsp -w
 done
 
-for j in {A..Z}; do
+for j in {Z..Z}; do
 	FILENAME="$DATE""/""$j"
 	FILE="$FILENAME""$SUFFIX"
 	MAX="$(cat $FILE | grep paging-nav-element | sed 's/paging-nav-element\"> /\r\n/g' | tail -n1 | sed 's/ /\n/g' | head -n1 | sed 's/\.//g'; rm $FILE)"
@@ -30,7 +32,7 @@ for j in {A..Z}; do
 	for i in $(seq 1 $MAX); do
 		echo "$PAGE""&p=""$i"
 		FILENAME_LOCAL="$FILENAME""-""$i""$SUFFIX"
-		tsp python3 "$SCRIPTPATH""/""loader.py" "$PAGE""&p=""$i" "$FILENAME_LOCAL"
+		tsp python3 "$SCRIPTPATH""/""selenium_loader.py" "$PAGE""&p=""$i" "$FILENAME_LOCAL" "$PAGETITLE"
 		tsp -w
 		tsp sh -c "cat "$FILENAME_LOCAL" | grep 'CAD\|EUR\|USD' > tmp; mv tmp "$FILENAME_LOCAL""
 		tsp -w
