@@ -1,4 +1,4 @@
-export DISPLAY=:0
+export DISPLAY="$(ps aux | grep -v grep | grep -i 'Xorg\|Xtightvnc' | sed 's/ :/\n:/g' | tail -n1 | sed 's/ /\n/g' | head -n1)"
 
 export CLEAN="sh ""$HOME""/automation/utils_clean.sh"
 export KEY_RETURN="sh ""$HOME""/automation/utils_sendkey_Return.sh"
