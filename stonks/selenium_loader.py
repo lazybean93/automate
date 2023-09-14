@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 browser = webdriver.Firefox()
 
 browser.get(sys.argv[1])
-assert sys.argv[3] in browser.title
+#assert sys.argv[3] in browser.title
 
 time.sleep(2)
 
