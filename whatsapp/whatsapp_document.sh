@@ -7,6 +7,7 @@ sh -c "$LOG \"Start\""
 setxkbmap -layout de
 sh "$HOME""/whatsapp/whatsapp_sendTo.sh" "$1"
 xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 sh -c "$LOG \"Reverse Tab to get to paperclip\""
 sh -c "$WAITLOADED 1"
 sh -c "$KEY_RETURN"

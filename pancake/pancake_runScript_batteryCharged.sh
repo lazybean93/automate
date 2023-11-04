@@ -16,7 +16,7 @@ sh -c "$LOG \"$ARGUMENTS\""
 LOGVAR="$(echo possible RunScript: sh -c \"$2 $3\")"; sh -c "$LOG \"$LOGVAR\""
 
 TARGETPERCENT_DIST="$(($1-$BATTERYLEVEL))"
-SECADD="$(($TARGETPERCENT_DIST*77))"
+SECADD="$(($TARGETPERCENT_DIST*76))"
 DATE="$(date --date="+$SECADD Seconds")"
 DATESECS="$(date --date="$DATE" +%s)"
 
