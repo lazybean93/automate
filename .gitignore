@@ -25,7 +25,7 @@ timeout
 backup
 couponsBurgerKing
 couponsMcDonalds
-flatastic
+#flatastic
 kleinanzeigen
 mail
 mealie
@@ -44,6 +44,8 @@ tspBackup
 /websiteChanged/websites.txt
 
 /bplaced/credentials.txt
+
+/flatastic/zutaten*
 
 .~lock.*
 *.csv
