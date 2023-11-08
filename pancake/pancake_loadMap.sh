@@ -31,7 +31,9 @@ xte 'keydown Alt_L' 'key Left' 'keyup Alt_L'
 sh -c "$WAITLOADED 1"
 xte 'keydown Alt_L' 'key Left' 'keyup Alt_L'
 sh -c "$LOG \"Set Map $1\""
+rm -r "$HOME""/.ssh"
 expect "$HOME""/pancake/pancake_loadMap_ssh.sh" $1
+rm -r "$HOME""/.ssh"
 sh -c "$WAITLOADED 1"
 sh -c "$BUTTONSTART"
 sh -c "$WAITLOADED 1"
