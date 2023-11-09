@@ -13,7 +13,7 @@ rm  "$HOME""/Downloads/"*.xhtml > /dev/zero 2>&1
 rm  "$HOME""/Downloads/"*.zip > /dev/zero 2>&1
 killall crashreporter > /dev/zero 2>&1
 sleep 1
-rm -r "$HOME""/.ssh
+rm -r "$HOME""/.ssh"
 for i in $(seq 1 10); do
 	if [ -n "$(ps -ely | grep firefox)" ]; then
 		sleep 1
