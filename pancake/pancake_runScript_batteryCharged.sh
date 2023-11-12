@@ -2,7 +2,7 @@
 
 sh -c "$LOG \"Start\""
 
-if [ $# -ne 2 ]; then
+if [ $# -lt 2 ]; then
 	sh -c "$LOG \"No Target\""
 	exit
 fi
