@@ -6,9 +6,11 @@
 sh -c "$LOG \"Start\""
 sh "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
 sh -c "$LOG \"Enter Credentials\""
-#for i in $(seq 1 2); do
-#	xte 'key Tab'
-#done;
+for i in $(seq 1 5); do
+	xte 'key Tab'
+done;
+sh -c "$WAITLOADED 1"
+sh -c "$KEY_RETURN"
 #sh -c "$WAITLOADED 1"
 #xte "$mail"
 #sh -c "$WAITLOADED 1"
