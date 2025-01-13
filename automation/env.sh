@@ -17,3 +17,5 @@ fi
 
 export WAITLOADED="nice -n 19 sh ""$HOME""/automation/utils_waitLoaded_loop.sh"
 export WAITLOADED_SILENT="nice -n 19 sh ""$HOME""/automation/utils_waitLoaded_loop_silent.sh"
+
+export DOWNLOADS="$HOME""/Downloads"
