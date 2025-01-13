@@ -69,7 +69,7 @@ sh -c "$LOG \"1. Pictures\""
 	for i in $PICTURES; do
 		echo $i
 		output=$(printf "%02d.avif" $digit)
-		wget $i -O $output
+		wget $i -O "$DOWNLOADS""/""$output"
 		digit=$(($digit+1))
 	done
 sh -c "$LOG \"2. Title\""
