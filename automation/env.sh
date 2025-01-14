@@ -1,7 +1,10 @@
+setxkbmap -layout de
+
 export DISPLAY="$(ps aux | grep -v grep | grep -i 'Xorg\|Xtightvnc' | sed 's/ :/\n:/g' | tail -n1 | sed 's/ /\n/g' | head -n1)"
 
 export CLEAN="sh ""$HOME""/automation/utils_clean.sh"
 export KEY_RETURN="sh ""$HOME""/automation/utils_sendkey_Return.sh"
+export KEY_TAB="xte \"key Tab\""
 export HIDEFILE="/dev/zero"
 export HIDEFILE_CHECK_DELETE="sh ""$HOME""/automation/utils_hidefile_check_delete.sh"
 export LOG="sh ""$HOME""/automation/utils_log.sh $0"
