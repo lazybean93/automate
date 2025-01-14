@@ -68,11 +68,25 @@ sh -c "$LOG \"1. Pictures\""
 	digit=0;
 	for i in $PICTURES; do
 		echo $i
-		output=$(printf "%02d.avif" $digit)
+		output=$(printf "%02d.jpg" $digit)
 		wget $i -O "$DOWNLOADS""/""$output"
 		digit=$(($digit+1))
 	done
 sh -c "$LOG \"2. Title\""
+	TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g')"
 sh -c "$LOG \"3. Price\""
+	PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
 sh -c "$LOG \"4. Shipping\""
+	SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping)"
 sh -c "$LOG \"5. Description\""
+	DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g')"
+sh -c "$LOG \"6. Category\""
+	CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class')"
+
+sh -c "$LOG \"Insert item\""
+RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
+echo "$TITLE" >> $RESULT
+echo "$PRICE" >> $RESULT
+echo "$SHIPPING" >> $RESULT
+echo "$DESCRIPTION" >> $RESULT
+echo "$CATEGORY" >> $RESULT
