@@ -121,7 +121,7 @@ sh -c "$LOG \"2. Enter Title\""
         xte "str ""$TITLE"
 		waitloaded_1
 sh -c "$LOG \"3. Category\""
-		if [ "$(echo "$CATEGORY" | head -n 1)" -eq "Elektronik"]; then
+		if [ "$(echo "$CATEGORY" | head -n 1)" -eq "Elektronik" ]; then
 			keyTab
 			waitloaded_1
 			keyReturn
