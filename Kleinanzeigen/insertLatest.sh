@@ -124,8 +124,8 @@ sh -c "$LOG \"3. Category\""
 		if [ "$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ]; then
 			keyTab
 			waitloaded_1
-			keyReturn
-			waitloaded_1
+#			keyReturn
+#			waitloaded_1
 		else
 			RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
         	echo "$TITLE" >> $RESULT
