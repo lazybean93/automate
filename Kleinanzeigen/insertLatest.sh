@@ -1,5 +1,10 @@
 . "$HOME""/automation/env.sh"
 
+function keyReturn {
+	sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+}
+
+
 mail=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | head -n1)"`
 password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 
@@ -10,7 +15,7 @@ sh -c "$LOG \"Enter Credentials\""
 		sh -c "$KEY_TAB"
 	done;
 	sh -c "$WAITLOADED 1"
-	sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; fi
+	keyReturn
 	xte "$mail"
 	sh -c "$WAITLOADED 1"
 	sh -c "$KEY_TAB"
@@ -21,7 +26,7 @@ sh -c "$LOG \"Enter Credentials\""
 		sh -c "$KEY_TAB"
 	done;
 	sh -c "$WAITLOADED 1"
-	sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; fi
+	keyReturn
 sh -c "$LOG \"\""
 sh -c "$LOG \"Get to last Item\""
 sh -c "$LOG \"1. Search 'kleinanzeigen'\""
@@ -38,7 +43,8 @@ sh -c "$LOG \"   Reverse Tab x2\""
 	done;
 	sh -c "$WAITLOADED 1"
 sh -c "$LOG \"   Hit Return\""
-	sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; fi
+	keyReturn
+	sh -c "$WAITLOADED 1"
 sh -c "$LOG \"2. Search 'Endet'\""
 	xte "keydown Control_L" "key F" "keyup Control_L"
 	sh -c "$WAITLOADED 1"
@@ -50,7 +56,7 @@ sh -c "$LOG \"   Tab\""
 	sh -c "$KEY_TAB"
 	sh -c "$WAITLOADED 1"
 sh -c "$LOG \"   Hit Return\""
-	sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; fi
+	keyReturn
 sh -c "$LOG \"   Escape Dialog\""
 	xte "key Escape"
 	sh -c "$WAITLOADED 1"
@@ -58,7 +64,7 @@ sh -c "$LOG \"   Reverse Tab\""
 	xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 	sh -c "$WAITLOADED 1"
 sh -c "$LOG \"   Hit Return\""
-	sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; fi
+	keyReturn
 sh -c "$LOG \"3. Save Item Page\""
 	WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
 sh -c "$LOG \"Analyze Webpage\""
@@ -91,7 +97,7 @@ sh -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
         sh -c "$WAITLOADED 1"
         xte "key Escape"
         sh -c "$WAITLOADED 1"
-        sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; fi
+		keyReturn
 sh -c "$LOG \"2. Enter Title\""
         xte "keydown Control_L" "key F" "keyup Control_L"
         sh -c "$WAITLOADED 1"
@@ -105,8 +111,12 @@ sh -c "$LOG \"2. Enter Title\""
 
         RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
         echo "$TITLE" >> $RESULT
+		echo "" >> $RESULT
         echo "$PRICE" >> $RESULT
+		echo "" >> $RESULT
         echo "$SHIPPING" >> $RESULT
+		echo "" >> $RESULT
         echo "$DESCRIPTION" >> $RESULT
+		echo "" >> $RESULT
         echo "$CATEGORY" >> $RESULT
 
