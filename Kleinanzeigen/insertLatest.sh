@@ -14,6 +14,18 @@ function waitloaded_1 {
 	sh -c "$WAITLOADED 1"
 }
 
+function fail {
+	RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
+        	echo "$TITLE" >> $RESULT
+			echo "" >> $RESULT
+        	echo "$PRICE" >> $RESULT
+			echo "" >> $RESULT
+        	echo "$SHIPPING" >> $RESULT
+			echo "" >> $RESULT
+        	echo "$DESCRIPTION" >> $RESULT
+			echo "" >> $RESULT
+        	echo "$CATEGORY" >> $RESULT
+}
 
 mail=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | head -n1)"`
 password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
@@ -79,7 +91,7 @@ sh -c "$LOG \"   Hit Return\""
 sh -c "$LOG \"3. Save Item Page\""
 	WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
 sh -c "$LOG \"Analyze Webpage\""
-sh -c "$LOG \"1. Pictures\""
+ sh -c "$LOG \"1. Pictures\""
 	PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
 	cat $PICTURES
 	digit=0;
@@ -89,19 +101,19 @@ sh -c "$LOG \"1. Pictures\""
 		wget $i -O "$DOWNLOADS""/""$output"
 		digit=$(($digit+1))
 	done
-sh -c "$LOG \"2. Title\""
+ sh -c "$LOG \"2. Title\""
         TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g')"
-sh -c "$LOG \"3. Price\""
+ sh -c "$LOG \"3. Price\""
         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
-sh -c "$LOG \"4. Shipping\""
+ sh -c "$LOG \"4. Shipping\""
         SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping)"
-sh -c "$LOG \"5. Description\""
+ sh -c "$LOG \"5. Description\""
         DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g')"
-sh -c "$LOG \"6. Category\""
+ sh -c "$LOG \"6. Category\""
         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class')"
 
 sh -c "$LOG \"Insert item\""
-sh -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
+ sh -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
         xte "keydown Control_L" "key F" "keyup Control_L"
         waitloaded_1
         xte "str Inserieren"
@@ -109,7 +121,7 @@ sh -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
         xte "key Escape"
         waitloaded_1
 		keyReturn
-sh -c "$LOG \"2. Enter Title\""
+ sh -c "$LOG \"2. Enter Title\""
         xte "keydown Control_L" "key F" "keyup Control_L"
         waitloaded_1
         xte "str Titel"
@@ -119,7 +131,7 @@ sh -c "$LOG \"2. Enter Title\""
         keyTab
         waitloaded_1
         xte "str ""$TITLE"
-sh -c "$LOG \"3. Category\""
+ sh -c "$LOG \"3. Category\""
 		if [ "$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ]; then
         	xte "keydown Control_L" "key F" "keyup Control_L"
         	waitloaded_1
@@ -140,17 +152,19 @@ sh -c "$LOG \"3. Category\""
         	xte "key Escape"
 			waitloaded_1
 			keyReturn
+			if [ "$(echo "$CATEGORY" | head -n 2)" == "Notebooks" ]; then
+				xte "keydown Control_L" "key F" "keyup Control_L"
+        		waitloaded_1
+        		xte "str ""$(echo "$CATEGORY" | head -n 1)"
+				waitloaded_1
+        		xte "key Escape"
+				waitloaded_1
+				keyReturn
+			else
+				fail
+			fi
 		else
-			RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
-        	echo "$TITLE" >> $RESULT
-			echo "" >> $RESULT
-        	echo "$PRICE" >> $RESULT
-			echo "" >> $RESULT
-        	echo "$SHIPPING" >> $RESULT
-			echo "" >> $RESULT
-        	echo "$DESCRIPTION" >> $RESULT
-			echo "" >> $RESULT
-        	echo "$CATEGORY" >> $RESULT
+			fail
 		fi
 
 
