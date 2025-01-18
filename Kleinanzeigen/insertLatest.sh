@@ -1,3 +1,5 @@
+#!/bin/sh
+
 . "$HOME""/automation/env.sh"
 
 function keyReturn {
