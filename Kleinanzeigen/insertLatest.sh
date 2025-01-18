@@ -125,8 +125,8 @@ sh -c "$LOG \"3. Category\""
 				keyTab
 				waitloaded_1
 			done
-#			keyReturn
-#			waitloaded_1
+			keyReturn
+			waitloaded_1
 		else
 			RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
         	echo "$TITLE" >> $RESULT
