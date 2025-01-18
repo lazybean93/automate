@@ -133,6 +133,13 @@ sh -c "$LOG \"3. Category\""
 			waitloaded_1
 			keyReturn
 			waitloaded_1
+			xte "keydown Control_L" "key F" "keyup Control_L"
+        	waitloaded_1
+        	xte "str ""$(echo "$CATEGORY" | head -n 1)"
+			waitloaded_1
+        	xte "key Escape"
+			waitloaded_1
+			keyReturn
 		else
 			RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
         	echo "$TITLE" >> $RESULT
