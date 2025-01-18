@@ -6,65 +6,74 @@ function keyReturn {
 	sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
 }
 
+function keyTab {
+	sh -c "$KEY_TAB"
+}
+
+function waitloaded_1 {
+	sh -c "$WAITLOADED 1"
+}
+
 
 mail=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | head -n1)"`
 password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 
 sh -c "$LOG \"Start\""
 	sh "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
+
 sh -c "$LOG \"Enter Credentials\""
 	for i in $(seq 1 5); do
-		sh -c "$KEY_TAB"
+		keyTab
 	done;
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 	keyReturn
 	xte "$mail"
-	sh -c "$WAITLOADED 1"
-	sh -c "$KEY_TAB"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
+	keyTab
+	waitloaded_1
 	xte "$password"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 	for i in $(seq 1 2); do
-		sh -c "$KEY_TAB"
+		keyTab
 	done;
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 	keyReturn
 sh -c "$LOG \"\""
 sh -c "$LOG \"Get to last Item\""
 sh -c "$LOG \"1. Search 'kleinanzeigen'\""
 	xte "keydown Control_L" "key F" "keyup Control_L"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 	xte "str Kleinanzeigen"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 sh -c "$LOG \"   Escape Dialog\""
 	xte "key Escape"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 sh -c "$LOG \"   Reverse Tab x2\""
 	for i in $(seq 1 2); do
 	        xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 	done;
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 sh -c "$LOG \"   Hit Return\""
 	keyReturn
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 sh -c "$LOG \"2. Search 'Endet'\""
 	xte "keydown Control_L" "key F" "keyup Control_L"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 	xte "key BackSpace"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 	xte "str Endet"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 sh -c "$LOG \"   Tab\""
-	sh -c "$KEY_TAB"
-	sh -c "$WAITLOADED 1"
+	keyTab
+	waitloaded_1
 sh -c "$LOG \"   Hit Return\""
 	keyReturn
 sh -c "$LOG \"   Escape Dialog\""
 	xte "key Escape"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 sh -c "$LOG \"   Reverse Tab\""
 	xte "keydown Shift_L" "key Tab" "keyup Shift_L"
-	sh -c "$WAITLOADED 1"
+	waitloaded_1
 sh -c "$LOG \"   Hit Return\""
 	keyReturn
 sh -c "$LOG \"3. Save Item Page\""
@@ -94,31 +103,42 @@ sh -c "$LOG \"6. Category\""
 sh -c "$LOG \"Insert item\""
 sh -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
         xte "keydown Control_L" "key F" "keyup Control_L"
-        sh -c "$WAITLOADED 1"
+        waitloaded_1
         xte "str Inserieren"
-        sh -c "$WAITLOADED 1"
+        waitloaded_1
         xte "key Escape"
-        sh -c "$WAITLOADED 1"
+        waitloaded_1
 		keyReturn
 sh -c "$LOG \"2. Enter Title\""
         xte "keydown Control_L" "key F" "keyup Control_L"
-        sh -c "$WAITLOADED 1"
+        waitloaded_1
         xte "str Titel"
-        sh -c "$WAITLOADED 1"
+        waitloaded_1
         xte "key Escape"
-        sh -c "$WAITLOADED 1"
-        sh -c "$KEY_TAB"
-        sh -c "$WAITLOADED 1"
+        waitloaded_1
+        keyTab
+        waitloaded_1
         xte "str ""$TITLE"
+		waitloaded_1
+sh -c "$LOG \"3. Category\""
+		if [ "$(echo "$CATEGORY" | head -n 1)" -eq "Elektronik"]; then
+			keyTab
+			waitloaded_1
+			keyReturn
+			waitloaded_1
+		else
+			RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
+        	echo "$TITLE" >> $RESULT
+			echo "" >> $RESULT
+        	echo "$PRICE" >> $RESULT
+			echo "" >> $RESULT
+        	echo "$SHIPPING" >> $RESULT
+			echo "" >> $RESULT
+        	echo "$DESCRIPTION" >> $RESULT
+			echo "" >> $RESULT
+        	echo "$CATEGORY" >> $RESULT
+		fi
 
-        RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
-        echo "$TITLE" >> $RESULT
-		echo "" >> $RESULT
-        echo "$PRICE" >> $RESULT
-		echo "" >> $RESULT
-        echo "$SHIPPING" >> $RESULT
-		echo "" >> $RESULT
-        echo "$DESCRIPTION" >> $RESULT
-		echo "" >> $RESULT
-        echo "$CATEGORY" >> $RESULT
+
+
 
