@@ -119,7 +119,7 @@ sh -c "$LOG \"2. Enter Title\""
         keyTab
         waitloaded_1
         xte "str ""$TITLE"
-		waitloaded_1
+		sh -c "$WAITLOADED 2"
 sh -c "$LOG \"3. Category\""
 		if [ "$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ]; then
 			keyTab
