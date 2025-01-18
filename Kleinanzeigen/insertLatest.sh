@@ -121,10 +121,16 @@ sh -c "$LOG \"2. Enter Title\""
         xte "str ""$TITLE"
 sh -c "$LOG \"3. Category\""
 		if [ "$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ]; then
+        	xte "keydown Control_L" "key F" "keyup Control_L"
+        	waitloaded_1
+        	xte "str Titel"
+        	waitloaded_1
+        	xte "key Escape"
+        	waitloaded_1
 			for i in $(seq 1 2); do
-				keyTab
-				waitloaded_1
+        		keyTab
 			done
+			waitloaded_1
 			keyReturn
 			waitloaded_1
 		else
