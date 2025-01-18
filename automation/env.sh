@@ -1,5 +1,3 @@
-setxkbmap -layout de
-
 export DISPLAY="$(ps aux | grep -v grep | grep -i 'Xorg\|Xtightvnc' | sed 's/ :/\n:/g' | tail -n1 | sed 's/ /\n/g' | head -n1)"
 
 export CLEAN="sh ""$HOME""/automation/utils_clean.sh"
