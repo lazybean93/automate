@@ -152,7 +152,7 @@ sh -c "$LOG \"Insert item\""
         	xte "key Escape"
 			waitloaded_1
 			keyReturn
-			if [ "$(echo "$CATEGORY" | head -n 2)" == "Notebooks" ]; then
+			if [ "$(echo "$CATEGORY" | tail -n 1)" == "Notebooks" ]; then
 				xte "keydown Control_L" "key F" "keyup Control_L"
         		waitloaded_1
         		xte "str ""$(echo "$CATEGORY" | head -n 1)"
