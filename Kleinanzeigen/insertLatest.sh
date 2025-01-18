@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . "$HOME""/automation/env.sh"
 
@@ -119,11 +119,12 @@ sh -c "$LOG \"2. Enter Title\""
         keyTab
         waitloaded_1
         xte "str ""$TITLE"
-		sh -c "$WAITLOADED 2"
 sh -c "$LOG \"3. Category\""
 		if [ "$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ]; then
-			keyTab
-			waitloaded_1
+			for i in $(seq 1 2); do
+				keyTab
+				waitloaded_1
+			done
 #			keyReturn
 #			waitloaded_1
 		else
