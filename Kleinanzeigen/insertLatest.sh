@@ -173,6 +173,10 @@ sh -c "$LOG \"Insert item\""
 				waitloaded_1
         		xte "key Escape"
 				waitloaded_1
+				xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+				waitloaded_1
+				keyTab
+				waitloaded_1
 				keyReturn
 			else
 				fail
