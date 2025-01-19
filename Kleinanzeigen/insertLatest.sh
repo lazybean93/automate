@@ -187,7 +187,7 @@ sh -c "$LOG \"Insert item\""
 			keyTab
 			keyReturn
 		else
-
+			fail
 		fi
 
 
