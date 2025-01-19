@@ -156,7 +156,10 @@ sh -c "$LOG \"Insert item\""
 				waitloaded_1
         		keyEscape
 				keyReturn
-				waitloaded_1updated InputLatest.sh
+				waitloaded_1
+				strg_f
+				xte "key BackSpace"
+				waitloaded_1
 				xte "str Weiter"
 				waitloaded_1
 				keyTab
@@ -184,7 +187,7 @@ sh -c "$LOG \"Insert item\""
 			keyTab
 			keyReturn
 		else
-			fail
+
 		fi
 
 
