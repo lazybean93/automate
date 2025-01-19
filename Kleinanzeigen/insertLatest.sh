@@ -172,6 +172,7 @@ sh -c "$LOG \"Insert item\""
 				keyReturn
 				waitloaded_1
         		xte "key Escape"
+				waitloaded_1
 				keyReturn
 			else
 				fail
