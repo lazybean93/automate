@@ -20,7 +20,7 @@ function strg_f {
 }
 
 function keyEscape {
-	keyEscape
+	xte "key Escape"
 	waitloaded_1
 }
 
@@ -156,10 +156,7 @@ sh -c "$LOG \"Insert item\""
 				waitloaded_1
         		keyEscape
 				keyReturn
-				waitloaded_1
-				strg_f
-				xte "key BackSpace"
-				waitloaded_1
+				waitloaded_1updated InputLatest.sh
 				xte "str Weiter"
 				waitloaded_1
 				keyTab
