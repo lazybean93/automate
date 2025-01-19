@@ -160,6 +160,17 @@ sh -c "$LOG \"Insert item\""
         		xte "key Escape"
 				waitloaded_1
 				keyReturn
+				waitloaded_1
+				xte "keydown Control_L" "key F" "keyup Control_L"
+				waitloaded_1
+				xte "key BackSpace"
+				waitloaded_1
+				xte "str Weiter"
+				waitloaded_1
+				keyTab
+				waitloaded_1
+				keyReturn
+				keyReturn
 			else
 				fail
 			fi
