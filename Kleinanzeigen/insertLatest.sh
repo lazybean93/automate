@@ -14,6 +14,16 @@ function waitloaded_1 {
 	sh -c "$WAITLOADED 1"
 }
 
+function strg_f {
+	xte "keydown Control_L" "key F" "keyup Control_L"
+    waitloaded_1
+}
+
+function keyEscape {
+	keyEscape
+	waitloaded_1
+}
+
 function fail {
 	RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
         	echo "$TITLE" >> $RESULT
@@ -53,13 +63,11 @@ sh -c "$LOG \"Enter Credentials\""
 sh -c "$LOG \"\""
 sh -c "$LOG \"Get to last Item\""
 sh -c "$LOG \"1. Search 'kleinanzeigen'\""
-	xte "keydown Control_L" "key F" "keyup Control_L"
-	waitloaded_1
+	strg_f
 	xte "str Kleinanzeigen"
 	waitloaded_1
 sh -c "$LOG \"   Escape Dialog\""
-	xte "key Escape"
-	waitloaded_1
+	keyEscape
 sh -c "$LOG \"   Reverse Tab x2\""
 	for i in $(seq 1 2); do
 	        xte "keydown Shift_L" "key Tab" "keyup Shift_L"
@@ -69,8 +77,7 @@ sh -c "$LOG \"   Hit Return\""
 	keyReturn
 	waitloaded_1
 sh -c "$LOG \"2. Search 'Endet'\""
-	xte "keydown Control_L" "key F" "keyup Control_L"
-	waitloaded_1
+	strg_f
 	xte "key BackSpace"
 	waitloaded_1
 	xte "str Endet"
@@ -81,8 +88,7 @@ sh -c "$LOG \"   Tab\""
 sh -c "$LOG \"   Hit Return\""
 	keyReturn
 sh -c "$LOG \"   Escape Dialog\""
-	xte "key Escape"
-	waitloaded_1
+	keyEscape
 sh -c "$LOG \"   Reverse Tab\""
 	xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 	waitloaded_1
@@ -114,55 +120,44 @@ sh -c "$LOG \"Analyze Webpage\""
 
 sh -c "$LOG \"Insert item\""
  sh -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
-        xte "keydown Control_L" "key F" "keyup Control_L"
-        waitloaded_1
+        strg_f
         xte "str Inserieren"
         waitloaded_1
-        xte "key Escape"
-        waitloaded_1
+        keyEscape
 		keyReturn
  sh -c "$LOG \"2. Enter Title\""
-        xte "keydown Control_L" "key F" "keyup Control_L"
-        waitloaded_1
+        strg_f
         xte "str Titel"
         waitloaded_1
-        xte "key Escape"
-        waitloaded_1
+        keyEscape
         keyTab
         waitloaded_1
         xte "str ""$TITLE"
  sh -c "$LOG \"3. Category\""
 		if [ "$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ]; then
-        	xte "keydown Control_L" "key F" "keyup Control_L"
-        	waitloaded_1
+        	strg_f
         	xte "str Titel"
         	waitloaded_1
-        	xte "key Escape"
-        	waitloaded_1
+        	keyEscape
 			for i in $(seq 1 2); do
         		keyTab
 			done
 			waitloaded_1
 			keyReturn
 			waitloaded_1
-			xte "keydown Control_L" "key F" "keyup Control_L"
-        	waitloaded_1
+			strg_f
         	xte "str ""$(echo "$CATEGORY" | head -n 1)"
 			waitloaded_1
-        	xte "key Escape"
-			waitloaded_1
+        	keyEscape
 			keyReturn
 			if [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Notebooks" ]; then
-				xte "keydown Control_L" "key F" "keyup Control_L"
-        		waitloaded_1
+				strg_f
         		xte "str ""$(echo "$CATEGORY" | head -n 2 | tail -n 1)"
 				waitloaded_1
-        		xte "key Escape"
-				waitloaded_1
+        		keyEscape
 				keyReturn
 				waitloaded_1
-				xte "keydown Control_L" "key F" "keyup Control_L"
-				waitloaded_1
+				strg_f
 				xte "key BackSpace"
 				waitloaded_1
 				xte "str Weiter"
@@ -171,8 +166,7 @@ sh -c "$LOG \"Insert item\""
 				waitloaded_1
 				keyReturn
 				waitloaded_1
-        		xte "key Escape"
-				waitloaded_1
+        		keyEscape
 				keyTab
 				waitloaded_1
 				xte "keydown Shift_L" "key Tab" "keyup Shift_L"
@@ -183,6 +177,17 @@ sh -c "$LOG \"Insert item\""
 			fi
 		else
 			fail
+		fi
+ sh -c "$LOG \"4. Shipping\""
+		if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ]; then
+			strg_f
+			xte "str Versandmethoden"
+			waitloaded_1
+        	keyEscape
+			keyTab
+			keyReturn
+		else
+
 		fi
 
 
