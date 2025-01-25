@@ -220,7 +220,10 @@ sh -c "$LOG \"Insert item\""
 		keyEscape
 		keyTab
 		waitloaded_1
-		xte "str ""$DESCRIPTION"
+		for i in $(seq 1 $(echo "$DESCRIPTION" | wc -l)); do
+			xte "str ""$(echo "$DESCRIPTION" | head -n $i | tail -n 1)"
+			keyReturn
+		done
 		#waitloaded_1
 		#for i in $(seq 1 2); do
 		#	keyTab
