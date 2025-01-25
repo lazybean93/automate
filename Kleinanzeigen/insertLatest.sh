@@ -231,3 +231,6 @@ sh -c "$LOG \"Insert item\""
 		keyEscape
 		keyTab
 		keyReturn
+		xte "str ""$DOWNLOADS"
+		waitloaded_1
+		keyTab
