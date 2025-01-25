@@ -211,7 +211,7 @@ sh -c "$LOG \"Insert item\""
 			keyTab
 		done
 		waitloaded_1
-		xte "key DOWN"
+		xte "key Down"
 		waitloaded_1
 		
 
