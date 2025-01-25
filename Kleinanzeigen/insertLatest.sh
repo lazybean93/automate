@@ -110,6 +110,7 @@ sh -c "$LOG \"Get to last Item\""
 	xte "str Ja, Anzeige löschen"
 	waitloaded_1
 	keyEscape
+	keyTab
 	keyReturn
 	
  sh -c "$LOG \"Analyze Webpage\""
