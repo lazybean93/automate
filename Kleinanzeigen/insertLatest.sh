@@ -198,6 +198,13 @@ sh -c "$LOG \"Insert item\""
 		else
 			fail
 		fi
+ sh -c "$LOG \"5. Price\""
+		strg_f
+		xte "str Preis"
+		waitloaded_1
+		keyEscape
+		keyTab
+		waitloaded_1
 
 
 
