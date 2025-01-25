@@ -98,7 +98,7 @@ sh -c "$LOG \"Get to last Item\""
 	WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
  sh -c "$LOG \"4. Remove Item\""
 	strg_f
-	xte "str unserer Datenschutzerklärung"
+	xte "str Löschen"
 	waitloaded_1
 	keyEscape
 	keyReturn
