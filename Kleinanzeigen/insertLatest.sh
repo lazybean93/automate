@@ -188,6 +188,9 @@ sh -c "$LOG \"Insert item\""
 			keyReturn
 			keyTab
 			keyReturn
+			keyTab
+			keyReturn
+			keyTab
 		else
 			fail
 		fi
