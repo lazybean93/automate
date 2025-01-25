@@ -232,5 +232,7 @@ sh -c "$LOG \"Insert item\""
 		keyTab
 		keyReturn
 		xte "str ""$DOWNLOADS"
-		waitloaded_1
-		keyTab
+		for i in $(seq 1 2); do
+			keyReturn
+		done
+		
