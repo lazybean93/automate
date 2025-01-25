@@ -205,6 +205,12 @@ sh -c "$LOG \"Insert item\""
 		keyEscape
 		keyTab
 		waitloaded_1
+		xte "str ""$PRICE"
+		waitloaded_1
+		for i in $(seq 1 2); do
+			keyTab
+		done
+		
 
 
 
