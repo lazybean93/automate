@@ -224,15 +224,10 @@ sh -c "$LOG \"Insert item\""
 			xte "str ""$(echo "$DESCRIPTION" | head -n $i | tail -n 1)"
 			keyReturn
 		done
-		#waitloaded_1
-		#for i in $(seq 1 2); do
-		#	keyTab
-		#done
-		#waitloaded_1
-		#xte "key Down"
-		#waitloaded_1
-		
-
-
-
-
+ sh -c "$LOG \"7. Pictures\""
+		strg_f
+		xte "str (empfohlen)"
+		waitloaded_1
+		keyEscape
+		keyTab
+		keyReturn
