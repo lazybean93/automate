@@ -213,6 +213,21 @@ sh -c "$LOG \"Insert item\""
 		waitloaded_1
 		xte "key Down"
 		waitloaded_1
+ sh -c "$LOG \"6. Description\""
+		strg_f
+		xte "str Beschreibung"
+		waitloaded_1
+		keyEscape
+		keyTab
+		waitloaded_1
+		xte "str ""$DESCRIPTION"
+		#waitloaded_1
+		#for i in $(seq 1 2); do
+		#	keyTab
+		#done
+		#waitloaded_1
+		#xte "key Down"
+		#waitloaded_1
 		
 
 
