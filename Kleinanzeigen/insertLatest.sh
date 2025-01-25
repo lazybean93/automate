@@ -184,10 +184,16 @@ sh -c "$LOG \"Insert item\""
 			xte "str Versandmethoden"
 			waitloaded_1
         	keyEscape
-			for i in $(seq 1 4); do
-				keyTab
-				keyReturn
-			done
+			keyTab
+			keyReturn
+			strg_f
+			xte "str Andere Versandmethoden"
+			waitloaded_1
+        	keyEscape
+			keyTab
+			waitloaded_1
+			xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+			waitloaded_1
 #			for i in $(seq 1 3); do
 #				keyTab
 #			done
