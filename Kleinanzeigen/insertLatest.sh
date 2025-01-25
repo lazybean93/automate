@@ -237,5 +237,12 @@ sh -c "$LOG \"Insert item\""
 		done
 		xte "keydown Control_L" "key A" "keyup Control_L"
     	keyReturn
+ sh -c "$LOG \"8. Insert\""
+		strg_f
+		xte "str unserer Datenschutzerklärung"
+		waitloaded_1
+		keyEscape
+		keyTab
+		keyReturn
 
 		
