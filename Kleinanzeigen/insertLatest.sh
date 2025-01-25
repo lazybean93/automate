@@ -42,66 +42,71 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 
 sh -c "$LOG \"Start\""
 	sh "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
-
-sh -c "$LOG \"Enter Credentials\""
-	for i in $(seq 1 5); do
-		keyTab
-	done;
-	waitloaded_1
-	keyReturn
-	xte "$mail"
-	waitloaded_1
-	keyTab
-	waitloaded_1
-	xte "$password"
-	waitloaded_1
-	for i in $(seq 1 2); do
-		keyTab
-	done;
-	waitloaded_1
-	keyReturn
-sh -c "$LOG \"\""
-sh -c "$LOG \"Get to last Item\""
- sh -c "$LOG \"1. Search 'kleinanzeigen'\""
-	strg_f
-	xte "str Kleinanzeigen"
-	waitloaded_1
- sh -c "$LOG \"   Escape Dialog\""
-	keyEscape
- sh -c "$LOG \"   Reverse Tab x2\""
-	for i in $(seq 1 2); do
-	        xte "keydown Shift_L" "key Tab" "keyup Shift_L"
-	done;
-	waitloaded_1
- sh -c "$LOG \"   Hit Return\""
-	keyReturn
-	waitloaded_1
- sh -c "$LOG \"2. Search 'Endet'\""
-	strg_f
-	xte "key BackSpace"
-	waitloaded_1
-	xte "str Endet"
-	waitloaded_1
- sh -c "$LOG \"   Tab\""
-	keyTab
-	waitloaded_1
- sh -c "$LOG \"   Hit Return\""
-	keyReturn
- sh -c "$LOG \"   Escape Dialog\""
-	keyEscape
- sh -c "$LOG \"   Reverse Tab\""
-	xte "keydown Shift_L" "key Tab" "keyup Shift_L"
-	waitloaded_1
- sh -c "$LOG \"   Hit Return\""
-	keyReturn
- sh -c "$LOG \"3. Save Item Page\""
-	WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
- sh -c "$LOG \"4. Remove Item\""
 	strg_f
 	xte "str Löschen"
 	waitloaded_1
 	keyEscape
 	keyReturn
+
+# sh -c "$LOG \"Enter Credentials\""
+# 	for i in $(seq 1 5); do
+# 		keyTab
+# 	done;
+# 	waitloaded_1
+# 	keyReturn
+# 	xte "$mail"
+# 	waitloaded_1
+# 	keyTab
+# 	waitloaded_1
+# 	xte "$password"
+# 	waitloaded_1
+# 	for i in $(seq 1 2); do
+# 		keyTab
+# 	done;
+# 	waitloaded_1
+# 	keyReturn
+# sh -c "$LOG \"\""
+# sh -c "$LOG \"Get to last Item\""
+#  sh -c "$LOG \"1. Search 'kleinanzeigen'\""
+# 	strg_f
+# 	xte "str Kleinanzeigen"
+# 	waitloaded_1
+#  sh -c "$LOG \"   Escape Dialog\""
+# 	keyEscape
+#  sh -c "$LOG \"   Reverse Tab x2\""
+# 	for i in $(seq 1 2); do
+# 	        xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+# 	done;
+# 	waitloaded_1
+#  sh -c "$LOG \"   Hit Return\""
+# 	keyReturn
+# 	waitloaded_1
+#  sh -c "$LOG \"2. Search 'Endet'\""
+# 	strg_f
+# 	xte "key BackSpace"
+# 	waitloaded_1
+# 	xte "str Endet"
+# 	waitloaded_1
+#  sh -c "$LOG \"   Tab\""
+# 	keyTab
+# 	waitloaded_1
+#  sh -c "$LOG \"   Hit Return\""
+# 	keyReturn
+#  sh -c "$LOG \"   Escape Dialog\""
+# 	keyEscape
+#  sh -c "$LOG \"   Reverse Tab\""
+# 	xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+# 	waitloaded_1
+#  sh -c "$LOG \"   Hit Return\""
+# 	keyReturn
+#  sh -c "$LOG \"3. Save Item Page\""
+# 	WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
+#  sh -c "$LOG \"4. Remove Item\""
+# 	strg_f
+# 	xte "str Löschen"
+# 	waitloaded_1
+# 	keyEscape
+# 	keyReturn
 	
 #  sh -c "$LOG \"Analyze Webpage\""
 #   sh -c "$LOG \"1. Pictures\""
