@@ -203,7 +203,7 @@ sh -c "$LOG \"Insert item\""
 			for i in $(seq 1 3); do
 				keyTab
 			done
-			waitloaded_1
+			keyReturn
 		else
 			fail
 		fi
