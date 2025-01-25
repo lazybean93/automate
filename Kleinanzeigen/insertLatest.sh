@@ -207,51 +207,51 @@ sh -c "$LOG \"Insert item\""
 		else
 			fail
 		fi
-#  sh -c "$LOG \"5. Price\""
-# 		strg_f
-# 		xte "str Preis"
-# 		waitloaded_1
-# 		keyEscape
-# 		keyTab
-# 		waitloaded_1
-# 		xte "str ""$PRICE"
-# 		waitloaded_1
-# 		for i in $(seq 1 2); do
-# 			keyTab
-# 		done
-# 		waitloaded_1
-# 		xte "key Down"
-# 		waitloaded_1
-#  sh -c "$LOG \"6. Description\""
-# 		strg_f
-# 		xte "str Beschreibung"
-# 		waitloaded_1
-# 		keyEscape
-# 		keyTab
-# 		waitloaded_1
-# 		for i in $(seq 1 $(echo "$DESCRIPTION" | wc -l)); do
-# 			xte "str ""$(echo "$DESCRIPTION" | head -n $i | tail -n 1)"
-# 			keyReturn
-# 		done
-#  sh -c "$LOG \"7. Pictures\""
-# 		strg_f
-# 		xte "str (empfohlen)"
-# 		waitloaded_1
-# 		keyEscape
-# 		keyTab
-# 		keyReturn
-# 		xte "str ""$DOWNLOADS"
-# 		for i in $(seq 1 2); do
-# 			keyReturn
-# 		done
-# 		xte "keydown Control_L" "key A" "keyup Control_L"
-#     	keyReturn
-#  sh -c "$LOG \"8. Insert\""
-# 		strg_f
-# 		xte "str unserer Datenschutzerklärung"
-# 		waitloaded_1
-# 		keyEscape
-# 		keyTab
-# 		keyReturn
+ sh -c "$LOG \"5. Price\""
+		strg_f
+		xte "str Preis"
+		waitloaded_1
+		keyEscape
+		keyTab
+		waitloaded_1
+		xte "str ""$PRICE"
+		waitloaded_1
+		for i in $(seq 1 2); do
+			keyTab
+		done
+		waitloaded_1
+		xte "key Down"
+		waitloaded_1
+ sh -c "$LOG \"6. Description\""
+		strg_f
+		xte "str Beschreibung"
+		waitloaded_1
+		keyEscape
+		keyTab
+		waitloaded_1
+		for i in $(seq 1 $(echo "$DESCRIPTION" | wc -l)); do
+			xte "str ""$(echo "$DESCRIPTION" | head -n $i | tail -n 1)"
+			keyReturn
+		done
+ sh -c "$LOG \"7. Pictures\""
+		strg_f
+		xte "str (empfohlen)"
+		waitloaded_1
+		keyEscape
+		keyTab
+		keyReturn
+		xte "str ""$DOWNLOADS"
+		for i in $(seq 1 2); do
+			keyReturn
+		done
+		xte "keydown Control_L" "key A" "keyup Control_L"
+    	keyReturn
+ sh -c "$LOG \"8. Insert\""
+		strg_f
+		xte "str unserer Datenschutzerklärung"
+		waitloaded_1
+		keyEscape
+		keyTab
+		keyReturn
 
 		
