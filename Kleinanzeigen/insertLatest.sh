@@ -235,4 +235,7 @@ sh -c "$LOG \"Insert item\""
 		for i in $(seq 1 2); do
 			keyReturn
 		done
+		xte "keydown Control_L" "key A" "keyup Control_L"
+    	keyReturn
+
 		
