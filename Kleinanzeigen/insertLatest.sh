@@ -43,7 +43,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 sh -c "$LOG \"Start\""
 	sh "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
 	strg_f
-	xte "str Löschen"
+	xte "str tippen sie zum Ablehnen bitte hier"
 	waitloaded_1
 	keyEscape
 	keyReturn
