@@ -62,41 +62,41 @@ sh -c "$LOG \"Enter Credentials\""
 	keyReturn
 sh -c "$LOG \"\""
 sh -c "$LOG \"Get to last Item\""
-sh -c "$LOG \"1. Search 'kleinanzeigen'\""
+ sh -c "$LOG \"1. Search 'kleinanzeigen'\""
 	strg_f
 	xte "str Kleinanzeigen"
 	waitloaded_1
-sh -c "$LOG \"   Escape Dialog\""
+ sh -c "$LOG \"   Escape Dialog\""
 	keyEscape
-sh -c "$LOG \"   Reverse Tab x2\""
+ sh -c "$LOG \"   Reverse Tab x2\""
 	for i in $(seq 1 2); do
 	        xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 	done;
 	waitloaded_1
-sh -c "$LOG \"   Hit Return\""
+ sh -c "$LOG \"   Hit Return\""
 	keyReturn
 	waitloaded_1
-sh -c "$LOG \"2. Search 'Endet'\""
+ sh -c "$LOG \"2. Search 'Endet'\""
 	strg_f
 	xte "key BackSpace"
 	waitloaded_1
 	xte "str Endet"
 	waitloaded_1
-sh -c "$LOG \"   Tab\""
+ sh -c "$LOG \"   Tab\""
 	keyTab
 	waitloaded_1
-sh -c "$LOG \"   Hit Return\""
+ sh -c "$LOG \"   Hit Return\""
 	keyReturn
-sh -c "$LOG \"   Escape Dialog\""
+ sh -c "$LOG \"   Escape Dialog\""
 	keyEscape
-sh -c "$LOG \"   Reverse Tab\""
+ sh -c "$LOG \"   Reverse Tab\""
 	xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 	waitloaded_1
-sh -c "$LOG \"   Hit Return\""
+ sh -c "$LOG \"   Hit Return\""
 	keyReturn
-sh -c "$LOG \"3. Save Item Page\""
+ sh -c "$LOG \"3. Save Item Page\""
 	WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
-sh -c "$LOG \"Analyze Webpage\""
+ sh -c "$LOG \"Analyze Webpage\""
  sh -c "$LOG \"1. Pictures\""
 	PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
 	cat $PICTURES
@@ -184,6 +184,8 @@ sh -c "$LOG \"Insert item\""
 			xte "str Versandmethoden"
 			waitloaded_1
         	keyEscape
+			keyTab
+			keyReturn
 			keyTab
 			keyReturn
 		else
