@@ -193,12 +193,17 @@ sh -c "$LOG \"Insert item\""
 			keyTab
 			waitloaded_1
 			xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+			keyReturn
+			strg_f
+			xte "str Andere Optionen"
 			waitloaded_1
-#			for i in $(seq 1 3); do
-#				keyTab
-#			done
-#			waitloaded_1
-#			keyReturn
+        	keyEscape
+			keyTab
+			keyReturn
+			for i in $(seq 1 3); do
+				keyTab
+			done
+			waitloaded_1
 		else
 			fail
 		fi
