@@ -207,7 +207,7 @@ sh -c "$LOG \"Insert item\""
 		waitloaded_1
 		xte "str ""$PRICE"
 		waitloaded_1
-		for i in $(seq 1 3); do
+		for i in $(seq 1 2); do
 			keyTab
 		done
 		waitloaded_1
