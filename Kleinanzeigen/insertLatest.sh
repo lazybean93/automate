@@ -97,7 +97,7 @@ sh -c "$LOG \"Get to last Item\""
  sh -c "$LOG \"3. Save Item Page\""
 	WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
  sh -c "$LOG \"Analyze Webpage\""
- sh -c "$LOG \"1. Pictures\""
+  sh -c "$LOG \"1. Pictures\""
 	PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
 	cat $PICTURES
 	digit=0;
@@ -107,15 +107,15 @@ sh -c "$LOG \"Get to last Item\""
 		wget $i -O "$DOWNLOADS""/""$output"
 		digit=$(($digit+1))
 	done
- sh -c "$LOG \"2. Title\""
+  sh -c "$LOG \"2. Title\""
         TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g')"
- sh -c "$LOG \"3. Price\""
+  sh -c "$LOG \"3. Price\""
         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
- sh -c "$LOG \"4. Shipping\""
+  sh -c "$LOG \"4. Shipping\""
         SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping)"
- sh -c "$LOG \"5. Description\""
+  sh -c "$LOG \"5. Description\""
         DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g')"
- sh -c "$LOG \"6. Category\""
+  sh -c "$LOG \"6. Category\""
         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class')"
 
 sh -c "$LOG \"Insert item\""
@@ -251,7 +251,9 @@ sh -c "$LOG \"Insert item\""
 		xte "str unserer Datenschutzerklärung"
 		waitloaded_1
 		keyEscape
-		keyTab
+		for i in $(seq 1 2); do
+			keyTab
+		done
 		keyReturn
 
 		
