@@ -41,7 +41,7 @@ xte "key Tab"
 xte "str browser.translations.automaticallyPopup"
 "$SHELL" -c "$WAITLOADED 1"
 WEBPAGE=$(sh "$HOME""/automation/utils_saveWebsite.sh")
-if [ -z "$(cat $WEBPAGE | sed 's/>/>\n/g' | grep 'false</span>')" ]; then
+if [ -z "$(cat "$WEBPAGE" | sed 's/>/>\n/g' | grep 'false</span>')" ]; then
 	echo bla;
 fi
 "$SHELL" -c "$LOG \"End\""
