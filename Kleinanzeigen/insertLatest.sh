@@ -114,6 +114,14 @@ sh -c "$LOG \"Get to last Item\""
 		keyTab
 	done
 	keyReturn
+	strg_f
+	xte "str Schließen"
+	waitloaded_1
+	keyEscape
+	for i in $(seq 1 2); do
+		keyTab
+	done
+	keyReturn
 	
  sh -c "$LOG \"Analyze Webpage\""
   sh -c "$LOG \"1. Pictures\""
