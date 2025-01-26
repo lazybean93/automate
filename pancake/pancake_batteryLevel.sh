@@ -1,6 +1,6 @@
 . "$HOME""/automation/env.sh"
 
-#sh -c "$LOG \"Start\""
+#"$SHELL" -c "$LOG \"Start\""
 sh "$HOME""/pancake/pancake_startpage.sh" > $HIDEFILE 2>&1
 WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
 BATTERYLEVEL=$(cat "$WEBPAGE" | grep battery-status-text-value\" | sed 's/value">/\n/g' | tail -n1 | sed 's/</\n/' | head -n1)
@@ -13,5 +13,5 @@ if [ "$STATE" = "Lädt" ]; then
 else
 	echo a$BATTERYLEVEL
 fi
-sh -c "$CLEAN"
-#sh -c "$LOG \"End\""
+"$SHELL" -c "$CLEAN"
+#"$SHELL" -c "$LOG \"End\""

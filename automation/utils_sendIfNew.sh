@@ -4,5 +4,5 @@ if [ ! -z "$FILENAME" ]; then
 	mv "$FILENAME" "$FILENAME_NEW"
 	sh "$HOME""/whatsapp/whatsapp_document.sh" "$1" "$FILENAME_NEW";
 else
-	sh -c "$CLEAN"
+	"$SHELL" -c "$CLEAN"
 fi

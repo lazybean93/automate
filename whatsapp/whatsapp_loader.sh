@@ -1,11 +1,11 @@
 . "$HOME""/automation/env.sh"
 
-sh -c "$LOG \"Start\""
-sh -c "$CLEAN"
+"$SHELL" -c "$LOG \"Start\""
+"$SHELL" -c "$CLEAN"
 setxkbmap -layout de
 sh "$HOME""/automation/firefox.sh" "https://web.whatsapp.com"
 xte 'key F5'
-sh -c "$WAITLOADED 2"
+"$SHELL" -c "$WAITLOADED 2"
 FILENAME="$HOME""/Downloads/scrot.jpg"
 FILESIZE=0;
 COUNT=0
@@ -21,7 +21,7 @@ while [ "$FILESIZE" -lt 300 ]; do
 			sh "$HOME""/whatsapp/whatsapp_loader.sh"
 			return;
 		fi
-		sh -c "$LOG \"Abort after 200 tries\""
+		"$SHELL" -c "$LOG \"Abort after 200 tries\""
 		sh "$HOME""/automation/utils_killScriptsContainingWhatsapp.sh"
 		tsp -k
 	fi
@@ -30,6 +30,6 @@ while [ "$FILESIZE" -lt 300 ]; do
 	rm "$FILENAME"
 	FILESIZE="$(stat -c %s "$FILENAME""_crop.jpg")"
 	rm "$FILENAME""_crop.jpg"
-	sh -c "$WAITLOADED 1"
+	"$SHELL" -c "$WAITLOADED 1"
 done
-sh -c "$LOG \"End\""
+"$SHELL" -c "$LOG \"End\""

@@ -3,15 +3,15 @@
 . "$HOME""/automation/env.sh"
 
 function keyReturn {
-	sh -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+	"$SHELL" -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
 }
 
 function keyTab {
-	sh -c "$KEY_TAB"
+	"$SHELL" -c "$KEY_TAB"
 }
 
 function waitloaded_1 {
-	sh -c "$WAITLOADED 1"
+	"$SHELL" -c "$WAITLOADED 1"
 }
 
 function strg_f {
@@ -40,14 +40,14 @@ function fail {
 mail=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | head -n1)"`
 password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 
-sh -c "$LOG \"Start\""
+"$SHELL" -c "$LOG \"Start\""
 	sh "$HOME""/automation/utils_startpage_dirty.sh" "https://kleinanzeigen.de"
 	strg_f
 	xte "str tippen sie zum Ablehnen bitte hier"
 	waitloaded_1
 	keyEscape
 	keyReturn
-sh -c "$LOG \"Enter Credentials\""
+"$SHELL" -c "$LOG \"Enter Credentials\""
 	for i in $(seq 1 5); do
 		keyTab
 	done;
@@ -67,8 +67,8 @@ sh -c "$LOG \"Enter Credentials\""
 	WEBPAGE=$(ls -t /home/automate/Downloads/*kleinanzeigen.de.html | head -n 1)
 
 	
- sh -c "$LOG \"Analyze Webpage\""
-  sh -c "$LOG \"1. Pictures\""
+ "$SHELL" -c "$LOG \"Analyze Webpage\""
+  "$SHELL" -c "$LOG \"1. Pictures\""
 	PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
 	cat $PICTURES
 	digit=0;
@@ -78,25 +78,25 @@ sh -c "$LOG \"Enter Credentials\""
 		wget $i -O "$DOWNLOADS""/""$output"
 		digit=$(($digit+1))
 	done
-  sh -c "$LOG \"2. Title\""
+  "$SHELL" -c "$LOG \"2. Title\""
         TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g')"
-  sh -c "$LOG \"3. Price\""
+  "$SHELL" -c "$LOG \"3. Price\""
         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
-  sh -c "$LOG \"4. Shipping\""
+  "$SHELL" -c "$LOG \"4. Shipping\""
         SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping)"
-  sh -c "$LOG \"5. Description\""
+  "$SHELL" -c "$LOG \"5. Description\""
         DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g')"
-  sh -c "$LOG \"6. Category\""
+  "$SHELL" -c "$LOG \"6. Category\""
         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class')"
 
-sh -c "$LOG \"Insert item\""
- sh -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
+"$SHELL" -c "$LOG \"Insert item\""
+ "$SHELL" -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
         strg_f
         xte "str Inserieren"
         waitloaded_1
         keyEscape
 		keyReturn
- sh -c "$LOG \"2. Enter Title\""
+ "$SHELL" -c "$LOG \"2. Enter Title\""
         strg_f
         xte "str Titel"
         waitloaded_1
@@ -104,7 +104,7 @@ sh -c "$LOG \"Insert item\""
         keyTab
         waitloaded_1
         xte "str ""$TITLE"
- sh -c "$LOG \"3. Category\""
+ "$SHELL" -c "$LOG \"3. Category\""
 		if [ "$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ]; then
         	strg_f
         	xte "str Titel"
@@ -149,7 +149,7 @@ sh -c "$LOG \"Insert item\""
 		else
 			fail
 		fi
- sh -c "$LOG \"4. Shipping\""
+ "$SHELL" -c "$LOG \"4. Shipping\""
 		if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ]; then
 			strg_f
 			xte "str Versandmethoden"
@@ -178,7 +178,7 @@ sh -c "$LOG \"Insert item\""
 		else
 			fail
 		fi
- sh -c "$LOG \"5. Price\""
+ "$SHELL" -c "$LOG \"5. Price\""
 		strg_f
 		xte "str Preis"
 		waitloaded_1
@@ -193,7 +193,7 @@ sh -c "$LOG \"Insert item\""
 		waitloaded_1
 		xte "key Down"
 		waitloaded_1
- sh -c "$LOG \"6. Description\""
+ "$SHELL" -c "$LOG \"6. Description\""
 		strg_f
 		xte "str Beschreibung"
 		waitloaded_1
@@ -204,7 +204,7 @@ sh -c "$LOG \"Insert item\""
 			xte "str ""$(echo "$DESCRIPTION" | head -n $i | tail -n 1)"
 			keyReturn
 		done
- sh -c "$LOG \"7. Pictures\""
+ "$SHELL" -c "$LOG \"7. Pictures\""
 		strg_f
 		xte "str (empfohlen)"
 		waitloaded_1
@@ -217,7 +217,7 @@ sh -c "$LOG \"Insert item\""
 		done
 		xte "keydown Control_L" "key A" "keyup Control_L"
     	keyReturn
- sh -c "$LOG \"8. Insert\""
+ "$SHELL" -c "$LOG \"8. Insert\""
 		strg_f
 		xte "str unserer Datenschutzerklärung"
 		waitloaded_1

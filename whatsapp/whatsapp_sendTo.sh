@@ -1,18 +1,18 @@
 . "$HOME""/automation/env.sh"
 
-sh -c "$LOG \"Start\""
+"$SHELL" -c "$LOG \"Start\""
 setxkbmap -layout de
 sh "$HOME""/whatsapp/whatsapp_loader.sh"
 for i in $(seq 1 7); do
 	xte 'key Tab'
-	sh -c "$LOG \"key Tab\""
-	sh -c "$WAITLOADED 1"
+	"$SHELL" -c "$LOG \"key Tab\""
+	"$SHELL" -c "$WAITLOADED 1"
 done
-sh -c "$WAITLOADED 5"
+"$SHELL" -c "$WAITLOADED 5"
 xte "str $1"
-sh -c "$LOG \"Enter $1\""
-sh -c "$WAITLOADED 1"
-sh -c "$KEY_RETURN"
-sh -c "$KEY_RETURN"
-sh -c "$WAITLOADED 2"
-sh -c "$LOG \"End\""
+"$SHELL" -c "$LOG \"Enter $1\""
+"$SHELL" -c "$WAITLOADED 1"
+"$SHELL" -c "$KEY_RETURN"
+"$SHELL" -c "$KEY_RETURN"
+"$SHELL" -c "$WAITLOADED 2"
+"$SHELL" -c "$LOG \"End\""

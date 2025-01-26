@@ -34,7 +34,7 @@ for j in {A..Z}; do
 		FILENAME_LOCAL="$FILENAME""-""$i""$SUFFIX"
 		tsp python3 "$SCRIPTPATH""/""selenium_loader.py" "$PAGE""&p=""$i" "$FILENAME_LOCAL" "$PAGETITLE"
 		tsp -w
-		tsp sh -c "cat "$FILENAME_LOCAL" | grep 'CAD\|EUR\|USD' > tmp; mv tmp "$FILENAME_LOCAL""
+		tsp "$SHELL" -c "cat "$FILENAME_LOCAL" | grep 'CAD\|EUR\|USD' > tmp; mv tmp "$FILENAME_LOCAL""
 		tsp -w
 	done
 done

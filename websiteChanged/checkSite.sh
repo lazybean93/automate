@@ -5,20 +5,20 @@ FOLDER="$HOME""/Downloads/"
 SUFFIX=".html"
 
 gotBadword () {
-	sh -c "$LOG \"Got $1\""
+	"$SHELL" -c "$LOG \"Got $1\""
 	mv "$FOLDER""$FILENAME""$SUFFIX" "$FOLDER""$FILENAME"_temp_"$SUFFIX"
 	cat "$FOLDER""$FILENAME"_temp_"$SUFFIX" | sed "s/$2//g" > "$FOLDER""$FILENAME""$SUFFIX"
 	rm "$FOLDER""$FILENAME"_temp_"$SUFFIX"
 	echo $2
 }
 
-sh -c "$LOG \"Start\""
+"$SHELL" -c "$LOG \"Start\""
 for i in $(cat "$HOME""/websiteChanged/websites.txt"); do
 	if [ ! -z "$(echo $i | grep '#http')" ]; then
 		continue
 	fi
 	FILENAME=$(echo "$i"_"$(date +%Y%m%d_%H%M%S%N)"  | sed 's/:/_/g' | sed 's/\//_/g' | sed 's/\./_/g'  | sed 's/__/_/g' | sed 's/__/_/g')
-	LOGVAR="FILENAME: ""$FOLDER""$FILENAME""$SUFFIX"; sh -c "$LOG \"$LOGVAR\""
+	LOGVAR="FILENAME: ""$FOLDER""$FILENAME""$SUFFIX"; "$SHELL" -c "$LOG \"$LOGVAR\""
 	wget "$i" -O "$FOLDER""$FILENAME""$SUFFIX" > /dev/zero 2>&1
 	BADWORD_1=$(cat "$FOLDER""$FILENAME""$SUFFIX" | grep '\?ver=[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' | tail -n1 | sed 's/\?ver=/\n/g' | tail -n1 | sed "s/'/\n/" | head -n1)
 	BADWORD_2=$(cat "$FOLDER""$FILENAME""$SUFFIX" | grep handle | sed 's/"handle":"/\n/g' | tail -n1 | sed 's/"}/\n/g' | head -n1)
@@ -102,7 +102,7 @@ for i in $(cat "$HOME""/websiteChanged/websites.txt"); do
 	fi
 	mv "$FOLDER""$FILENAME""$SUFFIX" "$FOLDER""$FILENAME""$SUFFIX"".pdf"
 	sh "$HOME""/automation/utils_fdupes.sh" "$FOLDER"
-	sh -c "$LOG \"After fdupes\""
+	"$SHELL" -c "$LOG \"After fdupes\""
 	if [ -f "$FOLDER""$FILENAME""$SUFFIX"".pdf" ]; then
 		#COMPAREFILE="$(ls -t "$FOLDER"* | grep $(echo $FILENAME | sed 's/_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/\n/g' | head -n1) | head -n2 | tail -n1)"
 		#DIFFERENCES="$(wdiff --no-common "$COMPAREFILE" "$FOLDER""$FILENAME""$SUFFIX"".pdf" | grep -vx '=*')"
@@ -111,4 +111,4 @@ for i in $(cat "$HOME""/websiteChanged/websites.txt"); do
 		sh "$HOME""/whatsapp/whatsapp_plannedMessage.sh" "Webseiten" "$i"
 	fi
 done
-sh -c "$LOG \"End\""
+"$SHELL" -c "$LOG \"End\""
