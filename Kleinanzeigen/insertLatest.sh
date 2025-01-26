@@ -42,28 +42,28 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 
 sh -c "$LOG \"Start\""
 	sh "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
-	strg_f
-	xte "str tippen sie zum Ablehnen bitte hier"
-	waitloaded_1
-	keyEscape
-	keyReturn
-sh -c "$LOG \"Enter Credentials\""
-	for i in $(seq 1 5); do
-		keyTab
-	done;
-	waitloaded_1
-	keyReturn
-	xte "$mail"
-	waitloaded_1
-	keyTab
-	waitloaded_1
-	xte "$password"
-	waitloaded_1
-	for i in $(seq 1 2); do
-		keyTab
-	done;
-	waitloaded_1
-	keyReturn
+# 	strg_f
+# 	xte "str tippen sie zum Ablehnen bitte hier"
+# 	waitloaded_1
+# 	keyEscape
+# 	keyReturn
+# sh -c "$LOG \"Enter Credentials\""
+# 	for i in $(seq 1 5); do
+# 		keyTab
+# 	done;
+# 	waitloaded_1
+# 	keyReturn
+# 	xte "$mail"
+# 	waitloaded_1
+# 	keyTab
+# 	waitloaded_1
+# 	xte "$password"
+# 	waitloaded_1
+# 	for i in $(seq 1 2); do
+# 		keyTab
+# 	done;
+# 	waitloaded_1
+# 	keyReturn
 # sh -c "$LOG \"\""
 # sh -c "$LOG \"Get to last Item\""
 #  sh -c "$LOG \"1. Search 'kleinanzeigen'\""
