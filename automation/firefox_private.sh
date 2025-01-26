@@ -28,7 +28,6 @@ if [ -z "$(ps -ely | grep firefox)" ]; then
 fi
 xte "keydown Control_L" "key T" "keyup Control_L"
 sh -c "$WAITLOADED"
-#xte "key F6"
-sh -c "$WAITLOADED"
 xte "str about:config"
+sh -c "$KEY_RETURN"
 sh -c "$LOG \"End\""
