@@ -38,7 +38,7 @@ xte "key Escape"
 "$SHELL" -c "$WAITLOADED 1"
 xte "key Tab"
 "$SHELL" -c "$KEY_RETURN"
-xte "str automaticallyPopup"
+xte "str browser.translations.automaticallyPopup"
 "$SHELL" -c "$WAITLOADED 1"
 WEBPAGE=$(sh "$HOME""/automation/utils_saveWebsite.sh")
 cat "$WEBPAGE"
