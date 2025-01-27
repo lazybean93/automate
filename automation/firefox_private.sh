@@ -42,6 +42,13 @@ xte "str browser.translations.automaticallyPopup"
 "$SHELL" -c "$WAITLOADED 1"
 WEBPAGE=$(sh "$HOME""/automation/utils_saveWebsite.sh")
 if [ -z "$(cat "$WEBPAGE" | sed 's/>/>\n/g' | grep 'false</span>')" ]; then
-	echo bla;
+	xte "keydown Control_L" "key F" "keyup Control_L"
+	"$SHELL" -c "$WAITLOADED 1"
+	xte "str true"
+	"$SHELL" -c "$WAITLOADED 1"
+	xte "key Escape"
+	"$SHELL" -c "$WAITLOADED 1"
+	xte "key Tab"
+"$SHELL" -c "$KEY_RETURN"
 fi
 "$SHELL" -c "$LOG \"End\""
