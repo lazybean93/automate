@@ -49,6 +49,7 @@ if [ -z "$(cat "$WEBPAGE" | sed 's/>/>\n/g' | grep 'false</span>')" ]; then
 	xte "key Escape"
 	"$SHELL" -c "$WAITLOADED 1"
 	xte "key Tab"
-"$SHELL" -c "$KEY_RETURN"
+	"$SHELL" -c "$KEY_RETURN"
+	xte "keydown Control_L" "key W" "keyup Control_L"
 fi
 "$SHELL" -c "$LOG \"End\""
