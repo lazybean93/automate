@@ -135,15 +135,15 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 		digit=$(($digit+1))
 	done
   "$SHELL" -c "$LOG \"2. Title\""
-        TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g')"
+        TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g' | sed 's/\&amp;/\&/g')"
   "$SHELL" -c "$LOG \"3. Price\""
         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
   "$SHELL" -c "$LOG \"4. Shipping\""
-        SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping)"
+        SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping | sed 's/\&amp;/\&/g')"
   "$SHELL" -c "$LOG \"5. Description\""
-        DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g')"
+        DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g' | sed 's/\&amp;/\&/g')"
   "$SHELL" -c "$LOG \"6. Category\""
-        CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class')"
+        CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class' | sed 's/\&amp;/\&/g')"
 
 "$SHELL" -c "$LOG \"Insert item\""
  "$SHELL" -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
