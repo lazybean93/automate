@@ -52,6 +52,3 @@ fi
 
 "$SHELL" -c "$WAITLOADED 1"
 "$SHELL" -c "$LOG \"End\""
-
-#user_pref("browser.translations.automaticallyPopup", false);
-#user_pref("security.sandbox.warn_unprivileged_namespaces", false);
