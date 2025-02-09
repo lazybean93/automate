@@ -5,12 +5,6 @@ firefox-esr --private-window $1 2>/dev/zero &
 $SHELL -c "$LOG \"Sleep 5\""
 sleep 5;
 $SHELL -c "$LOG \"Sleep 5\""
-killall firefox-esr > /dev/zero 2>&1
-$SHELL -c "$LOG \"Sleep 5\""
-killall crashreporter > /dev/zero 2>&1
-$SHELL -c "$LOG \"Sleep 5\""
-sleep 1
-$SHELL -c "$LOG \"Sleep 5\""
 #rm -r "$HOME""/.ssh"
 for i in $(seq 1 10); do
 	$SHELL -c "$LOG \"Sleep 5\""
