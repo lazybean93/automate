@@ -4,6 +4,7 @@ $SHELL -c "$LOG \"Start: loading $1\""
 firefox-esr --private-window $1 2>/dev/zero &
 $SHELL -c "$LOG \"Sleep 5\""
 sleep 5;
+$SHELL -c "$LOG \"Sleep 5\""
 killall firefox-esr > /dev/zero 2>&1
 $SHELL -c "$LOG \"Sleep 5\""
 killall crashreporter > /dev/zero 2>&1
