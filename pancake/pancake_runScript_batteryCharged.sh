@@ -7,7 +7,7 @@ if [ $# -lt 2 ]; then
 	exit
 fi
 
-BATTERYLEVEL="$(sh "$HOME""/pancake/pancake_batteryLevel.sh" | grep -v "$HOME""/automation/utils_clean.sh")"
+BATTERYLEVEL="$(sh "$HOME""/pancake/pancake_batteryLevel.sh" | grep -v "$HOME")"
 #BATTERYLEVEL="74"
 "$SHELL" -c "$LOG \"Batterylevel: $BATTERYLEVEL\""
 
