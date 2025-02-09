@@ -42,6 +42,11 @@ else
 	else
 		LOGVAR="$(echo $(echo $BATTERYLEVEL | sed 's/a//')"%")"; "$SHELL" -c "$LOG \"$LOGVAR\""
 		"$SHELL" "$2 $3"
+		if [ "$#" -eq "3" ]; then
+			"$SHELL" "$2 $3"
+		else
+			"$SHELL" "$2"
+		fi
 	fi
 fi
 "$SHELL" -c "$LOG \"End\""
