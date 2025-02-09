@@ -5,10 +5,14 @@ firefox-esr --private-window $1 2>/dev/zero &
 $SHELL -c "$LOG \"Sleep 5\""
 sleep 5;
 killall firefox-esr > /dev/zero 2>&1
+$SHELL -c "$LOG \"Sleep 5\""
 killall crashreporter > /dev/zero 2>&1
+$SHELL -c "$LOG \"Sleep 5\""
 sleep 1
+$SHELL -c "$LOG \"Sleep 5\""
 #rm -r "$HOME""/.ssh"
 for i in $(seq 1 10); do
+	$SHELL -c "$LOG \"Sleep 5\""
 	if [ -n "$(ps -ely | grep firefox)" ]; then
 		sleep 1
 		"$SHELL" -c "$KEY_RETURN" > /dev/zero 2>&1
@@ -19,9 +23,14 @@ for i in $(seq 1 10); do
 	fi
 done
 
+$SHELL -c "$LOG \"Sleep 5\""
 echo 'user_pref("browser.translations.automaticallyPopup", false);' >> .mozilla/firefox/*/prefs.js;
+
+$SHELL -c "$LOG \"Sleep 5\""
 echo 'user_pref("security.sandbox.warn_unprivileged_namespaces", false);' >> .mozilla/firefox/*/prefs.js;
 
+
+$SHELL -c "$LOG \"Sleep 5\""
 firefox-esr --private-window $1 2>/dev/zero &
 sleep 2;
 
