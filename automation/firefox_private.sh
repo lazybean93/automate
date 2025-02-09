@@ -4,7 +4,6 @@ $SHELL -c "$LOG \"Start: loading $1\""
 firefox-esr --private-window $1 2>/dev/zero &
 sleep 5;
 $SHELL -c "$LOG \"Close\""
-#rm -r "$HOME""/.ssh"
 for i in $(seq 1 10); do
 	if [ -n "$(ps -ely | grep firefox)" ]; then
 		sleep 1
@@ -26,7 +25,6 @@ $SHELL -c "$LOG \"Restart\""
 firefox-esr --private-window $1 2>/dev/zero &
 sleep 2;
 
-ps -ely | grep firefox
 if [ -n "$(ps -ely | grep defunct)" ]; then
 	"$SHELL" -c "$CLEAN"
 	"$SHELL" -c "sh $0 $1"
