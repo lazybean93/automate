@@ -6,7 +6,6 @@ sleep 5;
 $SHELL -c "$LOG \"Close\""
 #rm -r "$HOME""/.ssh"
 for i in $(seq 1 10); do
-	$SHELL -c "$LOG \"Sleep 5\""
 	if [ -n "$(ps -ely | grep firefox)" ]; then
 		sleep 1
 		"$SHELL" -c "xte 'key Return'" > /dev/zero 2>&1
