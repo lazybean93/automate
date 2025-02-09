@@ -19,8 +19,9 @@ for i in $(seq 1 10); do
 done
 
 $SHELL -c "$LOG \"Sleep 5\""
-echo "ls $HOME/.mozilla/firefox/"
-ls $HOME/.mozilla/firefox/
+#echo "ls $HOME/.mozilla/firefox/"
+$PREFFOLDER="$HOME""/.mozilla/firefox/""$(ls "$HOME"/.mozilla/firefox/ | head -n1)"
+echo $PREFFOLDER
 #echo 'user_pref("browser.translations.automaticallyPopup", false);' >> "$HOME"/.mozilla/firefox/*/prefs.js;
 
 $SHELL -c "$LOG \"Sleep 5\""
