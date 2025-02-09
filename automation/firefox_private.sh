@@ -2,9 +2,8 @@
 
 $SHELL -c "$LOG \"Start: loading $1\""
 firefox-esr --private-window $1 2>/dev/zero &
-$SHELL -c "$LOG \"Sleep 5\""
 sleep 5;
-$SHELL -c "$LOG \"Sleep 5\""
+$SHELL -c "$LOG \"Close\""
 #rm -r "$HOME""/.ssh"
 for i in $(seq 1 10); do
 	$SHELL -c "$LOG \"Sleep 5\""
@@ -18,14 +17,13 @@ for i in $(seq 1 10); do
 	fi
 done
 
-$SHELL -c "$LOG \"Sleep 5\""
-#echo "ls $HOME/.mozilla/firefox/"
+$SHELL -c "$LOG \"Set Custom Prefs\""
 PREFFOLDER="$HOME""/.mozilla/firefox/""$(ls "$HOME"/.mozilla/firefox/ | head -n1)"
 echo 'user_pref("browser.translations.automaticallyPopup", false);' >> "$PREFFOLDER"/prefs.js;
 echo 'user_pref("security.sandbox.warn_unprivileged_namespaces", false);' >> "$PREFFOLDER"/prefs.js;
 
 
-$SHELL -c "$LOG \"Sleep 5\""
+$SHELL -c "$LOG \"Restart\""
 firefox-esr --private-window $1 2>/dev/zero &
 sleep 2;
 
