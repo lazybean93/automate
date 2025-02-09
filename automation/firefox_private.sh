@@ -2,7 +2,7 @@
 
 $SHELL -c "$LOG \"Start: loading $1\""
 firefox-esr --private-window $1 2>/dev/zero &
-sleep 2;
+sleep 5;
 killall firefox-esr > /dev/zero 2>&1
 killall crashreporter > /dev/zero 2>&1
 sleep 1
