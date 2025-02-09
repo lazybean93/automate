@@ -13,8 +13,6 @@ for i in $(seq 1 10); do
 		"$SHELL" -c "$KEY_RETURN" > /dev/zero 2>&1
 		wmctrl -c "$(wmctrl -l | grep Firefox | sed 's/'"$(uname -a | sed 's/ /\n/g' | head -n2 | grep -v Linux)"' /\n/g' | tail -n 1)"
 		"$SHELL" -c "$LOG \"Another Round\""
-	else
-		return
 	fi
 done
 
