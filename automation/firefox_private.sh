@@ -19,10 +19,10 @@ for i in $(seq 1 10); do
 done
 
 $SHELL -c "$LOG \"Sleep 5\""
-echo 'user_pref("browser.translations.automaticallyPopup", false);' >> .mozilla/firefox/*/prefs.js;
+echo 'user_pref("browser.translations.automaticallyPopup", false);' >> "$HOME"/.mozilla/firefox/*/prefs.js;
 
 $SHELL -c "$LOG \"Sleep 5\""
-echo 'user_pref("security.sandbox.warn_unprivileged_namespaces", false);' >> .mozilla/firefox/*/prefs.js;
+echo 'user_pref("security.sandbox.warn_unprivileged_namespaces", false);' >> "$HOME"/.mozilla/firefox/*/prefs.js;
 
 
 $SHELL -c "$LOG \"Sleep 5\""
