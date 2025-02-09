@@ -20,12 +20,9 @@ done
 
 $SHELL -c "$LOG \"Sleep 5\""
 #echo "ls $HOME/.mozilla/firefox/"
-$PREFFOLDER="$HOME""/.mozilla/firefox/""$(ls "$HOME"/.mozilla/firefox/ | head -n1)"
-echo $PREFFOLDER
-#echo 'user_pref("browser.translations.automaticallyPopup", false);' >> "$HOME"/.mozilla/firefox/*/prefs.js;
-
-$SHELL -c "$LOG \"Sleep 5\""
-#echo 'user_pref("security.sandbox.warn_unprivileged_namespaces", false);' >> "$HOME"/.mozilla/firefox/*/prefs.js;
+PREFFOLDER="$HOME""/.mozilla/firefox/""$(ls "$HOME"/.mozilla/firefox/ | head -n1)"
+echo 'user_pref("browser.translations.automaticallyPopup", false);' >> "$PREFFOLDER"/prefs.js;
+echo 'user_pref("security.sandbox.warn_unprivileged_namespaces", false);' >> "$PREFFOLDER"/prefs.js;
 
 
 $SHELL -c "$LOG \"Sleep 5\""
