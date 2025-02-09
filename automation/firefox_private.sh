@@ -18,7 +18,7 @@ for i in $(seq 1 10); do
 done
 
 $SHELL -c "$LOG \"Set Custom Prefs\""
-PREFFOLDER="$HOME""/.mozilla/firefox/""$(ls "$HOME"/.mozilla/firefox/ | head -n1)"
+PREFFOLDER="$HOME""/.mozilla/firefox/""$(ls "$HOME"/.mozilla/firefox/ | grep default-esr)"
 echo 'user_pref("browser.translations.automaticallyPopup", false);' >> "$PREFFOLDER"/prefs.js;
 echo 'user_pref("security.sandbox.warn_unprivileged_namespaces", false);' >> "$PREFFOLDER"/prefs.js;
 
