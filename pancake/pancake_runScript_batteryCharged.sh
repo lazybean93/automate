@@ -41,7 +41,7 @@ else
 		sh "$HOME""/automation/utils_addCron.sh" "$DATESECS" "$ARGUMENTS"
 	else
 		LOGVAR="$(echo $(echo $BATTERYLEVEL | sed 's/a//')"%")"; "$SHELL" -c "$LOG \"$LOGVAR\""
-		"$SHELL" -c "$2 $3"
+		"$SHELL" "$2 $3"
 	fi
 fi
 "$SHELL" -c "$LOG \"End\""
