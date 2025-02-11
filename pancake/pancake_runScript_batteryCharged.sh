@@ -33,7 +33,7 @@ if [ ! -z "$(echo "$BATTERYLEVEL" | grep a)" ]; then
 	if [ "$DATESECS" -gt "$("$SHELL" "$HOME""/automation/utils_dateAdd.sh" "600")" ]; then
 		"$SHELL" "$HOME""/automation/utils_addCron.sh" "$DATESECS" "$ARGUMENTS"
 	else
-		"$SHELL" "$HOME""/automation/utils_addCron.sh" "$("$SHELL" "$HOME""/automation/utils_dateAdd.sh" "600")" "$ARGUMENTS"
+		"$SHELL" "$HOME""/automation/utils_addCron.sh" "$("$SHELL" "$HOME""/automation/utils_dateAdd.sh" "60")" "$ARGUMENTS"
 	fi
 else
 	"$SHELL" -c "$LOG \"case else\""
