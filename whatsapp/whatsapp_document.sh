@@ -27,7 +27,7 @@ while [ -z "$(wmctrl -l | tail -n1 | grep 'Open Files\|Select Files\|File Upload
 	TRIES=$(($TRIES-1));
 	if [ $TRIES -eq 0 ]; then
 		"$SHELL" -c "$CLEAN"
-		sh "$HOME""/whatsapp/whatsapp_document.sh" $1 $2
+		"$SHELL" "$HOME""/whatsapp/whatsapp_document.sh" $1 $2
 		"$SHELL" -c "$LOG \"End\""
 		return
 	fi

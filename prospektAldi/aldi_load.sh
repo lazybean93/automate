@@ -2,7 +2,7 @@
 
 "$SHELL" -c "$LOG \"Start\""
 for i in $(cat "$HOME""/prospektAldi/websites.txt"); do
-	sh "$HOME""/automation/utils_startpage.sh" "$i"
+	"$SHELL" "$HOME""/automation/utils_startpage.sh" "$i"
 	"$SHELL" -c "$LOG \"Webpage $i Loaded\""
 
 	"$SHELL" -c "$LOG \"Download\""
@@ -15,9 +15,9 @@ for i in $(cat "$HOME""/prospektAldi/websites.txt"); do
 	"$SHELL" -c "$KEY_RETURN"
 	"$SHELL" -c "$WAITLOADED 1"
 
-	sh "$HOME""/automation/utils_savePDF.sh"
-	sh "$HOME""/automation/utils_fdupes.sh" "$HOME""/Downloads"
-	sh "$HOME""/automation/utils_sendIfNew.sh" "Aldi Prospekte"
+	"$SHELL" "$HOME""/automation/utils_savePDF.sh"
+	"$SHELL" "$HOME""/automation/utils_fdupes.sh" "$HOME""/Downloads"
+	"$SHELL" "$HOME""/automation/utils_sendIfNew.sh" "Aldi Prospekte"
 done
 "$SHELL" -c "$CLEAN"
 "$SHELL" -c "$LOG \"End\""

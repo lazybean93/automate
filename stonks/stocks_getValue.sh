@@ -6,7 +6,7 @@ SCRIPTPATH=`dirname $SCRIPT`
 . "$HOME""/automation/env.sh"
 
 "$SHELL" -c "$LOG \"Start\""
-DATE="$(sh "$HOME""/automation/utils_getDate_ymd_hms.sh")"
+DATE="$("$SHELL" "$HOME""/automation/utils_getDate_ymd_hms.sh")"
 FILE="$SCRIPTPATH""/stocks.txt"
 SUFFIX=".htmlstonks"
 

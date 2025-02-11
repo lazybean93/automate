@@ -19,7 +19,7 @@ xte "$password"
 "$SHELL" -c "$LOG \"Interpret Webpage\""
 "$SHELL" -c "$KEY_RETURN"
 "$SHELL" -c "$WAITLOADED 1"
-WEBPAGE=$(sh "$HOME""/automation/utils_saveWebsite.sh")
+WEBPAGE=$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")
 LAUFZEIT="$(cat "$WEBPAGE" | grep -A3 Laufzeit | tail -n1 | sed 's/ //g')"
 "$SHELL" -c "$LOG \"$LAUFZEIT\""
 sh "$HOME""/whatsapp/whatsapp_plannedMessage.sh" "Bplaced" "$LAUFZEIT"

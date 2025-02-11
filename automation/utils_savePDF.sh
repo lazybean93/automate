@@ -15,8 +15,8 @@ while [ -z "$(wmctrl -l | tail -n1 | grep Opening)" ]; do
 	TRIES=$(($TRIES-1))
 	if [ "$TRIES" -eq "0" ]; then
 		"$SHELL" -c "$LOG \"\tNumber of Tries Exceeded.\""
-		sh "$HOME""/automation/utils_printWebsitePDF.sh"
-		sh "$HOME""/automation/utils_putCurrentJobAgain.sh"
+		"$SHELL" "$HOME""/automation/utils_printWebsitePDF.sh"
+		"$SHELL" "$HOME""/automation/utils_putCurrentJobAgain.sh"
 		return
 	fi
 	sleep 0.1;

@@ -14,15 +14,15 @@ while [ "$FILESIZE" -lt 300 ]; do
 	if [ "$COUNT" -gt "200" ]; then
 		#did firefox have a problem?
 		if [ -n "$(ps -ely | grep crashreporter)" ]; then
-			sh "$HOME""/whatsapp/whatsapp_loader.sh"
+			"$SHELL" "$HOME""/whatsapp/whatsapp_loader.sh"
 			return;
 		fi
 		if [ -n "$(wmctrl -l | grep 'Tab crash reporter')" ]; then
-			sh "$HOME""/whatsapp/whatsapp_loader.sh"
+			"$SHELL" "$HOME""/whatsapp/whatsapp_loader.sh"
 			return;
 		fi
 		"$SHELL" -c "$LOG \"Abort after 200 tries\""
-		sh "$HOME""/automation/utils_killScriptsContainingWhatsapp.sh"
+		"$SHELL" "$HOME""/automation/utils_killScriptsContainingWhatsapp.sh"
 		tsp -k
 	fi
 	scrot "$FILENAME"

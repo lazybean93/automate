@@ -11,7 +11,7 @@ if [ ! -z "$(echo "$PROCESSES" | grep -i crashreporter)" ]; then
 fi
 if [ ! -z "$(wmctrl -l | grep "Open Firefox in Troubleshoot Mode?")" ]; then
 	"$SHELL" -c "$LOG \"\tFirefox Error found.\""
-	sh "$HOME""/automation/utils_sendkey_Return.sh"
+	"$SHELL" "$HOME""/automation/utils_sendkey_Return.sh"
 fi
 
 
@@ -27,7 +27,7 @@ if [ -z "$(echo "$PROCESSES" | grep $BROWSER)" ]; then
 fi
 if [ -z "$(echo "$PROCESSES" | grep $BROWSER)" ]; then
 	"$SHELL" -c "$LOG \"Browser not Found, try again\""
-	sh "$0"
+	"$SHELL" "$0"
 fi
 
 "$SHELL" -c "$LOG \"$BROWSER \""

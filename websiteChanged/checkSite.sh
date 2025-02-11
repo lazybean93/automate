@@ -101,14 +101,14 @@ for i in $(cat "$HOME""/websiteChanged/websites.txt"); do
 		gotBadword BADWORD_20 $BADWORD_20
 	fi
 	mv "$FOLDER""$FILENAME""$SUFFIX" "$FOLDER""$FILENAME""$SUFFIX"".pdf"
-	sh "$HOME""/automation/utils_fdupes.sh" "$FOLDER"
+	"$SHELL" "$HOME""/automation/utils_fdupes.sh" "$FOLDER"
 	"$SHELL" -c "$LOG \"After fdupes\""
 	if [ -f "$FOLDER""$FILENAME""$SUFFIX"".pdf" ]; then
 		#COMPAREFILE="$(ls -t "$FOLDER"* | grep $(echo $FILENAME | sed 's/_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/\n/g' | head -n1) | head -n2 | tail -n1)"
 		#DIFFERENCES="$(wdiff --no-common "$COMPAREFILE" "$FOLDER""$FILENAME""$SUFFIX"".pdf" | grep -vx '=*')"
 		#MESSAGE="$(echo "$i"; echo ""; echo "$DIFFERENCES")"
 		#sh "$HOME""/whatsapp/whatsapp_plannedMessage.sh" "Webseiten" "$MESSAGE"
-		sh "$HOME""/whatsapp/whatsapp_plannedMessage.sh" "Webseiten" "$i"
+		"$SHELL" "$HOME""/whatsapp/whatsapp_plannedMessage.sh" "Webseiten" "$i"
 	fi
 done
 "$SHELL" -c "$LOG \"End\""

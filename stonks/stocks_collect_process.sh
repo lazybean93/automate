@@ -5,7 +5,7 @@ SCRIPTPATH=`dirname $SCRIPT`
 
 . "$HOME""/automation/env.sh"
 
-DATE="$SCRIPTPATH""/""$(sh "$HOME""/automation/utils_getDate_ymd_hms.sh")"
+DATE="$SCRIPTPATH""/""$("$SHELL" "$HOME""/automation/utils_getDate_ymd_hms.sh")"
 mkdir "$DATE"
 
 SUFFIX=".htmlstonks"

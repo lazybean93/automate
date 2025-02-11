@@ -41,7 +41,7 @@ mail=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | head -n1)"`
 password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 
 "$SHELL" -c "$LOG \"Start\""
-	sh "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
+	"$SHELL" "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
  	strg_f
  	xte "str tippen sie zum Ablehnen bitte hier"
  	waitloaded_1
@@ -99,7 +99,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
   "$SHELL" -c "$LOG \"   Hit Return\""
  	keyReturn
   "$SHELL" -c "$LOG \"3. Save Item Page\""
- 	WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
+ 	WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
   "$SHELL" -c "$LOG \"4. Remove Item\""
  	strg_f
  	xte "str Löschen"

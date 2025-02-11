@@ -2,5 +2,5 @@ ID="$(tsp | grep finished | sort -r | grep "$1" | grep -v ' -1 ' | sed 's/  fini
 echo $ID
 if [ ! -z "$ID" ]; then
 	tsp -r "$ID"
-	sh "$HOME""/automation/utils_cleanTsp.sh" "$1"
+	"$SHELL" "$HOME""/automation/utils_cleanTsp.sh" "$1"
 fi

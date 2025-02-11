@@ -11,12 +11,12 @@ for i in $PROSPEKTE; do
 	if [ ! -z "$(echo $i | grep '\.pdf')" ]; then
 		"$SHELL" -c "$LOG \"$i is a PDF\""
 		wget "$i" -P "$HOME""/Downloads" -o /dev/stdout | sed 's/‘/\n/g' | grep '\.pdf' | sed 's/’/\n/g' | grep '\.pdf' | tail -n1
-		sh "$HOME""/automation/utils_fdupes.sh" "$HOME""/Downloads" > /dev/null
-		sh "$HOME""/automation/utils_sendIfNew.sh" "HolAb Prospekte"
+		"$SHELL" "$HOME""/automation/utils_fdupes.sh" "$HOME""/Downloads" > /dev/null
+		"$SHELL" "$HOME""/automation/utils_sendIfNew.sh" "HolAb Prospekte"
 	else
 		"$SHELL" -c "$LOG \"$i is not a PDF\""
-		sh "$HOME""/automation/utils_startpage.sh" $i
-		WEBPAGE="$(sh "$HOME""/automation/utils_saveWebsite.sh")"
+		"$SHELL" "$HOME""/automation/utils_startpage.sh" $i
+		WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
 		"$SHELL" -c "$LOG \"WEBPAGE $WEBPAGE \""
 		cat "$WEBPAGE" | sed 's/"/\n/g' | grep pdf
 		PDF="$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep pdf | grep 'files/downloads' | sed 's/value=".\///' | sed 's/"//')"
@@ -25,8 +25,8 @@ for i in $PROSPEKTE; do
 		echo "$MAINLINK""$PDF"
 		rm "$WEBPAGE"
 		wget "$MAINLINK""$PDF" -P "$HOME""/Downloads" -o /dev/stdout | sed 's/‘/\n/g' | grep '\.pdf' | sed 's/’/\n/g' | grep '\.pdf' | tail -n1
-		sh "$HOME""/automation/utils_fdupes.sh" "$HOME""/Downloads" > /dev/null
-		sh "$HOME""/automation/utils_sendIfNew.sh" "HolAb Prospekte"
+		"$SHELL" "$HOME""/automation/utils_fdupes.sh" "$HOME""/Downloads" > /dev/null
+		"$SHELL" "$HOME""/automation/utils_sendIfNew.sh" "HolAb Prospekte"
 	fi
 done
 "$SHELL" -c "$LOG \"End\""
