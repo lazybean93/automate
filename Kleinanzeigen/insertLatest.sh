@@ -317,6 +317,8 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				waitloaded_1
 				xte "str Weiter"
 				waitloaded_1
+				keyTab
+				waitloaded_1
 				keyReturn
 				waitloaded_1
         		keyEscape
