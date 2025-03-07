@@ -298,6 +298,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				waitloaded_1
 				keyReturn
 			elif [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Küche & Esszimmer" ];
+				echo "$CATEGORY"
 				"$SHELL" -c "$LOG \"Küche & Esszimmer\""
 				fail
 			else
