@@ -100,28 +100,28 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
  	keyReturn
   "$SHELL" -c "$LOG \"3. Save Item Page\""
  	WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
-  "$SHELL" -c "$LOG \"4. Remove Item\""
- 	strg_f
- 	xte "str Löschen"
- 	waitloaded_1
- 	keyEscape
- 	keyReturn
- 	strg_f
- 	xte "str Ja, Anzeige löschen"
- 	waitloaded_1
- 	keyEscape
- 	for i in $(seq 1 2); do
- 		keyTab
- 	done
- 	keyReturn
- 	strg_f
- 	xte "str Schließen"
- 	waitloaded_1
- 	keyEscape
- 	for i in $(seq 1 2); do
- 		keyTab
- 	done
- 	keyReturn
+#   "$SHELL" -c "$LOG \"4. Remove Item\""
+#  	strg_f
+#  	xte "str Löschen"
+#  	waitloaded_1
+#  	keyEscape
+#  	keyReturn
+#  	strg_f
+#  	xte "str Ja, Anzeige löschen"
+#  	waitloaded_1
+#  	keyEscape
+#  	for i in $(seq 1 2); do
+#  		keyTab
+#  	done
+#  	keyReturn
+#  	strg_f
+#  	xte "str Schließen"
+#  	waitloaded_1
+#  	keyEscape
+#  	for i in $(seq 1 2); do
+#  		keyTab
+#  	done
+#  	keyReturn
 	
  "$SHELL" -c "$LOG \"Analyze Webpage\""
   "$SHELL" -c "$LOG \"1. Pictures\""
