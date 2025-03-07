@@ -35,6 +35,7 @@ function fail {
         	echo "$DESCRIPTION" >> $RESULT
 			echo "" >> $RESULT
         	echo "$CATEGORY" >> $RESULT
+	sleep infinity
 }
 
 mail=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | head -n1)"`
