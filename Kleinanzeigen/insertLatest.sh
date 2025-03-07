@@ -297,7 +297,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 				waitloaded_1
 				keyReturn
-			else if [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Küche & Esszimmer" ];
+			elif [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Küche & Esszimmer" ];
 				"$SHELL" -c "$LOG \"Küche & Esszimmer\""
 				fail
 			else
