@@ -300,6 +300,33 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				keyReturn
 			elif [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Küche & Esszimmer" ];
 			then
+				strg_f
+        		xte "str ""$(echo "$CATEGORY" | head -n 2 | tail -n 1)"
+				waitloaded_1
+        		keyEscape
+				keyReturn
+				waitloaded_1
+				strg_f
+        		xte "str ""$(echo "$CATEGORY" | head -n 3 | tail -n 1)"
+				waitloaded_1
+        		keyEscape
+				keyReturn
+				waitloaded_1
+				strg_f
+				xte "key BackSpace"
+				waitloaded_1
+				xte "str Weiter"
+				waitloaded_1
+				keyTab
+				waitloaded_1
+				keyReturn
+				waitloaded_1
+        		keyEscape
+				keyTab
+				waitloaded_1
+				xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+				waitloaded_1
+				keyReturn
 				echo "$CATEGORY"
 				"$SHELL" -c "$LOG \"Küche & Esszimmer\""
 				fail
