@@ -322,10 +322,10 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				keyReturn
 				waitloaded_1
         		keyEscape
-				keyTab
-				waitloaded_1
-				keyTab
-				waitloaded_1
+				for i in $(seq 1 3); do
+					keyTab
+					waitloaded_1
+				done 
 				keyReturn
 				echo "$CATEGORY"
 				"$SHELL" -c "$LOG \"Küche & Esszimmer\""
