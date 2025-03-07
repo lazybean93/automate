@@ -162,20 +162,20 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
         waitloaded_1
         xte "str ""$TITLE"
  "$SHELL" -c "$LOG \"3. Category\""
-		if [ "$(echo "$CATEGORY" | head -n 1)" == "Auto, Rad & Boot" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Dienstleistungen" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Eintrittskarten & Tickets" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Familie, Kind & Baby" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Freizeit, Hobby & Nachbarschaft" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Haus & Garten" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Haustiere" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Immobilien" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Jobs" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Mode & Beauty" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Musik, Filme & Bücher" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Nachbarschaftshilfe" ||
-			"$(echo "$CATEGORY" | head -n 1)" == "Unterricht & Kurse" ||
+		if [ "$(echo "$CATEGORY" | head -n 1)" == "Auto, Rad & Boot"  ] || [ 
+			"$(echo "$CATEGORY" | head -n 1)" == "Dienstleistungen" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Eintrittskarten & Tickets"  ] || [ 
+			"$(echo "$CATEGORY" | head -n 1)" == "Elektronik" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Familie, Kind & Baby" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Freizeit, Hobby & Nachbarschaft" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Haus & Garten" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Haustiere" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Immobilien" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Jobs" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Mode & Beauty" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Musik, Filme & Bücher" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Nachbarschaftshilfe" ] || [
+			"$(echo "$CATEGORY" | head -n 1)" == "Unterricht & Kurse" ] || [
 			"$(echo "$CATEGORY" | head -n 1)" == "Verschenken & Tauschen" ];
 		then
         	strg_f
@@ -193,88 +193,88 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 			waitloaded_1
         	keyEscape
 			keyReturn
-			if [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Reparaturen & Dienstleistungen" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Auto, Rad & Boot" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Altenpflege" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Auto, Rad & Boot" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Babysitter/-in & Kinderbetreuung" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Elektronik" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Haus & Garten" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Reise & Event" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tierbetreuung & Training" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Umzug & Transport" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Dienstleistungen" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Bahn & ÖPNV" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Comedy & Kabarett" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Gutscheine" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kinder" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Konzerte" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sport" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Theater & Musical" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Eintrittskarten & Tickets" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Dienstleistungen Elektronik" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Notebooks" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "PCs" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Elektronik" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Altenpflege" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Baby-Ausstattung" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Babyschalen & Kindersitze" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Babysitter/-in & Kinderbetreuung" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kinderwagen & Buggys" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Familie, Kind & Baby" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Esoterik & Spirituelles" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Essen & Trinken" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Freizeitaktivitäten" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Handarbeit, Basteln & Kunsthandwerk" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kunst & Antiquitäten" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Künstler/-in & Musiker/-in" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Modellbau" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Reise & Eventservices" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Trödel" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Verloren & Gefunden" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Freizeit, Hobby & Nachbarschaft" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Badezimmer" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Büro" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Heimtextilien" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Heimwerken" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Lampen & Licht" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Haus & Garten" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Nutztiere" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tierbetreuung & Training" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Vögel" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Eigentumswohnungen" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Häuser zum Kauf" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Häuser zur Miete" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Mietwohnungen" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Umzug & Transport" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Immobilien" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Ausbildung" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kundenservice & Call Center" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Mini- & Nebenjobs" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Praktika" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Mode & Beauty" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Büro & Schreibwaren" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Comics" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Fachbücher, Schule & Studium" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Film & DVD" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Musik & CDs" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Musikinstrumente" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Musik, Filme & Bücher" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Nachbarschaftshilfe" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Beauty & Gesundheit" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Computerkurse" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Esoterik & Spirituelles" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kochen & Backen" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kunst & Gestaltung" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Musik & Gesang" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Nachhilfe" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sportkurse" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sprachkurse" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tanzkurse" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiterbildung" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Unterricht & Kurse" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tauschen" ||
-				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Verleihen" ||
+			if [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Reparaturen & Dienstleistungen" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Auto, Rad & Boot" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Altenpflege" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Auto, Rad & Boot" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Babysitter/-in & Kinderbetreuung" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Elektronik" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Haus & Garten" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Reise & Event" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tierbetreuung & Training" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Umzug & Transport" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Dienstleistungen" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Bahn & ÖPNV" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Comedy & Kabarett" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Gutscheine" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kinder" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Konzerte" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sport" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Theater & Musical" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Eintrittskarten & Tickets" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Dienstleistungen Elektronik" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Notebooks" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "PCs" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Elektronik" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Altenpflege" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Baby-Ausstattung" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Babyschalen & Kindersitze" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Babysitter/-in & Kinderbetreuung" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kinderwagen & Buggys" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Familie, Kind & Baby" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Esoterik & Spirituelles" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Essen & Trinken" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Freizeitaktivitäten" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Handarbeit, Basteln & Kunsthandwerk" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kunst & Antiquitäten" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Künstler/-in & Musiker/-in" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Modellbau" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Reise & Eventservices" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Trödel" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Verloren & Gefunden" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Freizeit, Hobby & Nachbarschaft" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Badezimmer" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Büro" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Heimtextilien" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Heimwerken" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Lampen & Licht" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Haus & Garten" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Nutztiere" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tierbetreuung & Training" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Vögel" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Eigentumswohnungen" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Häuser zum Kauf" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Häuser zur Miete" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Mietwohnungen" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Umzug & Transport" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Immobilien" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Ausbildung" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kundenservice & Call Center" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Mini- & Nebenjobs" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Praktika" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Mode & Beauty" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Büro & Schreibwaren" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Comics" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Fachbücher, Schule & Studium" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Film & DVD" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Musik & CDs" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Musikinstrumente" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Musik, Filme & Bücher" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Nachbarschaftshilfe" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Beauty & Gesundheit" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Computerkurse" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Esoterik & Spirituelles" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kochen & Backen" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kunst & Gestaltung" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Musik & Gesang" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Nachhilfe" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sportkurse" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sprachkurse" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tanzkurse" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiterbildung" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Unterricht & Kurse" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tauschen" ] || [
+				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Verleihen" ] || [
 				"$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Verschenken" ];
 			then
 				strg_f
