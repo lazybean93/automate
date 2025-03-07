@@ -324,7 +324,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
         		keyEscape
 				keyTab
 				waitloaded_1
-				xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+				keyTab
 				waitloaded_1
 				keyReturn
 				echo "$CATEGORY"
