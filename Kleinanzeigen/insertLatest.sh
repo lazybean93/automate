@@ -316,10 +316,12 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				xte "key BackSpace"
 				waitloaded_1
 				xte "str Weiter"
+				for i in $(seq 1 2); do
+					waitloaded_1
+					keyTab
+				done
 				waitloaded_1
-				keyTab
-				#waitloaded_1
-				#keyReturn
+				keyReturn
 				#waitloaded_1
         		#keyEscape
 				#keyTab
