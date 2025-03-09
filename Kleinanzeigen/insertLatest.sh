@@ -286,14 +286,9 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				strg_f
 				xte "key BackSpace"
 				waitloaded_1
-				xte "str Weiter"
-				waitloaded_1
-				keyTab
-				waitloaded_1
-				keyReturn
+				xte "str Kleinanzeigen"
 				waitloaded_1
         		keyEscape
-				keyTab
 				waitloaded_1
 				xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 				waitloaded_1
@@ -315,18 +310,9 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				strg_f
 				xte "key BackSpace"
 				waitloaded_1
-				xte "str Weiter"
-				for i in $(seq 1 2); do
-					waitloaded_1
-					keyTab
-				done
-				waitloaded_1
-				keyReturn
+				xte "str Kleinanzeigen"
 				waitloaded_1
         		keyEscape
-				keyTab
-				waitloaded_1
-				keyTab
 				waitloaded_1
 				xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 				waitloaded_1
