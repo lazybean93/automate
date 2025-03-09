@@ -322,13 +322,12 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				done
 				waitloaded_1
 				keyReturn
-				#waitloaded_1
-        		#keyEscape
-				#keyTab
-				#waitloaded_1
-				#xte "keydown Shift_L" "key Tab" "keyup Shift_L"
-				#waitloaded_1
-				#keyReturn
+				waitloaded_1
+        		keyEscape
+				keyTab
+				waitloaded_1
+				keyReturn
+				waitloaded_1
 				echo "$CATEGORY"
 				"$SHELL" -c "$LOG \"Küche & Esszimmer\""
 				fail
