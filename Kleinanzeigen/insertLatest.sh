@@ -101,28 +101,28 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
  	keyReturn
   "$SHELL" -c "$LOG \"3. Save Item Page\""
  	WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
-#   "$SHELL" -c "$LOG \"4. Remove Item\""
-#  	strg_f
-#  	xte "str Löschen"
-#  	waitloaded_1
-#  	keyEscape
-#  	keyReturn
-#  	strg_f
-#  	xte "str Ja, Anzeige löschen"
-#  	waitloaded_1
-#  	keyEscape
-#  	for i in $(seq 1 2); do
-#  		keyTab
-#  	done
-#  	keyReturn
-#  	strg_f
-#  	xte "str Schließen"
-#  	waitloaded_1
-#  	keyEscape
-#  	for i in $(seq 1 2); do
-#  		keyTab
-#  	done
-#  	keyReturn
+  "$SHELL" -c "$LOG \"4. Remove Item\""
+ 	strg_f
+ 	xte "str Löschen"
+ 	waitloaded_1
+ 	keyEscape
+ 	keyReturn
+ 	strg_f
+ 	xte "str Ja, Anzeige löschen"
+ 	waitloaded_1
+ 	keyEscape
+ 	for i in $(seq 1 2); do
+ 		keyTab
+ 	done
+ 	keyReturn
+ 	strg_f
+ 	xte "str Schließen"
+ 	waitloaded_1
+ 	keyEscape
+ 	for i in $(seq 1 2); do
+ 		keyTab
+ 	done
+ 	keyReturn
 	
  "$SHELL" -c "$LOG \"Analyze Webpage\""
   "$SHELL" -c "$LOG \"1. Pictures\""
@@ -293,7 +293,64 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 				xte "keydown Shift_L" "key Tab" "keyup Shift_L"
 				waitloaded_1
 				keyReturn
-			elif [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Küche & Esszimmer" ];
+			elif [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Autoteile & Reifen" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Boote & Bootszubehör" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Fahrräder & Zubehör" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Motorräder & Motorroller" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Motorradteile & Zubehör" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Nutzfahrzeuge & Anhänger" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Reparaturen & Dienstleistungen" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Wohnwagen & -mobile" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Haus & Garten" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Audio & Hifi" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Foto" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Handy & Telefon" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Haushaltsgeräte" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Konsolen" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "PC-Zubehör & Software" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Tablets & Reader" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "TV & Video" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Videospiele" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Baby- & Kinderkleidung" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Baby- & Kinderschuhe" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kinderzimmermöbel" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Spielzeug" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sammeln" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sport & Camping" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Dekoration" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Dienstleistungen Haus & Garten" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Gartenzubehör & Pflanzen" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Küche & Esszimmer" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Schlafzimmer" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Wohnzimmer" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Fische" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Hunde" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Katzen" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Kleintiere" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Pferde" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Vermisste Tiere" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Zubehör" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Auf Zeit & WG" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Container" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Ferien- & Auslandsimmobilien" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Garagen & Stellplätze" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Gewerbeimmobilien" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Grundstücke & Gärten" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Bau, Handwerk & Produktion" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Büroarbeit & Verwaltung" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Gastronomie & Tourismus" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Sozialer Sektor & Pflege" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Transport, Logistik & Verkehr" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Vertrieb, Einkauf & Verkauf" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weitere Jobs" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Beauty & Gesundheit" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Damenbekleidung" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Damenschuhe" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Herrenbekleidung" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Herrenschuhe" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Taschen & Accessoires" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Uhren & Schmuck" ] || \
+				[ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Bücher & Zeitschriften" ];
 			then
 				strg_f
         		xte "str ""$(echo "$CATEGORY" | head -n 2 | tail -n 1)"
