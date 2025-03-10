@@ -179,12 +179,9 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 			"$(echo "$CATEGORY" | head -n 1)" == "Verschenken & Tauschen" ];
 		then
         	strg_f
-        	xte "str Titel"
+        	xte "str Kategorie"
         	waitloaded_1
         	keyEscape
-			for i in $(seq 1 2); do
-        		keyTab
-			done
 			waitloaded_1
 			keyReturn
 			waitloaded_1
