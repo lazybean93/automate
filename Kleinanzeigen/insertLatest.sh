@@ -450,7 +450,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
     	keyReturn
  "$SHELL" -c "$LOG \"8. Insert\""
 		strg_f
-		xte "str unserer Datenschutzerklärung"
+		xte "str Daten findest du in unserer Datenschutzerklärung"
 		waitloaded_1
 		keyEscape
 		for i in $(seq 1 2); do
