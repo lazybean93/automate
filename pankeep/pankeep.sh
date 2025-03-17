@@ -4,7 +4,7 @@
 #"$SHELL" "$HOME""/pancake/pancake_startpage.sh"
 rm "$WEBPAGE"
 WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
-if [ "$(cat "$WEBPAGE" | grep Ladefehler)" ]; then
+if [ -n "$(cat "$WEBPAGE" | grep Ladefehler)" ]; then
     echo bla
 else
     echo blubb
