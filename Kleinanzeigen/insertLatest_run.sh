@@ -6,7 +6,14 @@ function keyReturn {
 	"$SHELL" -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
 }
 function keyReturn_fast {
-	"$SHELL" -c sleep 2; xte 'key Return'; sleep 2; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+	sleep 2
+	xte 'key Return'
+	sleep 2
+	sh "$HOME""/automation/firefox_status.sh"
+	if [ $? -ne 0 ]; then
+		sh $0;
+		exit 0;
+	fi
 }
 
 function keyTab {
