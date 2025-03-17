@@ -11,5 +11,5 @@ rm "$WEBPAGE"
 if [ "$STATE" = "Lädt" ]; then
 	echo $BATTERYLEVEL
 else
-	echo a$BATTERYLEVEL
+	echo a_$STATE
 fi
