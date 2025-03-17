@@ -24,7 +24,7 @@ function waitloaded_1 {
 	"$SHELL" -c "$WAITLOADED 1"
 }
 
-strg_f_sleepless="$SHELL"' -c "xte "keydown Control_L" "key F" "keyup Control_L"'
+strg_f_sleepless="$SHELL"" -c "'xte "keydown Control_L" "key F" "keyup Control_L"'
 function strg_f {
 	$strg_f_sleepless
     waitloaded_1
