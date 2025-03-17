@@ -24,13 +24,12 @@ function waitloaded_1 {
 	"$SHELL" -c "$WAITLOADED 1"
 }
 
+strg_f_sleepless="$SHELL"' -c "xte "keydown Control_L" "key F" "keyup Control_L"'
 function strg_f {
-	strg_f_sleepless
+	$strg_f_sleepless
     waitloaded_1
 }
-function strg_f_sleepless {
-	xte "keydown Control_L" "key F" "keyup Control_L"
-}
+
 
 function keyEscape {
 	keyEscape_sleepless
@@ -64,7 +63,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
  	waitloaded_1
  	keyEscape
  	keyReturn
- "$SHELL" -c "$LOG \"Enter Credentials\""
+"$SHELL" -c "$LOG \"Enter Credentials\""
  	for i in $(seq 1 5); do
  		keyTab
  	done;
@@ -81,43 +80,42 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
  	done;
  	waitloaded_1
  	keyReturn
- "$SHELL" -c "$LOG \"\""
- "$SHELL" -c "$LOG \"Get to last Item\""
-  "$SHELL" -c "$LOG \"1. Search 'kleinanzeigen'\""
+"$SHELL" -c "$LOG \"Get to last Item\""
+"$SHELL" -c "$LOG \"1. Search 'kleinanzeigen'\""
  	strg_f
  	xte "str Kleinanzeigen"
  	waitloaded_1
-  "$SHELL" -c "$LOG \"   Escape Dialog\""
+"$SHELL" -c "$LOG \"	Escape Dialog\""
  	keyEscape
-  "$SHELL" -c "$LOG \"   Reverse Tab x2\""
+"$SHELL" -c "$LOG \"	Reverse Tab x2\""
  	for i in $(seq 1 2); do
  	        xte "keydown Shift_L" "key Tab" "keyup Shift_L"
  	done;
  	waitloaded_1
-  "$SHELL" -c "$LOG \"   Hit Return\""
+"$SHELL" -c "$LOG \"	Hit Return\""
  	keyReturn
  	waitloaded_1
-  "$SHELL" -c "$LOG \"2. Search 'Endet'\""
+"$SHELL" -c "$LOG \"2. Search 'Endet'\""
  	strg_f
  	xte "key BackSpace"
  	waitloaded_1
  	xte "str Endet"
  	waitloaded_1
-  "$SHELL" -c "$LOG \"   Tab\""
+"$SHELL" -c "$LOG \"   Tab\""
  	keyTab
  	waitloaded_1
-  "$SHELL" -c "$LOG \"   Hit Return\""
+"$SHELL" -c "$LOG \"   Hit Return\""
  	keyReturn
-  "$SHELL" -c "$LOG \"   Escape Dialog\""
+"$SHELL" -c "$LOG \"   Escape Dialog\""
  	keyEscape
-  "$SHELL" -c "$LOG \"   Reverse Tab\""
+"$SHELL" -c "$LOG \"   Reverse Tab\""
  	xte "keydown Shift_L" "key Tab" "keyup Shift_L"
  	waitloaded_1
-  "$SHELL" -c "$LOG \"   Hit Return\""
+"$SHELL" -c "$LOG \"   Hit Return\""
  	keyReturn
-  "$SHELL" -c "$LOG \"3. Save Item Page\""
- 	WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
-  "$SHELL" -c "$LOG \"4. Remove Item\""
+"$SHELL" -c "$LOG \"3. Save Item Page\""
+	WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
+"$SHELL" -c "$LOG \"4. Remove Item\""
  	strg_f
  	xte "str Löschen"
  	waitloaded_1
@@ -140,7 +138,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
  	done
  	keyReturn_fast
 	cp "$WEBPAGE" ~/ 
- "$SHELL" -c "$LOG \"Analyze Webpage\""
+"$SHELL" -c "$LOG \"Analyze Webpage\""
   "$SHELL" -c "$LOG \"1. Pictures\""
 	PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
 	cat $PICTURES
@@ -163,13 +161,13 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class' | sed 's/\&amp;/\&/g'; cat "$WEBPAGE" | grep -C1 'Art<span' | tail -n1 | sed 's/    //g;s/<\/span>//g;s/\&amp;/\&/g')"
 
 "$SHELL" -c "$LOG \"Insert item\""
- "$SHELL" -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
+"$SHELL" -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
         strg_f
         xte "str Inserieren"
         waitloaded_1
         keyEscape
 		keyReturn
- "$SHELL" -c "$LOG \"2. Enter Title\""
+"$SHELL" -c "$LOG \"2. Enter Title\""
         strg_f
         xte "str Titel"
         waitloaded_1
@@ -177,7 +175,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
         keyTab
         waitloaded_1
         xte "str ""$TITLE"
- "$SHELL" -c "$LOG \"3. Category\""
+"$SHELL" -c "$LOG \"3. Category\""
 		if [ "$(echo "$CATEGORY" | head -n 1)" == "Auto, Rad & Boot"  ] || [ \
 			"$(echo "$CATEGORY" | head -n 1)" == "Dienstleistungen" ] || [ \
 			"$(echo "$CATEGORY" | head -n 1)" == "Eintrittskarten & Tickets"  ] || [  \
@@ -393,7 +391,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 		else
 			fail
 		fi
- "$SHELL" -c "$LOG \"4. Shipping\""
+"$SHELL" -c "$LOG \"4. Shipping\""
 		if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ]; then
 			strg_f
 			xte "str Versandmethoden"
@@ -422,7 +420,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 		else
 			fail
 		fi
- "$SHELL" -c "$LOG \"5. Price\""
+"$SHELL" -c "$LOG \"5. Price\""
 		strg_f
 		xte "str Preis"
 		waitloaded_1
@@ -437,7 +435,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 		waitloaded_1
 		xte "key Down"
 		waitloaded_1
- "$SHELL" -c "$LOG \"6. Description\""
+"$SHELL" -c "$LOG \"6. Description\""
 		strg_f
 		xte "str Beschreibung"
 		waitloaded_1
@@ -448,7 +446,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 			xte "str ""$(echo "$DESCRIPTION" | head -n $i | tail -n 1)"
 			keyReturn
 		done
- "$SHELL" -c "$LOG \"7. Pictures\""
+"$SHELL" -c "$LOG \"7. Pictures\""
 		strg_f
 		xte "str (empfohlen)"
 		waitloaded_1
@@ -461,7 +459,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 		done
 		xte "keydown Control_L" "key A" "keyup Control_L"
     	keyReturn
- "$SHELL" -c "$LOG \"8. Insert\""
+"$SHELL" -c "$LOG \"8. Insert\""
 		strg_f
 		xte "str Daten findest du in unserer Datenschutzerklärung"
 		waitloaded_1
