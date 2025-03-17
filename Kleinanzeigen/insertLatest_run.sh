@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
 . "$HOME""/automation/env.sh"
 
 function keyReturn {
-	"$SHELL" -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+	"$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
 }
 function keyReturn_fast {
 	sleep 2
 	xte 'key Return'
 	sleep 2
-	sh "$HOME""/automation/firefox_status.sh"
+	"$SHELL" "$HOME""/automation/firefox_status.sh"
 	if [ $? -ne 0 ]; then
 		sh $0;
 		exit 0;
@@ -24,12 +24,13 @@ function waitloaded_1 {
 	"$SHELL" -c "$WAITLOADED 1"
 }
 
-strg_f_sleepless="$SHELL"" -c "'xte "keydown Control_L" "key F" "keyup Control_L"'
 function strg_f {
-	$strg_f_sleepless
+	strg_f_sleepless
     waitloaded_1
 }
-
+function strg_f_sleepless {
+	xte "keydown Control_L" "key F" "keyup Control_L"
+}
 
 function keyEscape {
 	keyEscape_sleepless
