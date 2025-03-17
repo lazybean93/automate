@@ -5,6 +5,9 @@
 function keyReturn {
 	"$SHELL" -c "$KEY_RETURN"; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
 }
+function keyReturn_fast {
+	"$SHELL" -c xte 'key Return'; sleep 2; sh "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+}
 
 function keyTab {
 	"$SHELL" -c "$KEY_TAB"
@@ -15,13 +18,19 @@ function waitloaded_1 {
 }
 
 function strg_f {
-	xte "keydown Control_L" "key F" "keyup Control_L"
+	strg_f_sleepless
     waitloaded_1
+}
+function strg_f_sleepless {
+	xte "keydown Control_L" "key F" "keyup Control_L"
 }
 
 function keyEscape {
-	xte "key Escape"
+	keyEscape_sleepless
 	waitloaded_1
+}
+function keyEscape_sleepless {
+	xte "key Escape"
 }
 
 function fail {
@@ -114,15 +123,15 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
  	for i in $(seq 1 2); do
  		keyTab
  	done
- 	keyReturn
- 	strg_f
+ 	keyReturn_fast
+ 	strg_f_sleepless
  	xte "str Schließen"
- 	waitloaded_1
- 	keyEscape
+ 	sleep 2
+ 	keyEscape_sleepless
  	for i in $(seq 1 2); do
  		keyTab
  	done
- 	keyReturn
+ 	keyReturn_fast
 	cp "$WEBPAGE" ~/ 
  "$SHELL" -c "$LOG \"Analyze Webpage\""
   "$SHELL" -c "$LOG \"1. Pictures\""
