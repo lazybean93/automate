@@ -1,1 +1,1 @@
-. "$HOME""/kleinanzeigen/insertLatest_run.sh"
+bash "$HOME""/kleinanzeigen/insertLatest_run.sh"
