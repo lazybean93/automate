@@ -2,13 +2,14 @@
 
 #"$SHELL" -c "$LOG \"Start\""
 #"$SHELL" "$HOME""/pancake/pancake_startpage.sh"
+rm "$WEBPAGE"
 WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
 if [ "$(cat "$WEBPAGE" | grep Ladefehler)" ]; then
     echo bla
 else
     echo blubb
 fi
-rm $WEBPAGE
+rm "$WEBPAGE"
 
 #Leerlauf
 #Reinigung
