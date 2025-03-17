@@ -123,7 +123,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
  		keyTab
  	done
  	keyReturn
-	
+	cp "$WEBPAGE" ~/ 
  "$SHELL" -c "$LOG \"Analyze Webpage\""
   "$SHELL" -c "$LOG \"1. Pictures\""
 	PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
