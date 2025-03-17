@@ -1,7 +1,7 @@
 . "$HOME""/automation/env.sh"
 
 #"$SHELL" -c "$LOG \"Start\""
-#"$SHELL" "$HOME""/pancake/pancake_startpage.sh"
+"$SHELL" "$HOME""/pancake/pancake_startpage.sh"
 WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
 if [ -n "$(cat "$WEBPAGE" | grep Ladefehler)" ]; then
     RIGHTBUTTONX=$(($(($SCREENWIDTH/2))+50))
