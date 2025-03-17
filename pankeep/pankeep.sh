@@ -8,6 +8,7 @@ if [ "$(cat "$WEBPAGE" | grep Ladefehler)" ]; then
 else
     echo blubb
 fi
+rm $WEBPAGE
 
 #Leerlauf
 #Reinigung
