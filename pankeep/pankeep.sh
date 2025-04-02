@@ -9,8 +9,12 @@ if [ -n "$(cat "$WEBPAGE" | grep Ladefehler)" ]; then
     ROWDELTA=50;
     PREFIX="xte 'mousemove "
     SUFFIX="' 'mouseclick 1'"
+    CLOSEHINT="$PREFIX$(($SCREENWIDTH-30)) 125$SUFFIX"
     BUTTONSTATION="$PREFIX$RIGHTBUTTONX $(($UPPERROW+$ROWDELTA*1))$SUFFIX"
-    "$SHELL" -c "$BUTTONSTATION"
+    
+    "$SHELL" -c "$CLOSEHINT"
+
+    #"$SHELL" -c "$BUTTONSTATION"
 fi
 rm "$WEBPAGE"
 
