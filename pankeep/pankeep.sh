@@ -11,7 +11,7 @@ if [ -n "$(cat "$WEBPAGE" | grep Ladefehler)" ]; then
     SUFFIX="' 'mouseclick 1'"
     CLOSEHINT="$PREFIX$(($SCREENWIDTH-30)) 125$SUFFIX"
     BUTTONSTATION="$PREFIX$RIGHTBUTTONX $(($UPPERROW+$ROWDELTA*1))$SUFFIX"
-    
+    "$SHELL" -c "$LOG \"$CLOSEHINT\""
     "$SHELL" -c "$CLOSEHINT"
 
     #"$SHELL" -c "$BUTTONSTATION"
