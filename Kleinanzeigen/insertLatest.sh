@@ -161,6 +161,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
   "$SHELL" -c "$LOG \"6. Category\""
         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class' | sed 's/\&amp;/\&/g'; cat "$WEBPAGE" | grep -C1 'Art<span' | tail -n1 | sed 's/    //g;s/<\/span>//g;s/\&amp;/\&/g')"
 
+exit
 "$SHELL" -c "$LOG \"Insert item\""
 "$SHELL" -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
         strg_f
