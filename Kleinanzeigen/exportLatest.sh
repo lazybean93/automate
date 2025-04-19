@@ -2,8 +2,8 @@
 
 . "$HOME""/automation/env.sh"
 
-mail=`echo str "$(cat "$HOME""/credentials/Kleinanzeigen.txt" | head -n1)"`
-password=`echo str "$(cat "$HOME""/credentials/Kleinanzeigen.txt" | tail -n1)"`
+mail=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | head -n1)"`
+password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
 
 "$SHELL" -c "$LOG \"Start\""
 	"$SHELL" "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
