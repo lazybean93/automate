@@ -56,7 +56,8 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 
 "$SHELL" -c "$LOG \"Start\""
 	"$SHELL" "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
-	"$SHELL" -c "$SEARCH_IN_FIREFOX"
+	"$SHELL" -c "$KEY_SEARCH"
+	"$SHELL" -c "$WAITLOADED 1"
  	xte "str Impressum"
  	waitloaded_1
 	keyEscape

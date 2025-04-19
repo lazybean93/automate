@@ -23,5 +23,3 @@ export WAITLOADED_SILENT="nice -n 19 sh ""$HOME""/automation/utils_waitLoaded_lo
 export DOWNLOADS="$HOME""/Downloads"
 
 export KEY_SEARCH='xte \"keydown Control_L\" \"key F\" \"keyup Control_L\"'
-
-export SEARCH_IN_FIREFOX="$KEY_SEARCH"'; '"$WAITLOADED_SILENT"';'
