@@ -2,22 +2,8 @@
 
 . "$HOME""/automation/env.sh"
 
-#function fail {
-#	RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
- #       	echo "$TITLE" >> $RESULT
-#			echo "" >> $RESULT
- #       	echo "$PRICE" >> $RESULT
-#			echo "" >> $RESULT
- #       	echo "$SHIPPING" >> $RESULT
-#			echo "" >> $RESULT
- #       	echo "$DESCRIPTION" >> $RESULT
-#			echo "" >> $RESULT
- #       	echo "$CATEGORY" >> $RESULT
-#	sleep infinity
-#}
-
-mail=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | head -n1)"`
-password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
+mail=`echo str "$(cat "$HOME""/credentials/Kleinanzeigen.txt" | head -n1)"`
+password=`echo str "$(cat "$HOME""/credentials/Kleinanzeigen.txt" | tail -n1)"`
 
 "$SHELL" -c "$LOG \"Start\""
 	"$SHELL" "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
@@ -358,10 +344,10 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 # 				"$SHELL" -c "$WAITLOADED 1"
 # 				"$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
 # 			else
-# 				fail
+# 				RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"; echo "$TITLE" >> $RESULT; echo "" >> $RESULT; echo "$PRICE" >> $RESULT; echo "" >> $RESULT; echo "$SHIPPING" >> $RESULT; echo "" >> $RESULT; echo "$DESCRIPTION" >> $RESULT; echo "" >> $RESULT; echo "$CATEGORY" >> $RESULT; sleep infinity
 # 			fi
 # 		else
-# 			fail
+# 			RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"; echo "$TITLE" >> $RESULT; echo "" >> $RESULT; echo "$PRICE" >> $RESULT; echo "" >> $RESULT; echo "$SHIPPING" >> $RESULT; echo "" >> $RESULT; echo "$DESCRIPTION" >> $RESULT; echo "" >> $RESULT; echo "$CATEGORY" >> $RESULT; sleep infinity
 # 		fi
 # "$SHELL" -c "$LOG \"4. Shipping\""
 # 		if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ]; then
@@ -390,7 +376,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 # 			done
 # 			"$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
 # 		else
-# 			fail
+# 			RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"; echo "$TITLE" >> $RESULT; echo "" >> $RESULT; echo "$PRICE" >> $RESULT; echo "" >> $RESULT; echo "$SHIPPING" >> $RESULT; echo "" >> $RESULT; echo "$DESCRIPTION" >> $RESULT; echo "" >> $RESULT; echo "$CATEGORY" >> $RESULT; sleep infinity
 # 		fi
 # "$SHELL" -c "$LOG \"5. Price\""
 # 		"$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
