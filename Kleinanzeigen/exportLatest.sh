@@ -25,19 +25,16 @@ function waitloaded_1 {
 }
 
 function strg_f {
-	strg_f_sleepless
+	"$SHELL" -c "$KEY_SEARCH"
     waitloaded_1
 }
 function strg_f_sleepless {
-	xte "keydown Control_L" "key F" "keyup Control_L"
+	"$SHELL" -c "$KEY_SEARCH"
 }
 
 function keyEscape {
-	keyEscape_sleepless
-	waitloaded_1
-}
-function keyEscape_sleepless {
 	xte "key Escape"
+	waitloaded_1
 }
 
 function fail {
@@ -59,7 +56,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 
 "$SHELL" -c "$LOG \"Start\""
 	"$SHELL" "$HOME""/automation/utils_startpage.sh" "https://kleinanzeigen.de"
- 	strg_f
+	"$SHELL" -c "$SEARCH_IN_FIREFOX"
  	xte "str Impressum"
  	waitloaded_1
 	keyEscape
@@ -141,7 +138,7 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
 #  	strg_f_sleepless
 #  	xte "str Schließen"
 #  	sleep 2
-#  	keyEscape_sleepless
+#  	xte "key Escape"
 #  	for i in $(seq 1 2); do
 #  		keyTab
 #  	done
