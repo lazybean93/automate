@@ -62,6 +62,9 @@ password=`echo str "$(cat "$HOME""/Kleinanzeigen/credentials.txt" | tail -n1)"`
  	strg_f
  	xte "str Impressum"
  	waitloaded_1
+	for i in $(seq 1 1); do
+		xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+	done
 	exit
 	
  	keyEscape
