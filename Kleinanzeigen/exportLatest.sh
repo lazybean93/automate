@@ -19,11 +19,10 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
         xte "keydown Shift_L" "key Tab" "keyup Shift_L"
     done;
     "$SHELL" -c "$WAITLOADED 1"
-    exit
-
-"$SHELL" -c "$LOG \"    Hit Return\""
-    "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+    "$SHELL" -c "$KEY_RETURN"
     "$SHELL" -c "$WAITLOADED 1"
+    exit
+    
 "$SHELL" -c "$LOG \"2. Search 'Endet'\""
     "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
     xte "key BackSpace"
