@@ -53,7 +53,7 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
          "$SHELL" -c "$KEY_TAB"
      done
      sleep 2; xte 'key Return'; sleep 2; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0;exit 0;fi
-     "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"_sleepless
+     "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
      xte "str Schließen"
      sleep 2
      xte "key Escape"
