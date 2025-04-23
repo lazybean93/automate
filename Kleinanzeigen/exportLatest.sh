@@ -68,7 +68,7 @@
 #      xte 'key Return';
 #      sleep 2;
 
-ls
+ls PS4*
 
 #     cp "$WEBPAGE" ~/ 
 # "$SHELL" -c "$LOG \"Analyze Webpage\""
