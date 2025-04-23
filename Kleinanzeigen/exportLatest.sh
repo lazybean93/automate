@@ -35,28 +35,32 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     "$SHELL" -c "$KEY_RETURN"
 "$SHELL" -c "$LOG \"3. Save Item Page\""
     WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
-# "$SHELL" -c "$LOG \"4. Remove Item\""
-#      "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
-#      xte "str Löschen"
-#      "$SHELL" -c "$WAITLOADED 1"
-#      xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-#      "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
-#      "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
-#      xte "str Ja, Anzeige löschen"
-#      "$SHELL" -c "$WAITLOADED 1"
-#      xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-#      for i in $(seq 1 2); do
-#          "$SHELL" -c "$KEY_TAB"
-#      done
-#      sleep 2; xte 'key Return'; sleep 2; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0;exit 0;fi
-#      "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"_sleepless
-#      xte "str Schließen"
-#      sleep 2
-#      xte "key Escape"
-#      for i in $(seq 1 2); do
-#          "$SHELL" -c "$KEY_TAB"
-#      done
-#      sleep 2; xte 'key Return'; sleep 2; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0;exit 0;fi
+    cp -r "$WEBPAGE" ~/
+"$SHELL" -c "$LOG \"4. Remove Item\""
+     "$SHELL" -c "$WAITLOADED 1"
+     "$SHELL" -c "$KEY_SEARCH"
+     "$SHELL" -c "$WAITLOADED 1"
+     xte "str Löschen"
+     "$SHELL" -c "$WAITLOADED 1"
+     xte "key Escape"
+     "$SHELL" -c "$WAITLOADED 1"
+     "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+     "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+     xte "str Ja, Anzeige löschen"
+     "$SHELL" -c "$WAITLOADED 1"
+     xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+     for i in $(seq 1 2); do
+         "$SHELL" -c "$KEY_TAB"
+     done
+     sleep 2; xte 'key Return'; sleep 2; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0;exit 0;fi
+     "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"_sleepless
+     xte "str Schließen"
+     sleep 2
+     xte "key Escape"
+     for i in $(seq 1 2); do
+         "$SHELL" -c "$KEY_TAB"
+     done
+     sleep 2; xte 'key Return'; sleep 2; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0;exit 0;fi
 #     cp "$WEBPAGE" ~/ 
 # "$SHELL" -c "$LOG \"Analyze Webpage\""
 #   "$SHELL" -c "$LOG \"1. Pictures\""
