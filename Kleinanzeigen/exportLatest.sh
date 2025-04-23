@@ -28,14 +28,11 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     "$SHELL" -c "$KEY_TAB"
     "$SHELL" -c "$WAITLOADED 1"
     "$SHELL" -c "$KEY_RETURN"
-    exit
-    
-    xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-"$SHELL" -c "$LOG \"   Reverse Tab\""
+    xte "key Escape"
+    "$SHELL" -c "$WAITLOADED 1"
     xte "keydown Shift_L" "key Tab" "keyup Shift_L"
     "$SHELL" -c "$WAITLOADED 1"
-"$SHELL" -c "$LOG \"   Hit Return\""
-    "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+    "$SHELL" -c "$KEY_RETURN"
 "$SHELL" -c "$LOG \"3. Save Item Page\""
     WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
 # "$SHELL" -c "$LOG \"4. Remove Item\""
@@ -61,27 +58,27 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
 #      done
 #      sleep 2; xte 'key Return'; sleep 2; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0;exit 0;fi
 #     cp "$WEBPAGE" ~/ 
-"$SHELL" -c "$LOG \"Analyze Webpage\""
-  "$SHELL" -c "$LOG \"1. Pictures\""
-    PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
-    cat $PICTURES
-    digit=0;
-    for i in $PICTURES; do
-        echo $i
-        output=$(printf "%02d.jpg" $digit)
-        wget $i -O "$DOWNLOADS""/""$output"
-        digit=$(($digit+1))
-    done
-  "$SHELL" -c "$LOG \"2. Title\""
-        TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g' | sed 's/\&amp;/\&/g')"
-  "$SHELL" -c "$LOG \"3. Price\""
-        PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
-  "$SHELL" -c "$LOG \"4. Shipping\""
-        SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping | sed 's/\&amp;/\&/g')"
-  "$SHELL" -c "$LOG \"5. Description\""
-        DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g' | sed 's/\&amp;/\&/g')"
-  "$SHELL" -c "$LOG \"6. Category\""
-        CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class' | sed 's/\&amp;/\&/g'; cat "$WEBPAGE" | grep -C1 'Art<span' | tail -n1 | sed 's/    //g;s/<\/span>//g;s/\&amp;/\&/g')"
+# "$SHELL" -c "$LOG \"Analyze Webpage\""
+#   "$SHELL" -c "$LOG \"1. Pictures\""
+#     PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
+#     cat $PICTURES
+#     digit=0;
+#     for i in $PICTURES; do
+#         echo $i
+#         output=$(printf "%02d.jpg" $digit)
+#         wget $i -O "$DOWNLOADS""/""$output"
+#         digit=$(($digit+1))
+#     done
+#   "$SHELL" -c "$LOG \"2. Title\""
+#         TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g' | sed 's/\&amp;/\&/g')"
+#   "$SHELL" -c "$LOG \"3. Price\""
+#         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
+#   "$SHELL" -c "$LOG \"4. Shipping\""
+#         SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping | sed 's/\&amp;/\&/g')"
+#   "$SHELL" -c "$LOG \"5. Description\""
+#         DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g' | sed 's/\&amp;/\&/g')"
+#   "$SHELL" -c "$LOG \"6. Category\""
+#         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class' | sed 's/\&amp;/\&/g'; cat "$WEBPAGE" | grep -C1 'Art<span' | tail -n1 | sed 's/    //g;s/<\/span>//g;s/\&amp;/\&/g')"
 
 # "$SHELL" -c "$LOG \"Insert item\""
 # "$SHELL" -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
