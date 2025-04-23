@@ -2,68 +2,74 @@
 
 . "$HOME""/automation/env.sh"
 
-mail=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | head -n1)"`
-password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
+# "$SHELL" -c "$LOG \"Login\""
+#     "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
 
-"$SHELL" -c "$LOG \"Login\""
-    "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
+# "$SHELL" -c "$LOG \"Get to last Item\""
+#     "$SHELL" -c "$KEY_SEARCH"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     xte "str Kleinanzeigen"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     xte "key Escape"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     for i in $(seq 1 2); do
+#         xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+#     done;
+#     "$SHELL" -c "$WAITLOADED 1"
+#     "$SHELL" -c "$KEY_RETURN"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     "$SHELL" -c "$KEY_SEARCH"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     xte "str Endet"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     "$SHELL" -c "$KEY_TAB"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     "$SHELL" -c "$KEY_RETURN"
+#     xte "key Escape"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     xte "keydown Shift_L" "key Tab" "keyup Shift_L"
+#     "$SHELL" -c "$WAITLOADED 1"
+#     "$SHELL" -c "$KEY_RETURN"
 
-"$SHELL" -c "$LOG \"Get to last Item\""
-    "$SHELL" -c "$KEY_SEARCH"
-    "$SHELL" -c "$WAITLOADED 1"
-    xte "str Kleinanzeigen"
-    "$SHELL" -c "$WAITLOADED 1"
-    xte "key Escape"
-    "$SHELL" -c "$WAITLOADED 1"
-    for i in $(seq 1 2); do
-        xte "keydown Shift_L" "key Tab" "keyup Shift_L"
-    done;
-    "$SHELL" -c "$WAITLOADED 1"
-    "$SHELL" -c "$KEY_RETURN"
-    "$SHELL" -c "$WAITLOADED 1"
-    "$SHELL" -c "$KEY_SEARCH"
-    "$SHELL" -c "$WAITLOADED 1"
-    xte "str Endet"
-    "$SHELL" -c "$WAITLOADED 1"
-    "$SHELL" -c "$KEY_TAB"
-    "$SHELL" -c "$WAITLOADED 1"
-    "$SHELL" -c "$KEY_RETURN"
-    xte "key Escape"
-    "$SHELL" -c "$WAITLOADED 1"
-    xte "keydown Shift_L" "key Tab" "keyup Shift_L"
-    "$SHELL" -c "$WAITLOADED 1"
-    "$SHELL" -c "$KEY_RETURN"
-"$SHELL" -c "$LOG \"3. Save Item Page\""
-    WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
-    cp -r "$WEBPAGE" ~/
-"$SHELL" -c "$LOG \"4. Remove Item\""
-     "$SHELL" -c "$WAITLOADED 1"
-     "$SHELL" -c "$KEY_SEARCH"
-     "$SHELL" -c "$WAITLOADED 1"
-     xte "str Löschen"
-     "$SHELL" -c "$WAITLOADED 1"
-     xte "key Escape"
-     "$SHELL" -c "$WAITLOADED 1"
-     "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
-     "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
-     xte "str Ja, Anzeige löschen"
-     "$SHELL" -c "$WAITLOADED 1"
-     xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-     for i in $(seq 1 2); do
-         "$SHELL" -c "$KEY_TAB"
-     done
-     sleep 2
-     xte 'key Return'
-     sleep 2
-     "$SHELL" -c "$KEY_SEARCH"
-     sleep 2
-     xte "str Schließen"
-     sleep 2
-     xte "key Escape"
-     for i in $(seq 1 2); do
-         "$SHELL" -c "$KEY_TAB"
-     done
-     sleep 2; xte 'key Return'; sleep 2; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0;exit 0;fi
+# "$SHELL" -c "$LOG \"3. Save Item Page\""
+#     WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
+#     cp -r "$WEBPAGE" ~/
+
+# "$SHELL" -c "$LOG \"4. Remove Item\""
+#      "$SHELL" -c "$WAITLOADED 1"
+#      "$SHELL" -c "$KEY_SEARCH"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      xte "str Löschen"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      xte "key Escape"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      "$SHELL" -c "$KEY_RETURN"
+#      "$SHELL" -c "$KEY_SEARCH"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      xte "str Ja, Anzeige löschen"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      xte "key Escape"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      for i in $(seq 1 2); do
+#          "$SHELL" -c "$KEY_TAB"
+#      done
+#      sleep 2
+#      xte 'key Return'
+#      sleep 2
+#      "$SHELL" -c "$KEY_SEARCH"
+#      sleep 2
+#      xte "str Schließen"
+#      sleep 2
+#      xte "key Escape"
+#      for i in $(seq 1 2); do
+#          "$SHELL" -c "$KEY_TAB"
+#      done
+#      sleep 2;
+#      xte 'key Return';
+#      sleep 2;
+
+ls
+
 #     cp "$WEBPAGE" ~/ 
 # "$SHELL" -c "$LOG \"Analyze Webpage\""
 #   "$SHELL" -c "$LOG \"1. Pictures\""
