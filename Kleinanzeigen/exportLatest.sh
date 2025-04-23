@@ -25,13 +25,11 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     "$SHELL" -c "$WAITLOADED 1"
     xte "str Endet"
     "$SHELL" -c "$WAITLOADED 1"
-    exit
-"$SHELL" -c "$LOG \"   Tab\""
     "$SHELL" -c "$KEY_TAB"
     "$SHELL" -c "$WAITLOADED 1"
-"$SHELL" -c "$LOG \"   Hit Return\""
-    "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
-"$SHELL" -c "$LOG \"   Escape Dialog\""
+    "$SHELL" -c "$KEY_RETURN"
+    exit
+    
     xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
 "$SHELL" -c "$LOG \"   Reverse Tab\""
     xte "keydown Shift_L" "key Tab" "keyup Shift_L"
