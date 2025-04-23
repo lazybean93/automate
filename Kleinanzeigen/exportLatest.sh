@@ -7,13 +7,15 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
 
 "$SHELL" -c "$LOG \"Login\""
     "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
-    exit
 
 "$SHELL" -c "$LOG \"Get to last Item\""
 "$SHELL" -c "$LOG \"1. Search 'kleinanzeigen'\""
-    "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+    "$SHELL" -c "$KEY_SEARCH"
+    "$SHELL" -c "$WAITLOADED 1"
     xte "str Kleinanzeigen"
     "$SHELL" -c "$WAITLOADED 1"
+    exit
+    
 "$SHELL" -c "$LOG \"    Escape Dialog\""
     xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
 "$SHELL" -c "$LOG \"    Reverse Tab x2\""
