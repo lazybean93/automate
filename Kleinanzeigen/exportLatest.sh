@@ -22,11 +22,10 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     for i in $(seq 1 3); do
         xte "key Tab"
     done
-    exit
-    
-    "$SHELL" -c "$KEY_ESCAPE";
     "$SHELL" -c "$WAITLOADED 1"
     "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+    exit
+
 "$SHELL" -c "$LOG \"Enter Credentials\""
     for i in $(seq 1 5); do
         "$SHELL" -c "$KEY_TAB"
