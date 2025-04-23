@@ -9,20 +9,18 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
 
 "$SHELL" -c "$LOG \"Get to last Item\""
-"$SHELL" -c "$LOG \"1. Search 'kleinanzeigen'\""
     "$SHELL" -c "$KEY_SEARCH"
     "$SHELL" -c "$WAITLOADED 1"
     xte "str Kleinanzeigen"
     "$SHELL" -c "$WAITLOADED 1"
-    exit
-    
-"$SHELL" -c "$LOG \"    Escape Dialog\""
-    xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-"$SHELL" -c "$LOG \"    Reverse Tab x2\""
+    xte "key Escape"
+    "$SHELL" -c "$WAITLOADED 1"
     for i in $(seq 1 2); do
         xte "keydown Shift_L" "key Tab" "keyup Shift_L"
     done;
     "$SHELL" -c "$WAITLOADED 1"
+    exit
+
 "$SHELL" -c "$LOG \"    Hit Return\""
     "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
     "$SHELL" -c "$WAITLOADED 1"
