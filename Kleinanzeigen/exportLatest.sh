@@ -23,11 +23,9 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     "$SHELL" -c "$WAITLOADED 1"
     "$SHELL" -c "$KEY_SEARCH"
     "$SHELL" -c "$WAITLOADED 1"
-    exit
-    xte "key BackSpace"
-    "$SHELL" -c "$WAITLOADED 1"
     xte "str Endet"
     "$SHELL" -c "$WAITLOADED 1"
+    exit
 "$SHELL" -c "$LOG \"   Tab\""
     "$SHELL" -c "$KEY_TAB"
     "$SHELL" -c "$WAITLOADED 1"
