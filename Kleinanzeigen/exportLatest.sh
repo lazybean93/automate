@@ -87,16 +87,16 @@ WEBPAGE="$(ls PS4* | head -n 1)"
 echo $TITLE
   "$SHELL" -c "$LOG \"3. Price\""
         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
-echo $PRICE
+#echo $PRICE
   "$SHELL" -c "$LOG \"4. Shipping\""
         SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping | sed 's/\&amp;/\&/g')"
-echo $SHIPPING
+#echo $SHIPPING
   "$SHELL" -c "$LOG \"5. Description\""
         DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g' | sed 's/\&amp;/\&/g')"
-echo $DESCRIPTION
+#echo $DESCRIPTION
   "$SHELL" -c "$LOG \"6. Category\""
         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class' | sed 's/\&amp;/\&/g'; cat "$WEBPAGE" | grep -C1 'Art<span' | tail -n1 | sed 's/    //g;s/<\/span>//g;s/\&amp;/\&/g')"
-echo $CATEGORY
+#echo $CATEGORY
 
 # "$SHELL" -c "$LOG \"Insert item\""
 # "$SHELL" -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
