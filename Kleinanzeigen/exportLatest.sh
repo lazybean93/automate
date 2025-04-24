@@ -74,7 +74,7 @@ WEBPAGE="$(ls PS4* | head -n 1)"
 "$SHELL" -c "$LOG \"Analyze Webpage\""
   "$SHELL" -c "$LOG \"1. Pictures\""
     PICTURES=$(cat "$WEBPAGE" | sed 's/ /\n/g' | grep "data-imgsrc=" | sed 's/"/\n/g' | grep "http" | grep "_57.AUTO")
-    cat $PICTURES
+    #cat $PICTURES
     digit=0;
     for i in $PICTURES; do
         echo $i
