@@ -84,7 +84,7 @@ WEBPAGE="$(ls PS4* | head -n 1)"
     done
   "$SHELL" -c "$LOG \"2. Title\""
 #        TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g' | sed 's/\&amp;/\&/g')"
-        TITLE="$(cat "$WEBPAGE" | grep 'itemName: "')"
+        TITLE="$(cat "$WEBPAGE")"
 echo $TITLE
   "$SHELL" -c "$LOG \"3. Price\""
         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
