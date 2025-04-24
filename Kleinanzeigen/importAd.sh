@@ -6,7 +6,7 @@
     #"$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
 
 "$SHELL" -c "$LOG \"Get webpage\""
-    ls    
+    ls Downloads    
 
 # "$SHELL" -c "$LOG \"Analyze Webpage\""
 #   "$SHELL" -c "$LOG \"1. Pictures\""
