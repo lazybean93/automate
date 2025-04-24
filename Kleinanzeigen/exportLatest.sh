@@ -79,7 +79,7 @@ WEBPAGE="$(ls PS4* | head -n 1)"
     for i in $PICTURES; do
         echo $i
         output=$(printf "%02d.jpg" $digit)
-        wget $i -O "$DOWNLOADS""/""$output"
+        wget $i -O "$DOWNLOADS""/""$output"  > /dev/zero 2>&1
         digit=$(($digit+1))
     done
   "$SHELL" -c "$LOG \"2. Title\""
