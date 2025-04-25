@@ -264,7 +264,17 @@ echo ------
                 RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"; echo "$TITLE" >> $RESULT; echo "" >> $RESULT; echo "$PRICE" >> $RESULT; echo "" >> $RESULT; echo "$SHIPPING" >> $RESULT; echo "" >> $RESULT; echo "$DESCRIPTION" >> $RESULT; echo "" >> $RESULT; echo "$CATEGORY" >> $RESULT; sleep infinity
             fi
         else
-            RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"; echo "$TITLE" >> $RESULT; echo "" >> $RESULT; echo "$PRICE" >> $RESULT; echo "" >> $RESULT; echo "$SHIPPING" >> $RESULT; echo "" >> $RESULT; echo "$DESCRIPTION" >> $RESULT; echo "" >> $RESULT; echo "$CATEGORY" >> $RESULT; sleep infinity
+            RESULT="$DOWNLOADS""/res_""$(date +%s)"".log";
+            echo "$TITLE" >> $RESULT;
+            echo "" >> $RESULT;
+            echo "$PRICE" >> $RESULT;
+            echo "" >> $RESULT
+            echo "$SHIPPING" >> $RESULT;
+            echo "" >> $RESULT
+            echo "$DESCRIPTION" >> $RESULT;
+            echo "" >> $RESULT
+            echo "$CATEGORY" >> $RESULT
+            exit
         fi
 "$SHELL" -c "$LOG \"4. Shipping\""
         if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ]; then
