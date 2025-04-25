@@ -2,11 +2,11 @@
 
 . "$HOME""/automation/env.sh"
 
-"$SHELL" -c "$LOG \"Login\""
-    #"$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
-
 "$SHELL" -c "$LOG \"Get webpage\""
-    ls Downloads    
+    ls Downloads
+
+# "$SHELL" -c "$LOG \"Login\""
+    #"$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
 
 # "$SHELL" -c "$LOG \"Analyze Webpage\""
 #   "$SHELL" -c "$LOG \"1. Pictures\""
