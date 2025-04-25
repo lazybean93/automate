@@ -2,6 +2,9 @@
 
 . "$HOME""/automation/env.sh"
 
+"$SHELL" -c "$LOG \"Clean\""
+    "$SHELL" -c "$CLEAN"
+
 "$SHELL" -c "$LOG \"Login\""
     "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
 
@@ -35,38 +38,38 @@
     WEBPAGE="$("$SHELL" "$HOME""/automation/utils_saveWebsite.sh")"
     cp -r "$WEBPAGE" ~/
 
-"$SHELL" -c "$LOG \"4. Remove Item\""
-     "$SHELL" -c "$WAITLOADED 1"
-     "$SHELL" -c "$KEY_SEARCH"
-     "$SHELL" -c "$WAITLOADED 1"
-     xte "str Löschen"
-     "$SHELL" -c "$WAITLOADED 1"
-     xte "key Escape"
-     "$SHELL" -c "$WAITLOADED 1"
-     "$SHELL" -c "$KEY_RETURN"
-     "$SHELL" -c "$KEY_SEARCH"
-     "$SHELL" -c "$WAITLOADED 1"
-     xte "str Ja, Anzeige löschen"
-     "$SHELL" -c "$WAITLOADED 1"
-     xte "key Escape"
-     "$SHELL" -c "$WAITLOADED 1"
-     for i in $(seq 1 2); do
-         "$SHELL" -c "$KEY_TAB"
-     done
-     sleep 2
-     xte 'key Return'
-     sleep 2
-     "$SHELL" -c "$KEY_SEARCH"
-     sleep 2
-     xte "str Schließen"
-     sleep 2
-     xte "key Escape"
-     for i in $(seq 1 2); do
-         "$SHELL" -c "$KEY_TAB"
-     done
-     sleep 2;
-     xte 'key Return';
-     sleep 2;
+# "$SHELL" -c "$LOG \"4. Remove Item\""
+#      "$SHELL" -c "$WAITLOADED 1"
+#      "$SHELL" -c "$KEY_SEARCH"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      xte "str Löschen"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      xte "key Escape"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      "$SHELL" -c "$KEY_RETURN"
+#      "$SHELL" -c "$KEY_SEARCH"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      xte "str Ja, Anzeige löschen"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      xte "key Escape"
+#      "$SHELL" -c "$WAITLOADED 1"
+#      for i in $(seq 1 2); do
+#          "$SHELL" -c "$KEY_TAB"
+#      done
+#      sleep 2
+#      xte 'key Return'
+#      sleep 2
+#      "$SHELL" -c "$KEY_SEARCH"
+#      sleep 2
+#      xte "str Schließen"
+#      sleep 2
+#      xte "key Escape"
+#      for i in $(seq 1 2); do
+#          "$SHELL" -c "$KEY_TAB"
+#      done
+#      sleep 2;
+#      xte 'key Return';
+#      sleep 2;
 
 "$SHELL" -c "$LOG \"Analyze Webpage\""
   "$SHELL" -c "$LOG \"1. Pictures\""

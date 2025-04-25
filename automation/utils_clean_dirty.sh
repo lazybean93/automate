@@ -4,14 +4,6 @@
 killall firefox-esr > /dev/zero 2>&1
 wmctrl -c "$(wmctrl -l | grep Firefox | sed 's/automate /\n/g' | tail -n1)" > /dev/zero 2>&1
 killall thunderbird > /dev/zero 2>&1
-# find "$HOME""/Downloads/"* -type d -exec rm -r {} + > /dev/zero 2>&1
-# rm  "$HOME""/Downloads/"*.de > /dev/zero 2>&1
-# rm  "$HOME""/Downloads/"*.html > /dev/zero 2>&1
-# rm  "$HOME""/Downloads/"*.part > /dev/zero 2>&1
-# rm  "$HOME""/Downloads/"*.png > /dev/zero 2>&1
-# rm  "$HOME""/Downloads/"*.jpg > /dev/zero 2>&1
-# rm  "$HOME""/Downloads/"*.xhtml > /dev/zero 2>&1
-# rm  "$HOME""/Downloads/"*.zip > /dev/zero 2>&1
 killall crashreporter > /dev/zero 2>&1
 sleep 1
 rm -r "$HOME""/.ssh"

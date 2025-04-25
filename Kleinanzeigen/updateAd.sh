@@ -5,7 +5,7 @@
 "$SHELL" -c "$LOG \"check if webage exists\""
 if [ -z "$(ls Downloads)" ]; then
     # true
-    echo True
+    "$SHELL" -c "$HOME""/Kleinanzeigen/exportLatest.sh"
 else
     # false
     echo False
