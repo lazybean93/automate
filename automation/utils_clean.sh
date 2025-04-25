@@ -13,5 +13,4 @@ rm  "$HOME""/Downloads/"*.zip > /dev/zero 2>&1
 
 "$SHELL" -c "$CLEAN_DIRTY"
 "$SHELL" -c "$LOG \"Start again\""
-"$SHELL" -c "$CLEAN"
 "$SHELL" -c "$LOG \"End\""
