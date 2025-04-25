@@ -3,7 +3,7 @@
 . "$HOME""/automation/env.sh"
 
 "$SHELL" -c "$LOG \"check if webage exists\""
-if [ -z "$(ls Downloads)" ]; then
+if [ -z "$(ls Downloads | grep 00.jpg)" ]; then
     # true
     "$SHELL" -c "$HOME""/Kleinanzeigen/exportLatest.sh"
 else
