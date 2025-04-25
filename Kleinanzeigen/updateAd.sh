@@ -51,6 +51,7 @@ echo ------
         "$SHELL" -c "$WAITLOADED 1"
         xte "str ""$TITLE"
 "$SHELL" -c "$LOG \"3. Category\""
+        echo "$CATEGORY" | head -n 1
         if [ "$(echo "$CATEGORY" | head -n 1)" == "Auto, Rad & Boot"  ] || [ \
             "$(echo "$CATEGORY" | head -n 1)" == "Dienstleistungen" ] || [ \
             "$(echo "$CATEGORY" | head -n 1)" == "Eintrittskarten & Tickets"  ] || [  \
