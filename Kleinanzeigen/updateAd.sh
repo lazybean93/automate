@@ -21,7 +21,19 @@ PRICE="$(cat "$DOWNLOADS"/PRICE)"
 SHIPPING="$(cat "$DOWNLOADS"/SHIPPING)"
 TITLE="$(cat "$DOWNLOADS"/TITLE)"
 
-echo "$CATEGORY" "$DESCRIPTION" "$PICTURES" "$PRICE" "$SHIPPING" "$TITLE"
+echo ------
+echo "$CATEGORY"
+echo ------
+echo "$DESCRIPTION"
+echo ------
+echo "$PICTURES"
+echo ------
+echo "$PRICE"
+echo ------
+echo "$SHIPPING"
+echo ------
+echo "$TITLE"
+echo ------
 
 # "$SHELL" -c "$LOG \"Login\""
     #"$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
