@@ -2,8 +2,14 @@
 
 . "$HOME""/automation/env.sh"
 
-"$SHELL" -c "$LOG \"Get webpage\""
-    ls Downloads
+"$SHELL" -c "$LOG \"check if webage exists\""
+if [ -z "$(ls Downloads)" ]; then
+    # true
+    echo True
+else
+    # false
+    echo False
+fi
 
 # "$SHELL" -c "$LOG \"Login\""
     #"$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
