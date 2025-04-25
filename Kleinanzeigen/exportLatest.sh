@@ -77,6 +77,7 @@
     digit=0;
     for i in $PICTURES; do
         echo $i
+        echo $i >> "$DOWNLOADS""/PICTURES"
         output=$(printf "%02d.jpg" $digit)
         wget $i -O "$DOWNLOADS""/""$output"  > /dev/zero 2>&1
         digit=$(($digit+1))
@@ -85,18 +86,23 @@
 #        TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g' | sed 's/\&amp;/\&/g')"
         TITLE="$(cat "$WEBPAGE" | sed 's/>/>\n/g' | grep 'content' | grep 'og:title' | sed 's/content="/\n/g;s/">//g' | tail -n1)"
         echo "$TITLE"
+        echo "$TITLE" > "$DOWNLOADS""/TITLE"
   "$SHELL" -c "$LOG \"3. Price\""
         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
         echo "$PRICE"
+        echo "$PRICE" > "$DOWNLOADS""/PRICE"
   "$SHELL" -c "$LOG \"4. Shipping\""
         SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping | sed 's/\&amp;/\&/g')"
         echo "$SHIPPING"
+        echo "$SHIPPING" > "$DOWNLOADS""/SHIPPING"
   "$SHELL" -c "$LOG \"5. Description\""
         DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g' | sed 's/\&amp;/\&/g')"
         echo "$DESCRIPTION"
+        echo "$DESCRIPTION" > "$DOWNLOADS""/DESCRIPTION"
   "$SHELL" -c "$LOG \"6. Category\""
         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class' | sed 's/\&amp;/\&/g'; cat "$WEBPAGE" | grep -C1 'Art<span' | tail -n1 | sed 's/    //g;s/<\/span>//g;s/\&amp;/\&/g')"
         echo "$CATEGORY"
+        echo "$CATEGORY" > "$DOWNLOADS""/CATEGORY"
 
 # "$SHELL" -c "$LOG \"Insert item\""
 # "$SHELL" -c "$LOG \"1. Open \"Anzeige Aufgeben\"\""
