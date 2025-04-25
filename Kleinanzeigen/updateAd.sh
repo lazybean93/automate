@@ -8,10 +8,13 @@ if [ -z "$(ls Downloads | grep 00.jpg)" ]; then
     "$SHELL" -c "$HOME""/Kleinanzeigen/exportLatest.sh"
 else
     # false
-    echo False
+    cat "$DOWNLOADS"/CATEGORY
+    cat "$DOWNLOADS"/DESCRIPTION
+    cat "$DOWNLOADS"/PICTURES
+    cat "$DOWNLOADS"/PRICE
+    cat "$DOWNLOADS"/SHIPPING
+    cat "$DOWNLOADS"/TITLE
 fi
-
-echo $WEBPAGE
 
 # "$SHELL" -c "$LOG \"Login\""
     #"$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
