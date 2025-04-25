@@ -2,19 +2,26 @@
 
 . "$HOME""/automation/env.sh"
 
+"$SHELL" -c "$LOG \"Kill Browser\""
+    "$SHELL" -c "$CLEAN_DIRTY"
+
 "$SHELL" -c "$LOG \"check if webage exists\""
 if [ -z "$(ls Downloads | grep 00.jpg)" ]; then
     # true
     "$SHELL" -c "$HOME""/Kleinanzeigen/exportLatest.sh"
 else
     # false
-    cat "$DOWNLOADS"/CATEGORY
-    cat "$DOWNLOADS"/DESCRIPTION
-    cat "$DOWNLOADS"/PICTURES
-    cat "$DOWNLOADS"/PRICE
-    cat "$DOWNLOADS"/SHIPPING
-    cat "$DOWNLOADS"/TITLE
+    "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
 fi
+
+CATEGORY="$(cat "$DOWNLOADS"/CATEGORY)"
+DESCRIPTION="$(cat "$DOWNLOADS"/DESCRIPTION)"
+PICTURES="$(cat "$DOWNLOADS"/PICTURES)"
+PRICE="$(cat "$DOWNLOADS"/PRICE)"
+SHIPPING="$(cat "$DOWNLOADS"/SHIPPING)"
+TITLE="$(cat "$DOWNLOADS"/TITLE)"
+
+echo "$CATEGORY" "$DESCRIPTION" "$PICTURES" "$PRICE" "$SHIPPING" "$TITLE"
 
 # "$SHELL" -c "$LOG \"Login\""
     #"$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
