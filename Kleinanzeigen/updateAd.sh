@@ -11,6 +11,8 @@ else
     echo False
 fi
 
+echo $WEBPAGE
+
 # "$SHELL" -c "$LOG \"Login\""
     #"$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
 
