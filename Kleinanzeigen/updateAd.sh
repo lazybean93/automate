@@ -71,13 +71,13 @@ echo ------
             "$SHELL" -c "$WAITLOADED 1"
             xte "str Kategorie"
             "$SHELL" -c "$WAITLOADED 1"
-            xte "key Tab"
-            "$SHELL" -c "$WAITLOADED 1"
             xte "key Escape"
+            "$SHELL" -c "$WAITLOADED 1"
+            xte "key Tab"
             "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_RETURN"
             exit 0;
-            
+
             "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
             xte "str ""$(echo "$CATEGORY" | head -n 1)"
