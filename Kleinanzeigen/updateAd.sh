@@ -51,7 +51,6 @@ echo ------
         "$SHELL" -c "$WAITLOADED 1"
         xte "str ""$TITLE"
 "$SHELL" -c "$LOG \"3. Category\""
-        echo $(echo "$CATEGORY" | head -n 1) I
         if [ "$(echo "$CATEGORY" | head -n 1)" == "Auto, Rad & Boot"  ] || [ \
             "$(echo "$CATEGORY" | head -n 1)" == "Dienstleistungen" ] || [ \
             "$(echo "$CATEGORY" | head -n 1)" == "Eintrittskarten & Tickets"  ] || [  \
@@ -68,12 +67,17 @@ echo ------
             "$(echo "$CATEGORY" | head -n 1)" == "Unterricht & Kurse" ] || [ \
             "$(echo "$CATEGORY" | head -n 1)" == "Verschenken & Tauschen" ];
         then
-            "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
-            xte "str Wähle deine Kategorie"
+            "$SHELL" -c "$KEY_SEARCH";
             "$SHELL" -c "$WAITLOADED 1"
-            xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+            xte "str Kategorie"
             "$SHELL" -c "$WAITLOADED 1"
-            "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+            xte "key Tab"
+            "$SHELL" -c "$WAITLOADED 1"
+            xte "key Escape"
+            "$SHELL" -c "$WAITLOADED 1"
+            "$SHELL" -c "$KEY_RETURN"
+            exit 0;
+            
             "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
             xte "str ""$(echo "$CATEGORY" | head -n 1)"
