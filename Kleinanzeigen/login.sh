@@ -27,6 +27,7 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
 "$SHELL" -c "$LOG \"Enter Credentials\""
     "$SHELL" -c "$WAITLOADED 1"
     xte "$mail"
+    exit 0
     "$SHELL" -c "$WAITLOADED 1"
     "$SHELL" -c "$KEY_TAB"
     "$SHELL" -c "$WAITLOADED 1"

@@ -7,6 +7,7 @@
 
 "$SHELL" -c "$LOG \"Login\""
     "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
+    exit 0
 
 "$SHELL" -c "$LOG \"Get to last Item\""
     "$SHELL" -c "$KEY_SEARCH"
