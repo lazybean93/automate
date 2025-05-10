@@ -281,7 +281,9 @@ echo ------
             exit
         fi
 "$SHELL" -c "$LOG \"4. Shipping\""
-        if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ]; then
+        if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ] || [ \
+            "$(echo "$SHIPPING" | head -n 1)" == "+ Versand ab 4,89 €" \
+        ]; then
             "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
             xte "str Versandmethoden"
             "$SHELL" -c "$WAITLOADED 1"
