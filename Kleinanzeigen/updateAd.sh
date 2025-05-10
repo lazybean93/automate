@@ -344,7 +344,6 @@ echo ------
         "$SHELL" -c "$WAITLOADED 1"
         xte "key Down"
         "$SHELL" -c "$WAITLOADED 1"
-        exit 0
 "$SHELL" -c "$LOG \"6. Description\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
         xte "str Beschreibung"
@@ -354,8 +353,9 @@ echo ------
         "$SHELL" -c "$WAITLOADED 1"
         for i in $(seq 1 $(echo "$DESCRIPTION" | wc -l)); do
             xte "str ""$(echo "$DESCRIPTION" | head -n $i | tail -n 1)"
-            "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+            "$SHELL" -c "$KEY_RETURN"
         done
+        exit 0
 "$SHELL" -c "$LOG \"7. Pictures\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
         xte "str (empfohlen)"
