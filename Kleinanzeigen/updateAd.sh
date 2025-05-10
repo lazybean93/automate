@@ -76,8 +76,6 @@ echo ------
             xte "key Tab"
             "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_RETURN"
-            exit 0;
-
             "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
             xte "str ""$(echo "$CATEGORY" | head -n 1)"
@@ -171,6 +169,7 @@ echo ------
                 "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
                 xte "str ""$(echo "$CATEGORY" | head -n 2 | tail -n 1)"
                 "$SHELL" -c "$WAITLOADED 1"
+                exit 0
                 xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
                 "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
                 "$SHELL" -c "$WAITLOADED 1"
