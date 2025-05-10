@@ -308,7 +308,7 @@ echo ------
             "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_TAB"
             "$SHELL" -c "$WAITLOADED 1"
-            xte "str ' '"
+            xte "str  "
             for i in $(seq 1 3); do
                 "$SHELL" -c "$KEY_TAB"
             done
