@@ -19,7 +19,7 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     done
     "$SHELL" -c "$WAITLOADED 1"
     "$SHELL" -c "$KEY_RETURN"
-    for i in $(seq 1 3); do
+    for i in $(seq 1 4); do
         "$SHELL" -c "$LOG \"xte key Tab\""
         xte "key Tab"
     done
