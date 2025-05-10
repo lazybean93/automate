@@ -307,7 +307,18 @@ echo ------
             done
             "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
         else
-            RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"; echo "$TITLE" >> $RESULT; echo "" >> $RESULT; echo "$PRICE" >> $RESULT; echo "" >> $RESULT; echo "$SHIPPING" >> $RESULT; echo "" >> $RESULT; echo "$DESCRIPTION" >> $RESULT; echo "" >> $RESULT; echo "$CATEGORY" >> $RESULT; sleep infinity
+            RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
+            echo "$TITLE" >> $RESULT
+            echo "" >> $RESULT
+            echo "$PRICE" >> $RESULT
+            echo "" >> $RESULT
+            echo "$SHIPPING" >> $RESULT
+            echo "" >> $RESULT
+            echo "$DESCRIPTION" >> $RESULT
+            echo "" >> $RESULT
+            echo "$CATEGORY" >> $RESULT
+            cat $RESULT
+            exit 0
         fi
 "$SHELL" -c "$LOG \"5. Price\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
