@@ -14,6 +14,7 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     "$SHELL" -c "$KEY_ESCAPE"
     "$SHELL" -c "$WAITLOADED 1"
     for i in $(seq 1 3); do
+        "$SHELL" -c "$LOG \"Tab Reverse\""
         xte "keydown Shift_L" "key Tab" "keyup Shift_L"
     done
     "$SHELL" -c "$WAITLOADED 1"
