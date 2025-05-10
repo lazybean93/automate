@@ -307,13 +307,15 @@ echo ------
             xte "key Escape"
             "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_TAB"
-            "$SHELL" -c "$KEY_RETURN"
-
-            exit 0
+            "$SHELL" -c "$WAITLOADED 1"
+            xte "key Space"
             for i in $(seq 1 3); do
                 "$SHELL" -c "$KEY_TAB"
             done
-            "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+            "$SHELL" -c "$KEY_RETURN";
+            
+
+            exit 0
         else
             RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
             echo "$TITLE" >> $RESULT
