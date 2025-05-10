@@ -313,9 +313,6 @@ echo ------
                 "$SHELL" -c "$KEY_TAB"
             done
             "$SHELL" -c "$KEY_RETURN";
-            
-
-            exit 0
         else
             RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
             echo "$TITLE" >> $RESULT
@@ -331,10 +328,12 @@ echo ------
             exit 0
         fi
 "$SHELL" -c "$LOG \"5. Price\""
-        "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+        "$SHELL" -c "$KEY_SEARCH"
+        "$SHELL" -c "$WAITLOADED 1"
         xte "str Preis"
         "$SHELL" -c "$WAITLOADED 1"
-        xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+        xte "key Escape"
+        "$SHELL" -c "$WAITLOADED 1"
         "$SHELL" -c "$KEY_TAB"
         "$SHELL" -c "$WAITLOADED 1"
         xte "str ""$PRICE"
@@ -345,6 +344,7 @@ echo ------
         "$SHELL" -c "$WAITLOADED 1"
         xte "key Down"
         "$SHELL" -c "$WAITLOADED 1"
+        exit 0
 "$SHELL" -c "$LOG \"6. Description\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
         xte "str Beschreibung"
