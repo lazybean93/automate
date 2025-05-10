@@ -289,21 +289,27 @@ echo ------
             "$SHELL" -c "$WAITLOADED 1"
             xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_TAB"
-            "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
-            "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+            "$SHELL" -c "$KEY_RETURN"
+            "$SHELL" -c "$KEY_SEARCH"
+            "$SHELL" -c "$WAITLOADED 1"
             xte "str Andere Versandmethoden"
             "$SHELL" -c "$WAITLOADED 1"
-            xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+            xte "key Escape"
+            "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_TAB"
             "$SHELL" -c "$WAITLOADED 1"
             xte "keydown Shift_L" "key Tab" "keyup Shift_L"
-            "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
-            "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+            "$SHELL" -c "$KEY_RETURN"
+            "$SHELL" -c "$KEY_SEARCH"
+            "$SHELL" -c "$WAITLOADED 1"
             xte "str Andere Optionen"
             "$SHELL" -c "$WAITLOADED 1"
-            xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+            xte "key Escape"
+            "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_TAB"
-            "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+            "$SHELL" -c "$KEY_RETURN"
+
+            exit 0
             for i in $(seq 1 3); do
                 "$SHELL" -c "$KEY_TAB"
             done
@@ -322,7 +328,6 @@ echo ------
             cat $RESULT
             exit 0
         fi
-        exit 0
 "$SHELL" -c "$LOG \"5. Price\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
         xte "str Preis"
