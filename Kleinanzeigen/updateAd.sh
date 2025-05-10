@@ -355,20 +355,21 @@ echo ------
             xte "str ""$(echo "$DESCRIPTION" | head -n $i | tail -n 1)"
             "$SHELL" -c "$KEY_RETURN"
         done
-        exit 0
 "$SHELL" -c "$LOG \"7. Pictures\""
-        "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+        "$SHELL" -c "$KEY_SEARCH"
+        "$SHELL" -c "$WAITLOADED 1"
         xte "str (empfohlen)"
         "$SHELL" -c "$WAITLOADED 1"
-        xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+        xte "key Escape"
+        "$SHELL" -c "$WAITLOADED 1"
         "$SHELL" -c "$KEY_TAB"
-        "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+        "$SHELL" -c "$KEY_RETURN"
         xte "str ""$DOWNLOADS"
         for i in $(seq 1 2); do
-            "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+            "$SHELL" -c "$KEY_RETURN"
         done
         xte "keydown Control_L" "key A" "keyup Control_L"
-        "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+        "$SHELL" -c "$KEY_RETURN"
 exit
 "$SHELL" -c "$LOG \"8. Insert\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
