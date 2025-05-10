@@ -370,4 +370,4 @@ exit
         for i in $(seq 1 2); do
             "$SHELL" -c "$KEY_TAB"
         done
-        "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+        #"$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
