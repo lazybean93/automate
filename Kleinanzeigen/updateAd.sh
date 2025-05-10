@@ -322,6 +322,7 @@ echo ------
             cat $RESULT
             exit 0
         fi
+        exit 0
 "$SHELL" -c "$LOG \"5. Price\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
         xte "str Preis"
