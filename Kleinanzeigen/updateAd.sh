@@ -401,7 +401,7 @@ echo ------
         "$SHELL" -c "$WAITLOADED 1"
         xte "key Escape"
         "$SHELL" -c "$WAITLOADED 1"
-        for i in $(seq 1 2); do
+        for i in $(seq 1 3); do
             "$SHELL" -c "$KEY_TAB"
         done
         "$SHELL" -c "$KEY_RETURN"
