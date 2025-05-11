@@ -6,7 +6,7 @@
     "$SHELL" -c "$CLEAN_DIRTY"
 
 "$SHELL" -c "$LOG \"check if webage exists\""
-if [ -z "$(ls $Downloads | grep PICTURES)" ]; then
+if [ -z "$(ls $Downloads | grep '00.jpg')" ]; then
     # true
     "$SHELL" -c "$HOME""/Kleinanzeigen/exportLatest.sh"
 else
