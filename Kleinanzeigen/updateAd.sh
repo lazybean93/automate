@@ -305,6 +305,8 @@ echo ------
             "$(echo "$SHIPPING" | head -n 1)" == "+ Versand ab 4,89 €" \
         ] || [ \
             "$(echo "$SHIPPING" | head -n 1)" == "+ Versand ab 6,99 €" \
+        ] || [ \
+            "$(echo "$SHIPPING" | head -n 1)" == "+ Versand ab 0,00 €" \
         ]; then
             "$SHELL" -c "$KEY_SEARCH"
             "$SHELL" -c "$WAITLOADED 1"
