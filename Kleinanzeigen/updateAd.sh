@@ -171,7 +171,6 @@ echo ------
                 "$SHELL" -c "$WAITLOADED 1"
                 xte "str ""$(echo "$CATEGORY" | head -n 2 | tail -n 1)"
                 "$SHELL" -c "$WAITLOADED 1"
-                exit 0
                 xte "key Escape"
                 "$SHELL" -c "$WAITLOADED 1"
                 "$SHELL" -c "$KEY_RETURN"
