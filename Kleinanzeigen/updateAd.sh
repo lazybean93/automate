@@ -7,7 +7,7 @@
 
 "$SHELL" -c "$LOG \"check if webage exists\""
 if [ -z "$(ls $Downloads | grep PICTURES)" ]; then
-    exit 0
+    # true
     "$SHELL" -c "$HOME""/Kleinanzeigen/exportLatest.sh"
 else
     # false
@@ -303,8 +303,6 @@ echo ------
 "$SHELL" -c "$LOG \"4. Shipping\""
         if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ] || [ \
             "$(echo "$SHIPPING" | head -n 1)" == "+ Versand ab 4,89 €" \
-        ] || [ \
-            "$(echo "$SHIPPING" | head -n 1)" == "" \
         ]; then
             "$SHELL" -c "$KEY_SEARCH"
             "$SHELL" -c "$WAITLOADED 1"
@@ -337,6 +335,8 @@ echo ------
                 "$SHELL" -c "$KEY_TAB"
             done
             "$SHELL" -c "$KEY_RETURN";
+        elif [ "$(echo "$SHIPPING" | head -n 1)" == "" ]; then
+            "$SHELL" -c "$LOG \"skip\""
         else
             RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
             echo "$TITLE" >> $RESULT
