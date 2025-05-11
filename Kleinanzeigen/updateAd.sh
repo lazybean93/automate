@@ -41,7 +41,7 @@ echo ------
         xte "str Inserieren"
         "$SHELL" -c "$WAITLOADED 1"
         xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-        "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+        "$SHELL" -c "$KEY_RETURN"
 "$SHELL" -c "$LOG \"2. Enter Title\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
         xte "str Titel"
@@ -77,11 +77,12 @@ echo ------
             "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_RETURN"
             "$SHELL" -c "$WAITLOADED 1"
-            "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+            "$SHELL" -c "$KEY_SEARCH"
+            "$SHELL" -c "$WAITLOADED 1"
             xte "str ""$(echo "$CATEGORY" | head -n 1)"
             "$SHELL" -c "$WAITLOADED 1"
             xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-            "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+            "$SHELL" -c "$KEY_RETURN"
             if [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Reparaturen & Dienstleistungen" ] || [ \
                 "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Weiteres Auto, Rad & Boot" ] || [ \
                 "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Altenpflege" ] || [ \
@@ -166,23 +167,26 @@ echo ------
                 "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Verleihen" ] || [ \
                 "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Verschenken" ];
             then
-                "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+                "$SHELL" -c "$KEY_SEARCH"
+                "$SHELL" -c "$WAITLOADED 1"
                 xte "str ""$(echo "$CATEGORY" | head -n 2 | tail -n 1)"
                 "$SHELL" -c "$WAITLOADED 1"
                 exit 0
-                xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-                "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+                xte "key Escape"
                 "$SHELL" -c "$WAITLOADED 1"
-                "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+                "$SHELL" -c "$KEY_RETURN"
+                "$SHELL" -c "$WAITLOADED 1"
+                "$SHELL" -c "$KEY_SEARCH"
+                "$SHELL" -c "$WAITLOADED 1"
                 xte "key BackSpace"
                 "$SHELL" -c "$WAITLOADED 1"
                 xte "str Kleinanzeigen"
                 "$SHELL" -c "$WAITLOADED 1"
-                xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+                xte "key Escape"
                 "$SHELL" -c "$WAITLOADED 1"
                 xte "keydown Shift_L" "key Tab" "keyup Shift_L"
                 "$SHELL" -c "$WAITLOADED 1"
-                "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+                "$SHELL" -c "$KEY_RETURN"
             elif [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Autoteile & Reifen" ] || \
                 [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Boote & Bootszubehör" ] || \
                 [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Fahrräder & Zubehör" ] || \
@@ -242,30 +246,47 @@ echo ------
                 [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Uhren & Schmuck" ] || \
                 [ "$(echo "$CATEGORY" | head -n 2 | tail -n 1)" == "Bücher & Zeitschriften" ];
             then
-                "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+                "$SHELL" -c "$KEY_SEARCH"
+                "$SHELL" -c "$WAITLOADED 1"
                 xte "str ""$(echo "$CATEGORY" | head -n 2 | tail -n 1)"
                 "$SHELL" -c "$WAITLOADED 1"
-                xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-                "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+                xte "key Escape"
                 "$SHELL" -c "$WAITLOADED 1"
-                "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+                "$SHELL" -c "$KEY_RETURN"
+                "$SHELL" -c "$WAITLOADED 1"
+                "$SHELL" -c "$KEY_SEARCH"
+                "$SHELL" -c "$WAITLOADED 1"
                 xte "str ""$(echo "$CATEGORY" | head -n 3 | tail -n 1)"
                 "$SHELL" -c "$WAITLOADED 1"
-                xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
-                "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+                xte "key Escape"
                 "$SHELL" -c "$WAITLOADED 1"
-                "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+                "$SHELL" -c "$KEY_RETURN"
+                "$SHELL" -c "$WAITLOADED 1"
+                "$SHELL" -c "$KEY_SEARCH"
+                "$SHELL" -c "$WAITLOADED 1"
                 xte "key BackSpace"
                 "$SHELL" -c "$WAITLOADED 1"
                 xte "str Kleinanzeigen"
                 "$SHELL" -c "$WAITLOADED 1"
-                xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+                xte "key Escape"
+                "$SHELL" -c "$WAITLOADED 1"
                 "$SHELL" -c "$WAITLOADED 1"
                 xte "keydown Shift_L" "key Tab" "keyup Shift_L"
                 "$SHELL" -c "$WAITLOADED 1"
-                "$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+                "$SHELL" -c "$KEY_RETURN"
             else
-                RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"; echo "$TITLE" >> $RESULT; echo "" >> $RESULT; echo "$PRICE" >> $RESULT; echo "" >> $RESULT; echo "$SHIPPING" >> $RESULT; echo "" >> $RESULT; echo "$DESCRIPTION" >> $RESULT; echo "" >> $RESULT; echo "$CATEGORY" >> $RESULT; sleep infinity
+                RESULT="$DOWNLOADS""/res_""$(date +%s)"".log"
+                echo "$TITLE" >> $RESULT
+                echo "" >> $RESULT
+                echo "$PRICE" >> $RESULT
+                echo "" >> $RESULT
+                echo "$SHIPPING" >> $RESULT
+                echo "" >> $RESULT
+                echo "$DESCRIPTION" >> $RESULT
+                echo "" >> $RESULT
+                echo "$CATEGORY" >> $RESULT
+                cat $RESULT
+                exit 0
             fi
         else
             RESULT="$DOWNLOADS""/res_""$(date +%s)"".log";
@@ -284,10 +305,12 @@ echo ------
         if [ "$(echo "$SHIPPING" | head -n 1)" == "Versand möglich" ] || [ \
             "$(echo "$SHIPPING" | head -n 1)" == "+ Versand ab 4,89 €" \
         ]; then
-            "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+            "$SHELL" -c "$KEY_SEARCH"
+            "$SHELL" -c "$WAITLOADED 1"
             xte "str Versandmethoden"
             "$SHELL" -c "$WAITLOADED 1"
-            xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+            xte "key Escape"
+            "$SHELL" -c "$WAITLOADED 1"
             "$SHELL" -c "$KEY_TAB"
             "$SHELL" -c "$KEY_RETURN"
             "$SHELL" -c "$KEY_SEARCH"
@@ -345,10 +368,12 @@ echo ------
         xte "key Down"
         "$SHELL" -c "$WAITLOADED 1"
 "$SHELL" -c "$LOG \"6. Description\""
-        "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
+        "$SHELL" -c "$KEY_SEARCH"
+        "$SHELL" -c "$WAITLOADED 1"
         xte "str Beschreibung"
         "$SHELL" -c "$WAITLOADED 1"
-        xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+        xte "key Escape"
+        "$SHELL" -c "$WAITLOADED 1"
         "$SHELL" -c "$KEY_TAB"
         "$SHELL" -c "$WAITLOADED 1"
         for i in $(seq 1 $(echo "$DESCRIPTION" | wc -l)); do
@@ -370,13 +395,13 @@ echo ------
         done
         xte "keydown Control_L" "key A" "keyup Control_L"
         "$SHELL" -c "$KEY_RETURN"
-exit
 "$SHELL" -c "$LOG \"8. Insert\""
         "$SHELL" -c "$KEY_SEARCH"; "$SHELL" -c "$WAITLOADED 1"
         xte "str Daten findest du in unserer Datenschutzerklärung"
         "$SHELL" -c "$WAITLOADED 1"
-        xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+        xte "key Escape"
+        "$SHELL" -c "$WAITLOADED 1"
         for i in $(seq 1 2); do
             "$SHELL" -c "$KEY_TAB"
         done
-        #"$SHELL" -c "$KEY_RETURN"; "$SHELL" "$HOME""/automation/firefox_status.sh"; if [ $? -ne 0 ]; then sh $0; exit 0; fi
+        "$SHELL" -c "$KEY_RETURN"
