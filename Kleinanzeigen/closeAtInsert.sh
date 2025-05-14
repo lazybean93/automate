@@ -11,4 +11,4 @@ if [ -z "$(wmctrl -l | grep 'Deine Anzeige geht bald online')" ]; then
 fi
 
 rm -r /home/automate/.ssh/*
-expect "$AUTOMATION""/closeDocker.sh"
+expect "$AUTOMATION""/closeDocker.sh" $PASSWORD_SSH
