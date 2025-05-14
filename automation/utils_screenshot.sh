@@ -1,2 +1,2 @@
 scrot;
-"$SHELL" "$HOME""/automation/utils_fdupes.sh" $(pwd)
+sh "$HOME""/automation/utils_fdupes.sh" $(pwd)

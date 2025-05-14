@@ -27,24 +27,24 @@ sleep 2;
 
 if [ -n "$(ps -ely | grep defunct)" ]; then
 	"$SHELL" -c "$CLEAN"
-	"$SHELL" -c "$SHELL"" $0 $1"
+	"$SHELL" -c "sh $0 $1"
 	exit
 fi
 if [ -z "$(ps -ely | grep firefox)" ]; then
 	"$SHELL" -c "$CLEAN"
-	"$SHELL" -c "$SHELL"" $0 $1"
+	"$SHELL" -c "sh $0 $1"
 	exit
 fi
 "$SHELL" -c "$LOG \"Started Firefox\""
 "$SHELL" -c "$WAITLOADED 4"
 if [ -n "$(ps -ely | grep defunct)" ]; then
 	"$SHELL" -c "$CLEAN"
-	"$SHELL" -c "$SHELL"" $0 $1"
+	"$SHELL" -c "sh $0 $1"
 	exit
 fi
 if [ -z "$(ps -ely | grep firefox)" ]; then
 	"$SHELL" -c "$CLEAN"
-	"$SHELL" -c "$SHELL"" $0 $1"
+	"$SHELL" -c "sh $0 $1"
 	exit
 fi
 
