@@ -52,6 +52,10 @@
   "$SHELL" -c "$LOG \"2. Title\""
 #        TITLE="$(cat "$WEBPAGE" | grep 'itemName: "' | sed 's/itemName: "/\n/g' | grep ',$' | sed 's/",//g' | sed 's/\&amp;/\&/g')"
         TITLE="$(cat "$WEBPAGE" | sed 's/>/>\n/g' | grep 'content' | grep 'og:title' | sed 's/content="/\n/g;s/">//g' | tail -n1)"
+        if [ "$TITLE" -eq "" ]; then
+            rm -r * "$DOWNLOADS""/*"
+            exit 0
+        fi
         echo "$TITLE"
         echo "$TITLE" > "$DOWNLOADS""/TITLE"
   "$SHELL" -c "$LOG \"3. Price\""
