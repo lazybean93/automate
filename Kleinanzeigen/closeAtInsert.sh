@@ -2,4 +2,4 @@
 
 . "$HOME""/automation/env.sh"
 
-wmctrl
+wmctrl -l
