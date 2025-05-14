@@ -1,6 +1,6 @@
 . "$HOME""/automation/env.sh"
 
-"$LOG \"Start: loading $1\""
+$SHELL -c "$LOG \"Start: loading $1\""
 firefox-esr --private-window $1 2>/dev/zero &
 sleep 5;
 $SHELL -c "$LOG \"Close\""
