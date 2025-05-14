@@ -2,4 +2,7 @@
 
 . "$HOME""/automation/env.sh"
 
-wmctrl -l
+
+"$SHELL" -c "$WAITLOADED 2"
+
+wmctrl -l | grep 'Deine Anzeige geht bald online'
