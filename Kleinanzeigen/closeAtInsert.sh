@@ -2,6 +2,7 @@
 
 . "$HOME""/automation/env.sh"
 
+sh "$HOME""/automation/firefox_private.sh" "www.google.com"
 
 "$SHELL" -c "$WAITLOADED 2"
 
