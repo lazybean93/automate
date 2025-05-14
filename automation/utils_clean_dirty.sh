@@ -15,7 +15,7 @@ for i in $(seq 1 10); do
 		"$SHELL" -c "$LOG \"Another Round\""
 	else
 		"$SHELL" -c "$LOG \"8 $i else\""
-		return
+		break
 	fi
 done
 "$SHELL" -c "$LOG \"Start again\""

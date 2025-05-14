@@ -29,7 +29,7 @@ while [ -z "$(wmctrl -l | tail -n1 | grep 'Open Files\|Select Files\|File Upload
 		"$SHELL" -c "$CLEAN"
 		"$SHELL" "$HOME""/whatsapp/whatsapp_document.sh" $1 $2
 		"$SHELL" -c "$LOG \"End\""
-		return
+		break
 	fi
 done
 xte "str /"

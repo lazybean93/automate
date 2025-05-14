@@ -15,11 +15,11 @@ while [ "$FILESIZE" -lt 300 ]; do
 		#did firefox have a problem?
 		if [ -n "$(ps -ely | grep crashreporter)" ]; then
 			"$SHELL" "$HOME""/whatsapp/whatsapp_loader.sh"
-			return;
+			break;
 		fi
 		if [ -n "$(wmctrl -l | grep 'Tab crash reporter')" ]; then
 			"$SHELL" "$HOME""/whatsapp/whatsapp_loader.sh"
-			return;
+			break;
 		fi
 		"$SHELL" -c "$LOG \"Abort after 200 tries\""
 		"$SHELL" "$HOME""/automation/utils_killScriptsContainingWhatsapp.sh"
