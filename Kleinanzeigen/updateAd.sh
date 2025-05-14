@@ -416,3 +416,5 @@ echo ------
             "$SHELL" -c "$KEY_TAB"
         done
         "$SHELL" -c "$KEY_RETURN"
+"$SHELL" -c "$LOG \"9. Handling Close for Container\""        
+        "$SHELL" -c "$HOME""/Kleinanzeigen/closeAtInsert.sh"
