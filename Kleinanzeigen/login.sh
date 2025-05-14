@@ -41,4 +41,5 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
         "$SHELL" -c "$KEY_TAB"
     done;
     "$SHELL" -c "$WAITLOADED 1"
-    "$SHELL" -c "$KEY_RETURN"
+    xte "str  "
+    "$SHELL" -c "$WAITLOADED 1"
