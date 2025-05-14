@@ -1,6 +1,6 @@
 . "$HOME""/automation/env.sh"
 
-LOG="#"
+#LOG="#"
 "$SHELL" -c "$LOG \"Start\""
 EQUALCOUNT=0
 
