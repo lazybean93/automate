@@ -5,4 +5,8 @@
 
 "$SHELL" -c "$WAITLOADED 2"
 
-wmctrl -l | grep 'Deine Anzeige geht bald online'
+if [ "$(wmctrl -l | grep 'Deine Anzeige geht bald online')" ]; then
+    echo true
+else
+    echo false
+fi
