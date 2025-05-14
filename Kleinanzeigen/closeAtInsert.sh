@@ -10,4 +10,5 @@ if [ -z "$(wmctrl -l | grep 'Deine Anzeige geht bald online')" ]; then
     exit 0
 fi
 
-expect "$AUTOMATION"/closeDocker.sh"
+ipconfig
+#expect "$AUTOMATION"/closeDocker.sh"
