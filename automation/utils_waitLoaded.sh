@@ -45,7 +45,7 @@ while [ 10 -gt $EQUALCOUNT ]; do
 		"$SHELL" -c "$LOG \"No Memory Statistics Found\""
 		exit;
 	fi
-#	echo $MEM
+	echo $MEM
 	if [ "$(($(($MEM/700))*701))" -gt "$EQUALVAL" ] || [ "$MEM" -eq "$EQUALVAL" ]; then
 		EQUALCOUNT=$((EQUALCOUNT+1))
 	else
