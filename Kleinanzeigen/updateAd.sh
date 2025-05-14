@@ -15,6 +15,9 @@ else
 fi
 
 CATEGORY="$(cat "$DOWNLOADS"/CATEGORY)"
+if [ -z "$CATEGORY"]; then
+    exit 0
+fi
 DESCRIPTION="$(cat "$DOWNLOADS"/DESCRIPTION)"
 PICTURES="$(cat "$DOWNLOADS"/PICTURES)"
 PRICE="$(cat "$DOWNLOADS"/PRICE)"
