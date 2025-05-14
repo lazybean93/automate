@@ -37,7 +37,7 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     "$SHELL" -c "$WAITLOADED 1"
     xte "$password"
     "$SHELL" -c "$WAITLOADED 1"
-    for i in $(seq 1 2); do
+    for i in $(seq 1 3); do
         "$SHELL" -c "$KEY_TAB"
     done;
     "$SHELL" -c "$WAITLOADED 1"
