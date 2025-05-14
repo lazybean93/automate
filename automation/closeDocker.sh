@@ -1,6 +1,5 @@
 #!/usr/bin/expect
 
-rm -r /home/automate/.ssh/*
 spawn ssh oliver@192.168.178.37
 expect "?"
 send "yes\r"
