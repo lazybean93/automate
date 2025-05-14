@@ -60,18 +60,34 @@
         echo "$TITLE" > "$DOWNLOADS""/TITLE"
   "$SHELL" -c "$LOG \"3. Price\""
         PRICE="$(cat "$WEBPAGE" | grep '€</h2>' | sed 's/ //g;s/€<\/h2>//g')"
+        if [ -z "$PRICE" ]; then
+            rm -r * "$DOWNLOADS""/*"
+            exit 0
+        fi
         echo "$PRICE"
         echo "$PRICE" > "$DOWNLOADS""/PRICE"
   "$SHELL" -c "$LOG \"4. Shipping\""
         SHIPPING="$(cat "$WEBPAGE" | grep boxedarticle--details--shipping | sed 's/> /\n/g;s/<\/span>//g' | grep -v boxedarticle--details--shipping | sed 's/\&amp;/\&/g')"
+        if [ -z "$SHIPPING" ]; then
+            rm -r * "$DOWNLOADS""/*"
+            exit 0
+        fi
         echo "$SHIPPING"
         echo "$SHIPPING" > "$DOWNLOADS""/SHIPPING"
   "$SHELL" -c "$LOG \"5. Description\""
         DESCRIPTION="$(cat "$WEBPAGE" | grep -A1 'itemprop="description">' | grep -v 'itemprop="description">' | xargs | sed 's/<\/p>//g;s/<br>/\n/g' | sed 's/\&amp;/\&/g')"
+        if [ -z "$DESCRIPTION" ]; then
+            rm -r * "$DOWNLOADS""/*"
+            exit 0
+        fi
         echo "$DESCRIPTION"
         echo "$DESCRIPTION" > "$DOWNLOADS""/DESCRIPTION"
   "$SHELL" -c "$LOG \"6. Category\""
         CATEGORY="$(cat "$WEBPAGE" | grep breadcrump-link | sed 's/title">/\n/g;s/<\/span><\/a>//g' | grep -v '<a class' | sed 's/\&amp;/\&/g'; cat "$WEBPAGE" | grep -C1 'Art<span' | tail -n1 | sed 's/    //g;s/<\/span>//g;s/\&amp;/\&/g')"
+        if [ -z "$CATEGORY" ]; then
+            rm -r * "$DOWNLOADS""/*"
+            exit 0
+        fi
         echo "$CATEGORY"
         echo "$CATEGORY" > "$DOWNLOADS""/CATEGORY"
 
