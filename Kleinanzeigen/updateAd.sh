@@ -15,7 +15,7 @@ else
 fi
 
 CATEGORY="$(cat "$DOWNLOADS"/CATEGORY)"
-if [ -z "$CATEGORY"]; then
+if [ -z "$CATEGORY" ]; then
     exit 0
 fi
 DESCRIPTION="$(cat "$DOWNLOADS"/DESCRIPTION)"
