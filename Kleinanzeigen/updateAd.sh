@@ -417,4 +417,4 @@
 #         done
 #         "$SHELL" -c "$KEY_RETURN"
 "$SHELL" -c "$LOG \"9. Handling Close for Container\""        
-        "$SHELL" -c "$HOME""/Kleinanzeigen/closeAfterInsert.sh"
+        "$SHELL" "$HOME""/Kleinanzeigen/closeAfterInsert.sh"
