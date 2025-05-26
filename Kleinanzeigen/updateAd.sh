@@ -417,6 +417,7 @@ echo ------
         for i in $(seq 1 3); do
             "$SHELL" -c "$KEY_TAB"
         done
-        "$SHELL" -c "$KEY_RETURN"
+        "$SHELL" -c "$WAITLOADED 1"
+        xte "str  "
 "$SHELL" -c "$LOG \"9. Handling Close for Container\""        
         "$SHELL" "$HOME""/Kleinanzeigen/closeAfterInsert.sh"
