@@ -416,8 +416,8 @@ echo ------
         "$SHELL" -c "$WAITLOADED 1"
         for i in $(seq 1 3); do
             "$SHELL" -c "$KEY_TAB"
+            "$SHELL" -c "$WAITLOADED 1"
         done
-        "$SHELL" -c "$WAITLOADED 1"
         xte "str  "
         "$SHELL" -c "$WAITLOADED 1"
         xte "str  "
