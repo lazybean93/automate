@@ -1,4 +1,5 @@
 #!/bin/bash
+HOME="/home/automate/"
 
 . "$HOME""/automation/env.sh"
 
