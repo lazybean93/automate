@@ -410,14 +410,14 @@ echo ------
 "$SHELL" -c "$LOG \"8. Insert\""
         "$SHELL" -c "$KEY_SEARCH"
         "$SHELL" -c "$WAITLOADED 1"
-        xte "str Daten findest du in unserer Datenschutzerklärung"
+        xte "str Anzeige aufgeben"
         "$SHELL" -c "$WAITLOADED 1"
         xte "key Escape"
         "$SHELL" -c "$WAITLOADED 1"
-        for i in $(seq 1 3); do
-            "$SHELL" -c "$KEY_TAB"
-            "$SHELL" -c "$WAITLOADED 1"
-        done
+#        for i in $(seq 1 3); do
+#            "$SHELL" -c "$KEY_TAB"
+#            "$SHELL" -c "$WAITLOADED 1"
+#        done
 #        xte "str  "
 #        "$SHELL" -c "$WAITLOADED 1"
 #        xte "str  "
