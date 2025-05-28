@@ -418,12 +418,5 @@ echo ------
         xte "keydown Shift_L" "key Tab" "keyup Shift_L"
         "$SHELL" -c "$WAITLOADED 1"
         "$SHELL" -c "$KEY_RETURN"
-#        for i in $(seq 1 3); do
-#            "$SHELL" -c "$KEY_TAB"
-#            "$SHELL" -c "$WAITLOADED 1"
-#        done
-#        xte "str  "
-#        "$SHELL" -c "$WAITLOADED 1"
-#        xte "str  "
-#"$SHELL" -c "$LOG \"9. Handling Close for Container\""        
-#        "$SHELL" "$HOME""/Kleinanzeigen/closeAfterInsert.sh"
+"$SHELL" -c "$LOG \"9. Handling Close for Container\""        
+        "$SHELL" "$HOME""/Kleinanzeigen/closeAfterInsert.sh"
