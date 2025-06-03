@@ -28,7 +28,7 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     "$SHELL" -c "$KEY_ESCAPE"
     "$SHELL" -c "$WAITLOADED 1"
     "$SHELL" -c "$KEY_RETURN"
-    if [ -z "$(wmctrl -l | grep 'Deine Anzeige geht bald online')" ]; then
+    if [ -z "$(wmctrl -l | grep 'Login - Anmelden bei Kleinanzeigen')" ]; then
         echo FAIL!
         exit 0
     fi
