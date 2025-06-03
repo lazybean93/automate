@@ -45,8 +45,13 @@ echo ------
         "$SHELL" -c "$WAITLOADED 1"
         xte "str Inserieren"
         "$SHELL" -c "$WAITLOADED 1"
-        xte "key Escape"; "$SHELL" -c "$WAITLOADED 1"
+        xte "key Escape";
+        "$SHELL" -c "$WAITLOADED 1"
         "$SHELL" -c "$KEY_RETURN"
+        if [ -z "$(wmctrl -l | grep 'Anzeige aufgeben | kleinanzeigen.de')" ]; then
+            echo FAIL!
+            exit 0
+        fi
 "$SHELL" -c "$LOG \"2. Enter Title\""
         "$SHELL" -c "$KEY_SEARCH"
         "$SHELL" -c "$WAITLOADED 1"
@@ -408,10 +413,10 @@ echo ------
         done
         xte "keydown Control_L" "key A" "keyup Control_L"
         "$SHELL" -c "$KEY_RETURN"
-# "$SHELL" -c "$LOG \"8. Insert\""
-#         "$SHELL" -c "$KEY_SEARCH"
-#         "$SHELL" -c "$WAITLOADED 1"
-#         xte "str Kleinanzeigen"
+ "$SHELL" -c "$LOG \"8. Insert\""
+         "$SHELL" -c "$KEY_SEARCH"
+         "$SHELL" -c "$WAITLOADED 1"
+         xte "str Über uns"
 #         "$SHELL" -c "$WAITLOADED 1"
 #         xte "key Escape"
 #         "$SHELL" -c "$WAITLOADED 1"
