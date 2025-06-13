@@ -5,8 +5,12 @@
 "$SHELL" -c "$LOG \"Clean\""
     "$SHELL" -c "$CLEAN"
 
-"$SHELL" -c "$LOG \"Login\""
-    "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
+#"$SHELL" -c "$LOG \"Login\""
+#    "$SHELL" -c "$HOME""/Kleinanzeigen/login.sh"
+
+"$SHELL" -c "$LOG \"Start Firefox\""
+    "$SHELL" "$HOME""/automation/firefox.sh" "https://kleinanzeigen.de"
+
 
 "$SHELL" -c "$LOG \"Get to last Item\""
     "$SHELL" -c "$KEY_SEARCH"
