@@ -34,6 +34,13 @@ password=`echo str "$(cat "$HOME""/credentials/kleinanzeigen.txt" | tail -n1)"`
     fi
 
 "$SHELL" -c "$LOG \"Enter Credentials\""
+    xdotool mousemove $(echo $(( ${RANDOM} % 800 ))) $(echo $(( ${RANDOM} % 600 )))
+    "$SHELL" -c "$WAITLOADED 1"
+    xdotool mousemove $(echo $(( ${RANDOM} % 800 ))) $(echo $(( ${RANDOM} % 600 )))
+    "$SHELL" -c "$WAITLOADED 1"
+    xdotool mousemove $(echo $(( ${RANDOM} % 800 ))) $(echo $(( ${RANDOM} % 600 )))
+    "$SHELL" -c "$WAITLOADED 1"
+    xdotool mousemove $(echo $(( ${RANDOM} % 800 ))) $(echo $(( ${RANDOM} % 600 )))
     "$SHELL" -c "$WAITLOADED 1"
     xte "$mail"
     "$SHELL" -c "$WAITLOADED 1"
